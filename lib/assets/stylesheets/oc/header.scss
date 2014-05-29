@@ -1,0 +1,192 @@
+// Header
+// ======
+
+.oc {
+  // The main header
+  //
+  // Styleguide Header
+  > header {
+    background-color: $chef-primary-1-color;
+    color: white;
+
+    // The logo container
+    //
+    // Styleguide Header.Logo.Container
+    .logo-container {
+      float: left;
+
+      // The logo image
+      //
+      // Styleguide Header.Logo.Image
+      img {
+        height: 30px;
+        margin-top: 10px;
+      }
+    }
+
+    // The "callout" item on the nav
+    //
+    // :hover - when hovered
+    //
+    // Styleguide Header.NavCallout
+    .nav-callout  {
+      padding: 5px;
+    }
+
+
+    // The navbar
+    //
+    // Styleguide Header.Navbar
+    .navbar {
+      margin-bottom: 5px;
+    }
+
+    // The inner part of the navbar
+    //
+    // Styleguide Header.NavbarInner
+    .navbar-inner {
+      background-color: transparent;
+      background-image: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      filter: none;
+      min-height: inherit;
+      padding: 0px;
+
+      // A collapsed nav item
+      //
+      // Styleguide Header.NavbarInner.NavCollapse
+      .nav-collapse {
+        float: right;
+
+        // A nav list
+        //
+        // Styleguide Header.NavbarInner.NavCollapse.Nav
+        .nav {
+          margin: 5px 0px 0px 0px;
+
+          // A list item inside of the nav list
+          //
+          // Styleguide Header.NavbarInner.NavCollapse.Nav.LI
+          li {
+            font-size: 14px;
+            line-height: normal;
+
+            // A link inside of the nav list li
+            //
+            // :hover - when hovered
+            //
+            // Styleguide Header.NavbarInner.NavCollapse.Nav.LI.A
+            a {
+              float: none;
+              color: white;
+              font-weight: bold;
+              padding: 0px 15px 0px;
+              text-decoration: none;
+              text-shadow: none;
+
+              &:hover {
+                color: $chef-primary-2-color;
+              }
+
+              // The little down arrow next to the items
+              //
+              // Styleguide Header.NavbarInner.NavCollapse.Nav.LI.A.Caret
+              .caret {
+                border-color: #fff transparent;
+              }
+            }
+
+            // A dropdown menu
+            //
+            // Styleguide Header.NavbarInner.NavCollapse.Nav.LI.DropdownMenu
+            .dropdown-menu {
+              margin-top: 7px;
+
+              // A link inside a dropdown menu
+              //
+              // Styleguide Header.NavbarInner.NavCollapse.Nav.LI.DropdownMenu.A
+              a {
+                color: #333;
+                font-weight: normal;
+
+                &:hover {
+                  color: white;
+                }
+              }
+            }
+
+            // An open dropdown toggle
+            //
+            // :hover - when hovered
+            //
+            // Styleguide Header.NavbarInner.NavCollapse.Nav.LI.Dropdown.Open
+            .dropdown.open .dropdown-toggle, .dropdown-toggle:hover {
+              background-color: transparent;
+
+              // The caret
+              // Styleguide Header.NavbarInner.NavCollapse.Nav.LI.Dropdown.Open.Caret
+              .caret {
+                border-color: $chef-primary-2-color transparent;
+              }
+            }
+
+            .dropdown.open, .dropdown.active, .dropdown.open.active {
+              .dropdown-toggle {
+                background-color: inherit;
+                color: $chef-primary-2-color;
+              }
+            }
+          }
+        }
+
+        // A collapsed nav item link
+        //
+        // :focus - when focused
+        //
+        // Styleguide Header.NavbarInner.NavCollapse.A
+        a {
+          &:focus {
+            outline: none;
+            outline-offset: 0px;
+          }
+        }
+      }
+    }
+
+    // The sign in container
+    //
+    // Styleguide Header.SignIn.Container
+    .sign-in-container {
+      color: $foreground-muted-on-dark-color;
+      padding-right: 10px;
+      text-transform: uppercase;
+      font-size: 11px;
+      padding-top: 5px;
+
+      // A link
+      //
+      // - :hover - when the link is hovered
+      //
+      // Styleguide Header.SignIn.A
+      a {
+        color: inherit;
+        display: inline;
+        margin-left: 10px;
+
+        &:hover {
+          color: white;
+        }
+      }
+
+      // Login links
+      //
+      // Styleguide Header.SignIn.LoginLinks
+      .login-links {
+        display: inline;
+        margin-top:5px;
+      }
+    }
+  }
+}

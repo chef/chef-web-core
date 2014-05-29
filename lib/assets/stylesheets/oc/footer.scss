@@ -1,0 +1,60 @@
+// Footer
+// ======
+
+.oc {
+  // The main footer
+  //
+  // Styleguide Footer
+  > footer {
+    background-color: $chef-primary-1-color;
+    color: $foreground-on-dark-color;
+    padding: 25px 0px 10px 0px;
+
+    // A link
+    //
+    // :hover - when the link is hovered
+    //
+    // Styleguide Footer.A
+    a {
+      color: $foreground-on-dark-color;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    // An h5 level heading
+    //
+    // Styleguide Footer.H5
+    h5 {
+      font-size: 1em;
+      font-weight: bold;
+      padding-bottom: 10px;
+    }
+
+    // An unordered list
+    //
+    // Styleguide Footer.UL
+    ul {
+      margin: 0;
+
+      // An unordered list item
+      //
+      // Styleguide Footer.UL.LI
+      li {
+        font-size: 13px;
+        line-height: 16px;
+        list-style: none;
+        margin: 0px 0px 15px 0px;
+      }
+    }
+
+    // The bottom part of the footer
+    //
+    // Styleguide Footer.Bottom
+    .bottom {
+      font-size: .813em;
+      padding: 0;
+    }
+  }
+}
