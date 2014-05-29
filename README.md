@@ -39,8 +39,6 @@ use:
 
 which do what you think they do.
 
-
-
 ### Stylesheets
 
 Anything that uses [Sprockets](https://github.com/sstephenson/sprockets) should
@@ -52,3 +50,6 @@ be able to
 
 in a Sass/SCSS stylesheet to get the included styles.
 
+## Tests
+
+Run `bundle exec rspec` to run the RSpecs.
