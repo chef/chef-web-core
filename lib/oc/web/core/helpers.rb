@@ -1,3 +1,5 @@
+require 'oc/web/core'
+
 # Base module for oc-web-core to be used with other frameworks.
 module OC
   module Web
@@ -5,11 +7,7 @@ module OC
       module Helpers
         # Load a partial from templates/#{name}.html
         def oc_partial(name)
-          open(
-            File.join(
-              File.dirname(__FILE__), '../../../../templates', "#{name}.html"
-            )
-          ).read
+          open(File.join(OC::Web::Core::TEMPLATES_PATH, "#{name}.html")).read
         end
 
         # A title tag
