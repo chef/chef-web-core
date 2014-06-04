@@ -52,12 +52,13 @@ integrations.
 
 #### Middleman
 
-A [Middleman](http://middlemanapp.com/) extension is included. In your
-config.rb, you should be able to include the following:
+In your config.rb, you should be able to include the following:
 
 ```ruby
-require 'oc/web/core/middleman'
-activate :oc_web_core
+require 'oc/web/core/helpers'
+helpers do
+  include OC::Web::Core::Helpers
+end
 ```
 
 This will let you use the `oc_partial` method in templates. You currently can
