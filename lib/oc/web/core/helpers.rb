@@ -12,7 +12,7 @@ module OC
 
         # A title tag
         def oc_title_tag(text = nil)
-          "<title>#{text}#{text.present? ? ' | ' : ''}Chef</title>"
+          "<title>#{text}#{!text.nil? ? ' | ' : ''}Chef</title>"
         end
       end
     end

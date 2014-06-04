@@ -4,6 +4,5 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
-  gem 'middleman'
   gem 'rspec'
 end
