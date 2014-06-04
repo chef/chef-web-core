@@ -1,26 +1,13 @@
 require 'middleman-core/extension'
 require 'middleman-core/extensions'
+require 'oc/web/core/helpers'
 
 # Middleman extension for oc-web-core
 module OC
   module Web
     module Core
       class Middleman < Middleman::Extension
-        helpers do
-          # Load a partial from templates/#{name}.html
-          def oc_partial(name)
-            open(
-              File.join(
-                File.dirname(__FILE__), '../../../../templates', "#{name}.html"
-              )
-            ).read
-          end
-
-          # A title tag
-          def oc_title_tag(text = nil)
-            "<title>#{text}#{text.present? ? ' | ' : ''}Chef</title>"
-          end
-        end
+        helpers OC::Web::Core::Helpers
       end
     end
   end

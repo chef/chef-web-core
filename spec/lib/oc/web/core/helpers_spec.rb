@@ -1,14 +1,7 @@
-require 'middleman'
-require 'oc/web/core/middleman'
+require 'oc/web/core/helpers'
 
-# This is some duplication of base_spec.rb, just to make sure it works in
-# Middleman.
-describe OC::Web::Core::Middleman do
-  let(:application) do
-    Middleman::Application.server.inst do
-      activate :oc_web_core
-    end
-  end
+describe OC::Web::Core::Helpers do
+  let(:application) { Object.new.extend(described_class) }
 
   describe 'oc_title_tag' do
     context 'with a string argument' do
