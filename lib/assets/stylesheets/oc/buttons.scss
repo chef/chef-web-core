@@ -9,11 +9,6 @@
   .btn {
     background-image: none;
     border: none;
-    color: white;
-
-    &:hover {
-      color: white;
-    }
   }
 
   // A large button.
@@ -29,9 +24,10 @@
   // Styleguide Buttons.Button.Primary
   .btn-primary {
     background-color: $chef-primary-2-color;
-
+    color: white;
     &:hover {
       background-color: darken($chef-primary-2-color, 5%);
+      color: white;
     }
   }
 }
