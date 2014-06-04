@@ -17,9 +17,40 @@ Add this line to your application's Gemfile:
 
 It's currently a private repo, so you will need permissions to read it.
 
+You'll want to use the latest master, and `bundle update oc-web-core` to apply
+changes from this repository.
+
 ## Usage
 
-### Middleman
+### Stylesheets
+
+Anything that uses [Sprockets](https://github.com/sstephenson/sprockets) should
+be able to
+
+```sass
+@import 'oc';
+```
+
+in a Sass/SCSS stylesheet to get the included styles.
+
+### Helpers
+
+There are some helper methods:
+
+* `oc_partial(partial_name)`: Reads a file from the templates directory. So, to
+  use corpsite_footer.html: `oc_partial('corpsite_footer')`.
+* `oc_title_tag`: Makes a title tag, with "| Chef appended.
+  `oc_title_tag('Hello')` will output `<title>Hello | Chef</title>`. With no
+  arguments you'll just get a title tag with "Chef" in it.
+
+These are just methods in the
+[OC::Web::Core::Helpers module](lib/oc/web/core/helpers.rb), which can
+theoretically be used by any Ruby software. See below for specific framework
+integrations.
+
+### Framework Integrations
+
+#### Middleman
 
 A [Middleman](http://middlemanapp.com/) extension is included. In your
 config.rb, you should be able to include the following:
@@ -39,16 +70,26 @@ use:
 
 which do what you think they do.
 
-### Stylesheets
+#### Nanoc
 
-Anything that uses [Sprockets](https://github.com/sstephenson/sprockets) should
-be able to
+To use the helpers in [Nanoc](http://nanoc.ws/), add
 
-```sass
-@import 'oc';
+```ruby
+require 'oc/web/core/helpers'
+include OC::Web::Core::Helpers
 ```
 
-in a Sass/SCSS stylesheet to get the included styles.
+to lib/helpers.rb (sometimes called lib/helpers_.rb), then the helper methods
+will be available in your templates.
+
+To use the stylesheets, add:
+
+```ruby
+require 'oc/web/core'
+add_import_path OC::Web::Core::STYLESHEETS_PATH
+```
+
+to compass/config.rb.
 
 ## Tests
 
