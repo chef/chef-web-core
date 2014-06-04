@@ -9,6 +9,10 @@
   .btn {
     background-image: none;
     border: none;
+    color: #333;
+    &:hover {
+      color: #333;
+    }
   }
 
   // A large button.
