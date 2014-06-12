@@ -14,11 +14,27 @@
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 
+  // A 1st or 2nd level heading.
+  //
+  // Styleguide Main.Headings
+  h1, h2 {
+    font-weight: normal;
+  }
+
   // A 2nd level heading.
   //
   // Styleguide Main.Headings.H2
   h2 {
     color: $chef-primary-3-color;
+  }
+
+  // A sub-heading.
+  //
+  // Styleguide Main.Headings.Subhead
+  h1 small {
+    margin-top: 6px;
+    display: block;
+
   }
 
   // A link.
@@ -35,11 +51,27 @@
     }
   }
 
+  // An emphasized link.
+  //
+  // Styleguide Main.A.Emphasis
+  a em {
+    font-weight: bold;
+    font-style: normal;
+  }
+
   // The main content area
   //
   // Styleguide Main.Content
   .content {
-    padding-top: 83px;
+    padding-top: 50px;
+  }
+
+  // A content area that's forced to be taller because it might not have enough
+  // content to fill the viewport.
+  //
+  // Styleguide Main.SmallPage
+  .small-page {
+    min-height: 550px;
   }
 
   // A horizontal rule.
@@ -49,5 +81,20 @@
     background: $chef-primary-2-color;
     height: 3px;
     margin-bottom: 20px;
+  }
+
+  // A 404 Error
+  //
+  // Styleguide Main.Error.404
+  .file-not-found .module {
+    background: transparent url('//getchef.com/images/fridge.png') no-repeat 0 50px;
+    padding: 100px 250px 0 250px;
+  }
+
+  // A product header on oc-downloads-web
+  //
+  // Styleguide Downloads.Hero
+  .oc-downloads .hero {
+    margin-top: 20px;
   }
 }
