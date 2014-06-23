@@ -1,37 +1,34 @@
 // Buttons
 // =======
 .oc {
-  // A regular button
+  // A button
   //
   // :hover - When being hovered
+  // .btn-large - A large button
+  // .btn-primary - A primary button. Used for the most prominent action
   //
   // Styleguide Buttons.Button
   .btn {
     background-image: none;
     border: none;
     color: #333;
+
     &:hover {
       color: #333;
     }
-  }
 
-  // A large button.
-  .btn-large {
-    border-radius: 0;
-    font-weight: bold;
-  }
+    &.btn-large {
+      border-radius: 0;
+      font-weight: bold;
+    }
 
-  // A primary button. Used for the most prominent action
-  //
-  // :hover - When being hovered
-  //
-  // Styleguide Buttons.Button.Primary
-  .btn-primary {
-    background-color: $chef-primary-2-color;
-    color: white;
-    &:hover {
-      background-color: darken($chef-primary-2-color, 5%);
+    &.btn-primary {
+      background-color: $chef-primary-2-color;
       color: white;
+      &:hover {
+        background-color: darken($chef-primary-2-color, 5%);
+        color: white;
+      }
     }
   }
 }
