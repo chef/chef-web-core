@@ -1,0 +1,11 @@
+source 'http://rubygems.org'
+
+gem 'middleman'
+gem 'middleman-livereload'
+gem 'middleman-kss'
+
+gem 'oc-web-core', path: '..'
+
+group :development do
+  gem 'pry'
+end
