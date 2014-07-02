@@ -8,9 +8,13 @@
 // applied to the document body.
 //
 // Styleguide Main
+html {
+  font-size: 62.5%;
+}
+
 .oc {
   color: $body-text-color;
-  font-size: 1em;
+  font-size: 20px; font-size: 2rem; 
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 
@@ -25,7 +29,14 @@
   //
   // Styleguide Main.Headings.H2
   h2 {
-    color: $chef-primary-3-color;
+    color: #fd902d; /*$chef-primary-3-color;*/
+    font-size: 54px;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 42px;
+    text-align: center;
   }
 
   // A sub-heading.

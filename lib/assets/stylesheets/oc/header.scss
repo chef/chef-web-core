@@ -6,24 +6,26 @@
   //
   // Styleguide Header
   > header {
-    background-color: $chef-primary-1-color;
-    color: white;
+    #main-nav {
+      background-color: #fff;
+    }
+    .affix {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 400;
 
-    // The logo container
-    //
-    // Styleguide Header.Logo.Container
-    .logo-container {
-      float: left;
-
-      // The logo image
-      //
-      // Styleguide Header.Logo.Image
-      img {
-        height: 30px;
-        margin-top: 10px;
+      .logo {
+        clip: rect(0px,70px,52px,0px);
+        position: absolute;
+        margin-top: 5px;
       }
     }
 
+    img {
+      height: 80px;
+      margin: 0 0 10px 0;
+    }
     // The "callout" item on the nav
     //
     // :hover - when hovered
@@ -41,6 +43,12 @@
       margin-bottom: 5px;
     }
 
+
+    .navbar-default {
+      background-color: transparent;
+      border-color: transparent;
+    }
+
     // The inner part of the navbar
     //
     // Styleguide Header.NavbarInner
@@ -53,106 +61,6 @@
       filter: none;
       min-height: inherit;
       padding: 0px;
-
-      // A collapsed nav item
-      //
-      // Styleguide Header.NavbarInner.NavCollapse
-      .nav-collapse {
-        float: right;
-
-        // A nav list
-        //
-        // Styleguide Header.NavbarInner.NavCollapse.Nav
-        .nav {
-          margin: 5px 0px 0px 0px;
-
-          // A list item inside of the nav list
-          //
-          // Styleguide Header.NavbarInner.NavCollapse.Nav.LI
-          li {
-            font-size: 14px;
-            line-height: normal;
-
-            // A link inside of the nav list li
-            //
-            // :hover - when hovered
-            //
-            // Styleguide Header.NavbarInner.NavCollapse.Nav.LI.A
-            a {
-              float: none;
-              color: white;
-              font-weight: bold;
-              padding: 0px 15px 0px;
-              text-decoration: none;
-              text-shadow: none;
-
-              &:hover {
-                color: $chef-primary-2-color;
-              }
-
-              // The little down arrow next to the items
-              //
-              // Styleguide Header.NavbarInner.NavCollapse.Nav.LI.A.Caret
-              .caret {
-                border-color: #fff transparent;
-              }
-            }
-
-            // A dropdown menu
-            //
-            // Styleguide Header.NavbarInner.NavCollapse.Nav.LI.DropdownMenu
-            .dropdown-menu {
-              margin-top: 7px;
-
-              // A link inside a dropdown menu
-              //
-              // Styleguide Header.NavbarInner.NavCollapse.Nav.LI.DropdownMenu.A
-              a {
-                color: #333;
-                font-weight: normal;
-
-                &:hover {
-                  color: white;
-                }
-              }
-            }
-
-            // An open dropdown toggle
-            //
-            // :hover - when hovered
-            //
-            // Styleguide Header.NavbarInner.NavCollapse.Nav.LI.Dropdown.Open
-            .dropdown.open .dropdown-toggle, .dropdown-toggle:hover {
-              background-color: transparent;
-
-              // The caret
-              // Styleguide Header.NavbarInner.NavCollapse.Nav.LI.Dropdown.Open.Caret
-              .caret {
-                border-color: $chef-primary-2-color transparent;
-              }
-            }
-
-            .dropdown.open, .dropdown.active, .dropdown.open.active {
-              .dropdown-toggle {
-                background-color: inherit;
-                color: $chef-primary-2-color;
-              }
-            }
-          }
-        }
-
-        // A collapsed nav item link
-        //
-        // :focus - when focused
-        //
-        // Styleguide Header.NavbarInner.NavCollapse.A
-        a {
-          &:focus {
-            outline: none;
-            outline-offset: 0px;
-          }
-        }
-      }
     }
 
     // The sign in container
@@ -171,12 +79,12 @@
       //
       // Styleguide Header.SignIn.A
       a {
-        color: inherit;
+        color: #bcbcbc;
         display: inline;
         margin-left: 10px;
 
         &:hover {
-          color: white;
+          color: #bcbcbc;
         }
       }
 
@@ -188,5 +96,40 @@
         margin-top:5px;
       }
     }
+    .oc-navbar-default {
+      .container-fluid {
+        padding-right: 0;
+        padding-left: 0;
+      }
+      .navbar-collapse {
+        margin-top: 10px;
+      }
+      .oc-navbar {
+        li {
+          a {
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #3f5364;
+          }
+
+          a:hover {
+            color: #3f5364;
+          }
+
+          a.navbar-callout {
+            background: #e59323; /* Old browsers */
+            background: -moz-linear-gradient(top,  #e59323 0%, #f29423 50%, #e59323 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e59323), color-stop(50%,#f29423), color-stop(100%,#e59323)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  #e59323 0%,#f29423 50%,#e59323 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  #e59323 0%,#f29423 50%,#e59323 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  #e59323 0%,#f29423 50%,#e59323 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  #e59323 0%,#f29423 50%,#e59323 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e59323', endColorstr='#e59323',GradientType=0 ); /* IE6-9 */
+            color: #fff;
+          }
+        }
+      }
+    }
+
   }
 }
