@@ -6,9 +6,8 @@
   //
   // Styleguide Footer
   > footer {
-    background-color: $chef-primary-1-color;
-    color: $foreground-on-dark-color;
-    padding: 25px 0px 10px 0px;
+    color: #000;
+    padding: 50px 0px 10px 0px;
 
     // A link
     //
@@ -16,10 +15,11 @@
     //
     // Styleguide Footer.A
     a {
-      color: $foreground-on-dark-color;
+      color: #000;
 
       &:hover {
-        color: white;
+        color: #000;
+        font-weight: 700;
       }
     }
 
@@ -36,8 +36,8 @@
     //
     // Styleguide Footer.UL
     ul {
-      margin: 0;
-
+      margin: 0 0 40px 0;
+      padding: 0;
       // An unordered list item
       //
       // Styleguide Footer.UL.LI
@@ -49,9 +49,66 @@
       }
     }
 
+    .copyright {
+      font-size: 11px;
+    }
+
     // The bottom part of the footer
     //
     // Styleguide Footer.Bottom
+    .social-media-row {
+      margin-bottom: 10px;
+    }
+    .social-media {
+      height: 117px;
+      a {
+        height: 107px;
+        display: block;
+        line-height: 4.3;
+        position: relative;
+        border: 1px #eeeeee solid;
+        text-transform: uppercase;
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      a.facebook {
+        color: #3b579d;
+      }
+      a.facebook:hover {
+        color: #fff;
+        background-color: #3b579d;
+        @include transition(all .25s ease-in);
+      }
+
+      a.twitter {
+        color: #4cd3ff;
+      }
+      a.twitter:hover {
+        color: #fff;
+        background-color: #4cd3ff;
+        @include transition(all .25s ease-in);
+      }
+
+      a.youtube {
+        color: #e0191a;
+      }
+      a.youtube:hover {
+        color: #fff;
+        background-color: #e0191a;
+        @include transition(all .25s ease-in);
+      }
+
+      a.linkedin {
+        color: #153047;
+      }
+      a.linkedin:hover {
+        color: #fff;
+        background-color: #153047;
+        @include transition(all .25s ease-in);
+      }
+    }
+
     .bottom {
       font-size: .813em;
       padding: 0;
