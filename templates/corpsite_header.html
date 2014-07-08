@@ -1,5 +1,5 @@
 <header>
-  <div class='container-fluid'>
+  <div class='container'>
     <div class='row'>
       <div class='span12 col-md-12'>
 
@@ -16,56 +16,63 @@
     </div>
   </div>
 
-  <div id='main-nav' class='container-fluid' data-spy="affix" data-offset-top="20" data-offset-bottom="200">
+  <div id='main-nav' class='container' data-spy="affix" data-offset-top="20" data-offset-bottom="200">
 
     <nav class='navbar navbar-default oc-navbar-default' role='navigation'>
       <div class='row'>
-        <div class='span12 col-md-12'>
+        <div class='span12 col-md-12 header-fix'>
+          <div class='navbar-inner navbar-header'>
 
-          <div class='container-fluid'>
-            <div class='navbar-inner navbar-header'>
-              <button  type="button" class="navbar-toggle" data-toggle='collapse' data-target='#c-navbar'>
-                <span class="sr-only">Toggle navigation</span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-              </button>
-              <a class='logo' href='//www.getchef.com/'>
-                <img alt='Chef' onerror='this.src=/images/logo.png' src='/images/logo.svg' title='Chef'>
-              </a>
-            </div>
-
-            <div class='collapse nav-collapse navbar-collapse navbar-right' id='c-navbar'>
-              <ul class='nav navbar-nav oc-navbar'>
-                <li>
-                  <a href='/chef/'>
-                    What is Chef
-                  </a>
-                </li>
-                <li>
-                  <a href='http://learn.getchef.com/'>
-                    Learning Chef
-                  </a>
-                </li>
-                <li>
-                  <a href='/resources/'>
-                    Resources
-                  </a>
-                </li>
-                <li>
-                  <a href='//www.getchef.com/chef/choose-your-version/' class="navbar-callout">Get Chef</a>
-                </li>
-              </ul>
-
-            </div>
-
+            <button  type="button" class="navbar-toggle" data-toggle='collapse' data-target='#c-navbar'>
+              <span class="sr-only">Toggle navigation</span>
+              <span class='icon-bar'></span>
+              <span class='icon-bar'></span>
+              <span class='icon-bar'></span>
+            </button>
+            <a class='logo' href='//www.getchef.com/'>
+              <img alt='Chef' onerror='this.src=/images/logo.png' src='/images/logo.svg' title='Chef'>
+            </a>
           </div>
-        </nav>
 
+          <div class='collapse nav-collapse navbar-collapse navbar-right' id='c-navbar'>
+            <ul class='nav navbar-nav oc-navbar'>
+              <li>
+                <a href='/chef/'>
+                  What is Chef
+                </a>
+              </li>
+              <li>
+                <a href='http://learn.getchef.com/'>
+                  Learning Chef
+                </a>
+              </li>
+              <li>
+                <a href='/resources/'>
+                  Resources
+                </a>
+              </li>
+              <li class="getchef-box">
+                <div id="getchef-button">
+                  <div class="scene">
+                    <div class="cube">
+                      <div class="cube-face cube-face-front">
+                        <div class="cube-content">
+                          <a href='//www.getchef.com/chef/choose-your-version/' class="navbar-callout">Get Chef</a>
+                        </div>
+                      </div>
+                      <div class="cube-face cube-face-left hidden-xs hidden-sm"></div>
+                    </div>
+                  </div>
+                  <div class="choose-content text-left"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
       </div>
-    </div>
+    </nav>
   </div>
-
 </header>
 
 

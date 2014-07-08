@@ -19,6 +19,7 @@
 
       &:hover {
         color: #000000; /*$body-text-color;*/
+        font-weight: 700;
       }
     }
 
@@ -48,6 +49,10 @@
       }
     }
 
+    .copyright {
+      font-size: 11px;
+    }
+
     // The bottom part of the footer
     //
     // Styleguide Footer.Bottom
@@ -61,8 +66,6 @@
         display: block;
         line-height: 4.3;
         position: relative;
-        top: 50%;
-        @include translateY(-60%);
         border: 1px #eeeeee solid;
         text-transform: uppercase;
         font-size: 24px;
@@ -72,14 +75,37 @@
       a.facebook {
         color: #3b579d;
       }
+      a.facebook:hover {
+        color: #fff;
+        background-color: #3b579d;
+        @include transition(all .25s ease-in);
+      }
+
       a.twitter {
         color: #4cd3ff;
       }
+      a.twitter:hover {
+        color: #fff;
+        background-color: #4cd3ff;
+        @include transition(all .25s ease-in);
+      }
+
       a.youtube {
         color: #e0191a;
       }
+      a.youtube:hover {
+        color: #fff;
+        background-color: #e0191a;
+        @include transition(all .25s ease-in);
+      }
+
       a.linkedin {
         color: #153047;
+      }
+      a.linkedin:hover {
+        color: #fff;
+        background-color: #153047;
+        @include transition(all .25s ease-in);
       }
     }
 

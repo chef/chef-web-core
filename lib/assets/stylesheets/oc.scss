@@ -18,12 +18,14 @@ html {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 
-  // A 1st or 2nd level heading.
+  // A 1st level heading.
   //
   // Styleguide Main.Headings
-  h1, h2 {
-    font-weight: normal;
+  h1 {
+    font-weight: 700;
+    font-size: 54px;
   }
+
 
   // A 2nd level heading.
   //
@@ -32,11 +34,11 @@ html {
     color: #fd902d; /*$chef-primary-3-color;*/
     font-size: 54px;
     text-align: center;
+    font-weight: normal;
   }
 
   h3 {
     font-size: 42px;
-    text-align: center;
   }
 
   // A sub-heading.
@@ -57,7 +59,7 @@ html {
     color: $link-color;
 
     &:hover {
-      color: $chef-primary-2-color;
+      color: #000;
       text-decoration: none;
     }
   }
@@ -89,9 +91,7 @@ html {
   //
   // Styleguide Main.Rule
   .rule {
-    background: $chef-primary-2-color;
-    height: 3px;
-    margin-bottom: 20px;
+
   }
 
   // A 404 Error
