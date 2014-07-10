@@ -10,7 +10,6 @@
       background-color: #fff;
     }
 
-
     #getchef-button {
       .scene {
         display: inline-block;
@@ -68,7 +67,6 @@
       }
     }
 
-
     .affix {
       position: fixed;
       top: 0;
@@ -77,12 +75,18 @@
       .header-fix {
         padding: 0px 0px 0 30px;
       }
+
+      @media (max-width: 768px) {
+        .header-fix {
+          padding: 0px 0px 10px 15px;
+        }
+      }
+
       .logo {
         clip: rect(0px,70px,52px,0px);
         position: absolute;
         margin-top: 5px;
       }
-
       .nav {
         li {
           padding-top:0px;      
@@ -96,7 +100,6 @@
         .cube-face-left {
           height: 39px;
           top: 2px;
-
         }
         .cube-content {
           padding-top: 9px;
@@ -141,8 +144,14 @@
       width: 970px;
       margin-left: auto;
       margin-right: auto;
-
     }
+    @media (max-width: 768px) {
+      .navbar-default {
+        width: auto;
+      }
+    }
+
+
 
     // The inner part of the navbar
     //
@@ -209,11 +218,6 @@
           a:hover {
             color: #000;
           }
-
-
-
-
-
 
         }
       }
