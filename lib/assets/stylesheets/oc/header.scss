@@ -20,61 +20,8 @@
       background-color: #fff;
     }
 
-    #getchef-button {
-      .scene {
-        display: inline-block;
-        width: 134px;
-        height: 75px;
-        @include perspective(600px);
-      }
-      
-      .cube {
-        position: relative;
-        width: inherit;
-        height: inherit;
-        @include transform-style(preserve-3d);
-      }
-      .cube-face {
-        width: inherit;
-        height: inherit;
-        position: absolute;
-        background: #f28900;
-        top: -75px;
-        @include box-shadow(rgba(224, 108, 0, 0.45) 0px 0px 20px);
-        background-color: #ffa238; 
-        @include filter-gradient(#ffa238, #f18a20, horizontal);
-        $experimental-support-for-svg: true;
-        @include background-image(linear-gradient(left bottom,  #ffa238 0%,#f18a20 100%));
-      }
-    
-      .cube-face-front {
-        background-color: #ffa238; 
-        @include filter-gradient(#ffa238, #f18a20, horizontal); 
-        $experimental-support-for-svg: true;
-        @include background-image(linear-gradient(left bottom,  #ffa238 0%,#f18a20 100%));
-        @include translate(0, 75px);
-      }  
-      
-      .cube-face-left {
-        background: #e2811d;
-        width: 80px;
-        height: 70px;
-        top: 3px;
-        left: -46px;
-        @include rotateY(-75deg);
-      }
-      
-      .cube-content {
-        color: #fff;
-        font-weight: 600;
-        text-transform: uppercase;
-        position: relative;
-        text-align: center;
-        padding-top: 24px;
-        a, a:hover {
-          color: #fff;
-        }
-      }
+    .container-fix {
+      width: 970px;
     }
 
     .affix {
@@ -83,9 +30,6 @@
       left: 0;
       width: 100%;
       z-index: 400;
-      .header-fix {
-        padding: 0px 0px 0 30px;
-      }
 
       @media (max-width: 768px) {
         .header-fix {
@@ -93,28 +37,16 @@
         }
       }
 
-      .logo {
-        clip: rect(0px,70px,52px,0px);
-        position: absolute;
-        margin-top: 5px;
-      }
       .nav {
         li {
           padding-top:0px;      
         }
       }
-      #getchef-button {
-        .scene {
-          height: 43px;
-          @include perspective(600px);
-        }
-        .cube-face-left {
-          height: 39px;
-          top: 2px;
-        }
-        .cube-content {
-          padding-top: 9px;
-        }
+    }
+
+    @media (max-width: 768px) {
+      img {
+        margin: 5px 0 10px 0;
       }
 
       .affix img {
@@ -715,7 +647,6 @@
       width: 970px;
       margin-left: auto;
       margin-right: auto;
-<<<<<<< HEAD
     }
     .affix {
       .navbar-default {
@@ -730,16 +661,7 @@
       .navbar-default {
         width: auto;
       }
-=======
->>>>>>> mobile updates
     }
-    @media (max-width: 768px) {
-      .navbar-default {
-        width: auto;
-      }
-    }
-
-
 
 
     // The inner part of the navbar
@@ -835,7 +757,50 @@
       }
     }
 
-        }
+    @media (max-width: 500px) {
+      .container-fix {
+        width: auto;
+      }
+      .sign-in-container {
+        margin-right: 0px;
+      }
+      .affix {
+        position: static;
+      }
+      .affix-top {
+        position: static;
+      }
+    }
+  
+    @media (max-width: 767px) {
+      .navbar-right {
+        float: none !important;
+      }
+
+      .navbar-default {
+        padding-left: 15px;
+      }
+      .navbar-toggle {
+        margin-right: 0px;
+      }
+  
+      .affix .navbar-toggle {
+        margin-right: 15px;
+      }
+      .navbar-inner {
+        padding-bottom: 20px !important;
+      }
+    }
+
+    @media (max-width: 992px) and (min-width: 767px) {
+      .container-fix, .navbar-default  {
+        width: 750px;
+      }
+    }
+
+    @media (max-width: 993px) and (min-width: 1048px) {
+      .container-fix, .navbar-default  {
+        width: 970px;
       }
     }
 
