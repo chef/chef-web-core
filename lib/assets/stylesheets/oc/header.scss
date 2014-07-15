@@ -93,10 +93,14 @@
         .header-fix {
           padding: 0px 0px 10px 15px;
         }
+        .logo {
+          margin-top: 5px;
+        }
+
       }
 
       .logo {
-        clip: rect(0px,70px,52px,0px);
+        clip: rect(0px,70px,60px,0px);
         position: absolute;
         margin-top: 5px;
       }
@@ -120,10 +124,17 @@
       }
     }
 
-    img {
-      height: 80px;
-      margin: 0 0 10px 0;
-    }
+
+      @media (max-width: 768px) {
+        img {
+          margin: 5px 0 10px 0;
+        }
+
+        .affix img {
+          margin: 5px 0 10px 0;
+        }
+      }
+
 
     // The "callout" item on the nav
     //
@@ -260,7 +271,7 @@
     float: left !important;
   }
   .navbar-right {
-    float: right !important;
+    float: left;
   }
 }
 
@@ -1151,6 +1162,26 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
         margin-top:5px;
       }
     }
+    
+    #responsive-sign-links {
+      ul {
+        margin: 0px;
+        padding: 10px 0 10px 15px;
+        border-top: 1px #eee solid;
+
+        li {
+          list-style: none;
+          font-size: 11px;
+          font-weight: 100;
+          line-height: 1 !important;
+          a {
+            color: #bcbcbc;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+
     .oc-navbar-default {
       .container-fluid {
         padding-right: 0;
@@ -1170,8 +1201,48 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
           a:hover {
             color: #000;
           }
-
         }
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container-fix {
+        width: auto;
+      }
+      .sign-in-container {
+        margin-right: 0px;
+      }
+    }
+  
+    @media (max-width: 767px) {
+      .navbar-right {
+        float: none !important;
+      }
+
+      .navbar-default {
+        padding-left: 15px;
+      }
+      .navbar-toggle {
+        margin-right: 0px;
+      }
+  
+      .affix .navbar-toggle {
+        margin-right: 15px;
+      }
+      .navbar-inner {
+        padding-bottom: 20px !important;
+      }
+    }
+
+    @media (max-width: 992px) and (min-width: 767px) {
+      .container-fix, .navbar-default  {
+        width: 750px;
+      }
+    }
+
+    @media (max-width: 993px) and (min-width: 1048px) {
+      .container-fix, .navbar-default  {
+        width: 970px;
       }
     }
 
