@@ -6,7 +6,7 @@
   //
   // Styleguide Footer
   > footer {
-    color: #000000; /*$body-text-color;*/
+    color: #000;
     padding: 50px 0px 10px 0px;
 
     // A link
@@ -15,10 +15,10 @@
     //
     // Styleguide Footer.A
     a {
-      color: #000000; /*$body-text-color;*/
+      color: #000;
 
       &:hover {
-        color: #000000; /*$body-text-color;*/
+        color: #000;
         font-weight: 700;
       }
     }
