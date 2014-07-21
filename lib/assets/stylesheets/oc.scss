@@ -28,14 +28,12 @@ html {
     font-size: 54px;
   }
 
-
   // A 2nd level heading.
   //
   // Styleguide Main.Headings.H2
   h2 {
-    color: #fd902d; /*$chef-primary-3-color;*/
+    color: $chef-primary-2-color;
     font-size: 54px;
-    text-align: center;
     font-weight: normal;
   }
 
@@ -49,7 +47,6 @@ html {
   h1 small {
     margin-top: 6px;
     display: block;
-
   }
 
   // A link.
@@ -61,7 +58,7 @@ html {
     color: $link-color;
 
     &:hover {
-      color: #000;
+      color: $link-color-hover;
       text-decoration: none;
     }
   }
@@ -89,13 +86,6 @@ html {
     min-height: 550px;
   }
 
-  // A horizontal rule.
-  //
-  // Styleguide Main.Rule
-  .rule {
-
-  }
-
   // A 404 Error
   //
   // Styleguide Main.Error.404
@@ -104,9 +94,9 @@ html {
     padding: 100px 250px 0 250px;
   }
   
-
   // Responsive Headers
-  // Styleguide Main.Responive.Headers
+  //
+  // Styleguide Main.Headings.Responsive
   @media (max-width: 500px) {
     h1 {
       font-size: 40px !important;
