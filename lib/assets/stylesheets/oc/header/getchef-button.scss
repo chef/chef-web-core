@@ -1,0 +1,108 @@
+// The "Get Chef" button in the header
+
+@import 'compass/css3/box-shadow';
+@import 'compass/css3/images';
+@import 'compass/css3/transform';
+@import 'compass/css3/transition';
+
+.oc > header {
+  #getchef-button {
+    .scene {
+      @include perspective(600px);
+      @include transition(all 0.2s linear);
+      display: inline-block;
+      height: 75px;
+      width: 134px;
+    }
+
+    .cube {
+      @include transform-style(preserve-3d);
+      position: relative;
+      height: inherit;
+      width: inherit;
+    }
+
+    .cube-face {
+      $experimental-support-for-svg: true;
+      @include background-image(linear-gradient(left bottom,  #ffa238 0%,#f18a20 100%));
+      @include box-shadow(rgba(224, 108, 0, 0.45) 0px 0px 20px);
+      @include filter-gradient(#ffa238, #f18a20, horizontal);
+      background: #f28900;
+      background-color: #ffa238;
+      height: inherit;
+      width: inherit;
+      position: absolute;
+      top: -75px;
+    }
+
+    .cube-face-front {
+      $experimental-support-for-svg: true;
+      @include background-image(linear-gradient(left bottom,  #ffa238 0%,#f18a20 100%));
+      @include filter-gradient(#ffa238, #f18a20, horizontal);
+      @include translate(0, 75px);
+      background-color: #ffa238;
+    }
+
+    .cube-face-left {
+      @include rotateY(-75deg);
+      @include transition(all 0.2s linear);
+      background: #e2811d;
+      height: 70px;
+      width: 80px;
+      left: -46px;
+      top: 3px;
+    }
+
+    .cube-content {
+      @include transition(all 0.2s linear);
+      color: #fff;
+      font-weight: 600;
+      padding-top: 24px;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+
+      a, a:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  .affix #getchef-button {
+    .scene {
+      @include perspective(600px);
+      @include transition(all 0.2s linear);
+      height: 43px;
+    }
+
+    .cube-face-left {
+      @include transition(all 0.2s linear);
+      height: 39px;
+      top: 2px;
+    }
+
+    .cube-content {
+      @include transition(all 0.2s linear);
+      padding-top: 9px;
+    }
+  }
+
+  // For the mobile menu
+  .in #getchef-button {
+    margin-left: 15px;
+    margin-bottom: 10px;
+
+    .scene {
+      height: 43px;
+    }
+
+    .cube-content {
+      padding-top: 9px;
+    }
+
+    .cube-face-left {
+      height: 39px;
+      top: 2px;
+    }
+  }
+}
