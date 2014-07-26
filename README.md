@@ -6,7 +6,7 @@ It's a set of [SCSS](http://sass-lang.com/) stylesheets and HTML templates that
 can be imported into projects to get the global Chef styles.
 
 The resources currently assume you are using and including
-[Twitter Bootstrap 2.3.2](http://getbootstrap.com/2.3.2/). Things won't break if
+[Twitter Bootstrap 3](http://getbootstrap.com/). Things won't break if
 you're not using this, but they won't look right.
 
 ## Installation
@@ -32,6 +32,42 @@ be able to
 ```
 
 in a Sass/SCSS stylesheet to get the included styles.
+
+### Bootstrap
+
+Our custom Bootstrap 3.2 is included in this repo in
+[lib/assets/stylesheets/bootstrap.scss](lib/assets/stylesheets/bootstrap.scss).
+
+The stylesheets do not include Bootstrap directly, but you can import it with
+
+```css
+@import 'bootstrap';
+```
+
+The Bootstrap JavaScript is not included, but you can use a CDN version:
+
+```html
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
+```
+
+Note that:
+
+* The Bootstrap CSS is 3.2, but the JavaScript is 3.1.1. For some reason the 3.2
+JavaScript causes the main mobile navigation to not work correctly.
+* jQuery must be loaded for the Bootstrap JavaScript to work.
+
+### Fonts
+
+No fonts are included, but the
+[Gotham fonts](http://www.typography.com/fonts/gotham/overview/) used can be
+added by putting:
+
+```html
+<link href='//cloud.typography.com/6142912/687104/css/fonts.css' rel='stylesheet' type='text/css'>
+```
+
+in the document HEAD. These fonts are only licensed to work on Chef Software web
+properties.
 
 ### Helpers
 

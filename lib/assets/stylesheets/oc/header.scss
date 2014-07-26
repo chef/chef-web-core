@@ -1,76 +1,23 @@
 // Header
 // ======
 
+@import "compass/css3/box-shadow";
+@import "compass/css3/images";
+@import "compass/css3/transform";
+@import 'compass/css3/transition';
+
+@import 'oc/header/getchef-button';
+@import 'oc/header/logo';
+
 .oc {
   // The main header
   //
   // Styleguide Header
   > header {
+    min-height: 81px;
+
     #main-nav {
       background-color: #fff;
-    }
-
-    // The "Get Chef" item on the nav
-    //
-    // :hover - when hovered
-    //
-    // Styleguide Header.GetChefButton
-
-    #getchef-button {
-      .scene {
-        display: inline-block;
-        width: 134px;
-        height: 75px;
-        @include perspective(600px);
-      }
-      
-      .cube {
-        position: relative;
-        width: inherit;
-        height: inherit;
-        @include transform-style(preserve-3d);
-      }
-      .cube-face {
-        width: inherit;
-        height: inherit;
-        position: absolute;
-        background: #f28900;
-        top: -75px;
-        @include box-shadow(rgba(224, 108, 0, 0.45) 0px 0px 20px);
-        background-color: #ffa238; 
-        @include filter-gradient(#ffa238, #f18a20, horizontal);
-        $experimental-support-for-svg: true;
-        @include background-image(linear-gradient(left bottom,  #ffa238 0%,#f18a20 100%));
-      }
-    
-      .cube-face-front {
-        background-color: #ffa238; 
-        @include filter-gradient(#ffa238, #f18a20, horizontal); 
-        $experimental-support-for-svg: true;
-        @include background-image(linear-gradient(left bottom,  #ffa238 0%,#f18a20 100%));
-        @include translate(0, 75px);
-      }  
-      
-      .cube-face-left {
-        background: #e2811d;
-        width: 80px;
-        height: 70px;
-        top: 3px;
-        left: -46px;
-        @include rotateY(-75deg);
-      }
-      
-      .cube-content {
-        color: #fff;
-        font-weight: 600;
-        text-transform: uppercase;
-        position: relative;
-        text-align: center;
-        padding-top: 24px;
-        a, a:hover {
-          color: #fff;
-        }
-      }
     }
 
     .container-fix {
@@ -83,38 +30,16 @@
       left: 0;
       width: 100%;
       z-index: 400;
-      
 
       @media (max-width: 768px) {
         .header-fix {
           padding: 0px 0px 10px 15px;
         }
-        .logo {
-          margin-top: 5px;
-        }
       }
 
-      .logo {
-        clip: rect(0px,70px,60px,0px);
-        position: absolute;
-        margin-top: 5px;
-      }
       .nav {
         li {
           padding-top:0px;      
-        }
-      }
-      #getchef-button {
-        .scene {
-          height: 43px;
-          @include perspective(600px);
-        }
-        .cube-face-left {
-          height: 39px;
-          top: 2px;
-        }
-        .cube-content {
-          padding-top: 9px;
         }
       }
     }
@@ -142,8 +67,6 @@
       margin-bottom: 8px;
       background-color: transparent;
       background-image: none;
-      border: 1px solid transparent;
-      border-radius: 4px;
     }
     .navbar-toggle:focus {
       outline: none;
@@ -172,7 +95,7 @@
     }
     
     .navbar-default .navbar-toggle {
-      border-color: #dddddd;
+      border: none;
     }
     .navbar-toggle {
       position: relative;
@@ -331,6 +254,10 @@
     }
     .navbar-collapse.in {
       overflow-y: auto;
+
+      .nav li {
+        padding: 0;
+      }
     }
     @media (min-width: 768px) {
       .navbar-collapse {
@@ -683,16 +610,20 @@
     
     .navbar-toggle .icon-bar {
       display: block;
-      width: 22px;
-      height: 2px;
-      border-radius: 1px;
+      width: 25px;
+      height: 5px;
+      margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
-    
+
     .navbar-toggle .icon-bar + .icon-bar {
       margin-top: 4px;
     }
     .navbar-default .navbar-toggle .icon-bar {
-      background-color: #888;
+      background-color: $chef-primary-2-color;
     }
 
     .navbar {
@@ -700,6 +631,7 @@
     }
     .nav {
       li {
+        @include transition(padding-top 0.2s linear);
         padding-top: 14px;
       }
 
@@ -835,6 +767,9 @@
       .affix {
         position: static;
       }
+      .affix-top {
+        position: static;
+      }
     }
   
     @media (max-width: 767px) {
@@ -870,4 +805,32 @@
     }
 
   }
+}
+
+/* header overrides to compensate for different frame works on header */
+// ^-- taken from corpsite's style.css.
+
+.oc > header div.span12.col-md-12 {
+  margin-left: -31px;
+}
+.oc > header .affix div.span12.col-md-12 {
+  margin-left: -31px;
+}
+
+.oc > header .navbar-collapse {
+  margin-right: -32px;
+}
+
+.oc > header .affix .navbar-collapse {
+  margin-right: 0px;
+  padding-right: 0px;
+  margin-right: -46px;
+}
+
+.oc > header .container-fix {
+  padding: 0px;
+}
+
+.oc > header .sign-in-container {
+  margin-right: -46px;
 }
