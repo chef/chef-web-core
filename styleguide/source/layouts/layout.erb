@@ -7,7 +7,6 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <%= oc_title_tag 'Styleguide' %>
     <%= oc_partial :favicon %>
-    <%= stylesheet_link_tag '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css' %>
     <%= stylesheet_link_tag 'all' %>
   </head>
   <body class="oc <%= page_classes %>">
@@ -32,5 +31,7 @@
       </div>
     </div>
     <%= oc_partial :corpsite_footer %>
+    <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js" %>
+    <%= javascript_include_tag "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" %>
   </body>
 </html>
