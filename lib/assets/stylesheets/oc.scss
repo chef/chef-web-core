@@ -1,16 +1,8 @@
+@import 'foundation/foundation';
 @import 'oc/colors';
-
 @import 'oc/buttons';
 @import 'oc/footer';
 @import 'oc/header';
-
-// The root shared Chef style class (oc for Our Chef). The .oc class is usually
-// applied to the document body.
-//
-// Styleguide Main
-html {
-  font-size: 62.5%;
-}
 
 .oc {
   font-family: 'Gotham SSm A', 'Gotham SSm B', Helvetica, Arial, sans-serif;
@@ -20,17 +12,31 @@ html {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 
-  // A 1st level heading.
-  //
-  // Styleguide Main.Headings
+  /*doc
+  ---
+  title: H1
+  name: h1
+  category: Basics
+  ---
+  ```html_example
+      <h1>This Is a Heading</h1>
+  ```
+  */
   h1 {
     font-weight: 700;
     font-size: 54px;
   }
 
-  // A 2nd level heading.
-  //
-  // Styleguide Main.Headings.H2
+  /*doc
+  ---
+  title: H2
+  name: h2
+  category: Basics
+  ---
+  ```html_example
+      <h2>This Is a Subhead</h2>
+  ```
+  */
   h2 {
     color: $chef-primary-2-color;
     font-size: 54px;
@@ -41,19 +47,11 @@ html {
     font-size: 42px;
   }
 
-  // A sub-heading.
-  //
-  // Styleguide Main.Headings.Subhead
   h1 small {
     margin-top: 6px;
     display: block;
   }
 
-  // A link.
-  //
-  // :hover - When hovered over.
-  //
-  // Styleguide Main.A
   a {
     color: $link-color;
 
@@ -63,40 +61,24 @@ html {
     }
   }
 
-  // An emphasized link.
-  //
-  // Styleguide Main.A.Emphasis
   a em {
     font-weight: bold;
     font-style: normal;
   }
 
-  // The main content area
-  //
-  // Styleguide Main.Content
   .content {
     padding-top: 50px;
   }
 
-  // A content area that's forced to be taller because it might not have enough
-  // content to fill the viewport.
-  //
-  // Styleguide Main.SmallPage
   .small-page {
     min-height: 550px;
   }
 
-  // A 404 Error
-  //
-  // Styleguide Main.Error.404
   .file-not-found .module {
     background: transparent url('//www.getchef.com/images/fridge.png') no-repeat 0 50px;
     padding: 100px 250px 0 250px;
   }
   
-  // Responsive Headers
-  //
-  // Styleguide Main.Headings.Responsive
   @media (max-width: 500px) {
     h1 {
       font-size: 40px !important;

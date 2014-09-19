@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>CHEF Style Guide</title>
+      <%= stylesheet_link_tag 'application.css' %>
+      <%= javascript_include_tag 'application.js' %>
+  </head>
+  <body class="oc">
+    <%= oc_top_nav :style %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= yield %>
+      </div>
+    </div>  
+  </body>
+</html>
