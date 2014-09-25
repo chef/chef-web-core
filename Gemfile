@@ -1,8 +1,14 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in oc-web-core.gemspec
 gemspec
+
+gem 'middleman'
+gem 'middleman-s3_sync'
+gem 'middleman-livereload'
+gem 'hologram'
+gem 'sass', '~> 3.4.4'
 
 group :development, :test do
   gem 'rspec'
+  gem 'pry'
 end

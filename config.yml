@@ -1,0 +1,7 @@
+# Hologram will run from same directory where this config file resides
+# All paths should be relative to there
+
+source: lib/assets
+destination: source/guide
+documentation_assets: hologram
+ 

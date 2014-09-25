@@ -1,0 +1,14 @@
+---
+title: <%= title %>
+layout: hologram
+---
+
+<ul class="sub-nav">
+  <% @categories.each do |category, file_name| %>
+    <li>
+      <% category_trimmed = file_name.gsub('.html', '') %>
+      <a href="/guide/<%= category_trimmed %>"><%= category.capitalize %></a>
+    </li>
+  <% end %>
+</ul>
+      
