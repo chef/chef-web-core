@@ -711,6 +711,10 @@
 
         #chef-serach-container {
           display: inline;
+          input[type="text"] {
+            color: $body-text-color;
+          }
+  
           .popover {
             width: 245px;
             top: -1px !important;
