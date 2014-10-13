@@ -1,3 +1,16 @@
+<script type="text/javascript">
+  (function() {
+    var cx = '010686999464977934186:kbhp8ynifco';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
 <header class="container">
   <div class='container container-fix hidden-xs hidden-phone'>
     <div class='row'>
@@ -9,6 +22,17 @@
             <a href='//www.getchef.com/support/'>Support</a>
             <a href='//www.getchef.com/account/'>Account</a>
             <a href='https://manage.opscode.com/'>Management Console</a>
+            <div id="chef-serach-container">
+              <a id="search-icon" data-placement="left">
+                <img onerror="this.src='//www.getchef.com/images/icon-search.png'" src="//www.getchef.com/images/icon-search.svg">
+              </a>
+              <div id="search-content" class="hide">
+                <form action="//www.getchef.com/search/" method="get">
+                  <input type="text" name="q" value=""/>
+                  <input type="submit" value="search"/>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>

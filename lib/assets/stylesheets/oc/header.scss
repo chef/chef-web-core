@@ -708,6 +708,22 @@
       .login-links {
         display: inline;
         margin-top:5px;
+
+        #chef-serach-container {
+          display: inline;
+          input[type="text"] {
+            color: $body-text-color;
+          }
+  
+          .popover {
+            width: 245px;
+            top: -1px !important;
+           }
+          .popover.left > .arrow {
+            margin-top: -17px;
+          }
+        }
+
       }
     }
     
