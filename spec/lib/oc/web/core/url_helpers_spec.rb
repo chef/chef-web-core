@@ -4,48 +4,57 @@ describe Chef::Web::Core::URLHelpers do
   let(:application) { Object.new.extend(described_class) }
   
   describe 'for Chef sites' do
-    subject(:corpsite_host) { application.corpsite_host }
-    subject(:docs_host) { application.docs_host }
-    subject(:learn_chef_host) { application.learn_chef_host }
-    subject(:manage_host) { application.manage_host }
-    subject(:supermarket_host) { application.supermarket_host }
+    subject(:corpsite) { application.corpsite }
+    subject(:chef_docs) { application.chef_docs }
+    subject(:chef_downloads) { application.chef_downloads }
+    subject(:learn_chef) { application.learn_chef }
+    subject(:chef_manage) { application.chef_manage }
+    subject(:supermarket) { application.supermarket }
 
     it 'makes non-secure URLs' do
-      expect(application.absolute_url_for(corpsite_host)).to match(/^http:\/\/www\..+/)
+      expect(corpsite.non_secure_url).to match(/^http:\/\/www\..+/)
     end
 
     it 'makes secure URLs' do
-      expect(application.secure_absolute_url_for(supermarket_host)).to match(/^https:\/\/supermarket\..+/)
+      expect(supermarket.secure_url).to match(/^https:\/\/supermarket\..+/)
     end
 
     it 'makes protocol-relative URLs' do
-      expect(application.protocol_relative_url_for(learn_chef_host)).to match(/^\/\/learn\..+/)
+      expect(learn_chef.protocol_relative_url).to match(/^\/\/learn\..+/)
     end
 
     it 'makes canonical URLs' do
-      expect(application.canonical_url_for(docs_host)).to match(/^https:\/\/docs\..+/)
+      expect(chef_docs.canonical_url).to match(/^https:\/\/docs\..+/)
     end
 
-    it 'defines a corpsite url' do
-      expect(application.corpsite_url).to eq(application.canonical_url_for(corpsite_host))
+    it 'defines a Corpsite' do
+      expect(corpsite).to be
     end
 
-    it 'defines a docs-site url' do
-      expect(application.docs_url).to eq(application.canonical_url_for(docs_host))
+    it 'defines a Docs site' do
+      expect(chef_docs).to be
     end
 
-    it 'defines a learn Chef url' do
-      expect(application.learn_chef_url).to eq(application.canonical_url_for(learn_chef_host))
+    it 'defines a Downloads site' do
+      expect(chef_downloads).to be
     end
 
-    it 'defines a manage url' do
-      expect(application.manage_url).to eq(application.canonical_url_for(manage_host))
+    it 'defines a Learn Chef site' do
+      expect(learn_chef).to be
     end
 
-    it 'defines a supermarket url' do
-      expect(application.supermarket_url).to eq(application.canonical_url_for(supermarket_host))
+    it 'defines a Manage site' do
+      expect(chef_manage).to be
     end
 
+    it 'defines a Supermarket' do
+      expect(supermarket).to be
+    end
+
+    it 'exposes a Site object' do
+      site = Chef::Web::Core::URLHelpers::Site.new('www', 'example.com')
+      expect(site).to respond_to(:subdomain, :domain, :hostname, :url, :to_s, :secure_url, :non_secure_url, :protocol_relative_url, :canonical_url)
+    end
   end
 
   describe 'for third-party sites' do

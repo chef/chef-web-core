@@ -4,53 +4,71 @@ class Chef
   module Web
     module Core
       module URLHelpers
-        
-        def chef_domain
-          ENV['CHEF_DOMAIN'] || 'getchef.com'
+
+        class Site
+          attr_accessor :subdomain, :domain
+
+          def initialize(subdomain, domain=nil)
+            @subdomain = subdomain
+            @domain = domain || chef_domain
+          end
+
+          def hostname
+            "#{subdomain}.#{domain}"
+          end
+
+          def non_secure_url
+            "http://#{hostname}"
+          end
+
+          def secure_url
+            "https://#{hostname}"
+          end
+
+          def canonical_url
+            secure_url
+          end
+
+          def protocol_relative_url
+            "//#{hostname}"
+          end
+
+          alias_method :url, :canonical_url
+          alias_method :to_s, :canonical_url
+
+          private
+
+            def chef_domain
+              ENV['CHEF_DOMAIN'] || 'getchef.com'
+            end
         end
 
-        def that_other_chef_domain
+        def opscode_domain
           'opscode.com'
         end
 
-        def corpsite_host
-          "www.#{chef_domain}"
+        def corpsite
+          @_corpsite ||= Site.new('www')
         end
 
-        def docs_host
-          "docs.#{chef_domain}"
+        def chef_docs
+          @_docs ||= Site.new('docs')
         end
 
-        def learn_chef_host
-          "learn.#{chef_domain}"
+        def chef_downloads
+          @_downloads ||= Site.new('downloads')
         end
 
-        def manage_host
-          "manage.#{that_other_chef_domain}"
+        def chef_manage
+          @_manage ||= Site.new('manage', opscode_domain)
         end
 
-        def supermarket_host
-          "supermarket.#{chef_domain}"
+        def learn_chef
+          @_learn ||= Site.new('learn')
         end
 
-        def corpsite_url
-          canonical_url_for(corpsite_host)
-        end
-
-        def docs_url
-          canonical_url_for(docs_host)
-        end
-
-        def learn_chef_url
-          canonical_url_for(learn_chef_host)
-        end
-
-        def manage_url
-          secure_absolute_url_for(manage_host)
-        end 
-
-        def supermarket_url
-          canonical_url_for(supermarket_host)
+        def supermarket
+          @_supermarket ||= Site.new('supermarket')
         end
 
         def facebook_url 
@@ -67,22 +85,6 @@ class Chef
 
         def linkedin_url 
           'https://www.linkedin.com/groups/Chef-Users-Group-3751378'
-        end
-
-        def absolute_url_for(host)
-          "http://#{host}"
-        end
-
-        def secure_absolute_url_for(host)
-          "https://#{host}"
-        end
-
-        def protocol_relative_url_for(host)
-          "//#{host}"
-        end
-
-        def canonical_url_for(host)
-          secure_absolute_url_for(host)
         end
 
       end
