@@ -1,4 +1,4 @@
-# oc-web-core
+# Chef Web Core
 
 Shared resources for Chef web properties.
 
@@ -13,11 +13,11 @@ you're not using this, but they won't look right.
 
 Add this line to your application's Gemfile:
 
-    gem 'oc-web-core', git: 'git@github.com:opscode/oc-web-core'
+    gem 'chef-web-core', git: 'git@github.com:opscode/chef-web-core'
 
 It's currently a private repo, so you will need permissions to read it.
 
-You'll want to use the latest master, and `bundle update oc-web-core` to apply
+You'll want to use the latest master, and `bundle update chef-web-core` to apply
 changes from this repository.
 
 ## Usage
