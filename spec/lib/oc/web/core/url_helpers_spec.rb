@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'oc/web/core/url_helpers'
+require 'chef/web/core/url_helpers'
 
 describe Chef::Web::Core::URLHelpers do
   subject(:app) { Object.new.extend(described_class) }

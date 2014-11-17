@@ -1,5 +1,3 @@
-require 'oc/web/core'
-
 class Chef
   module Web
     module Core
