@@ -1,78 +1,51 @@
+require 'spec_helper'
 require 'oc/web/core/url_helpers'
 
 describe Chef::Web::Core::URLHelpers do
-  let(:application) { Object.new.extend(described_class) }
-  
-  describe 'for Chef sites' do
-    subject(:corpsite) { application.corpsite }
-    subject(:chef_docs) { application.chef_docs }
-    subject(:chef_downloads) { application.chef_downloads }
-    subject(:learn_chef) { application.learn_chef }
-    subject(:chef_manage) { application.chef_manage }
-    subject(:supermarket) { application.supermarket }
+  subject(:app) { Object.new.extend(described_class) }
 
-    it 'makes non-secure URLs' do
-      expect(corpsite.non_secure_url).to match(/^http:\/\/www\..+/)
-    end
-
-    it 'makes secure URLs' do
-      expect(supermarket.secure_url).to match(/^https:\/\/supermarket\..+/)
-    end
-
-    it 'makes protocol-relative URLs' do
-      expect(learn_chef.protocol_relative_url).to match(/^\/\/learn\..+/)
-    end
-
-    it 'makes canonical URLs' do
-      expect(chef_docs.canonical_url).to match(/^https:\/\/docs\..+/)
-    end
-
-    it 'defines a Corpsite' do
-      expect(corpsite).to be
-    end
-
-    it 'defines a Docs site' do
-      expect(chef_docs).to be
-    end
-
-    it 'defines a Downloads site' do
-      expect(chef_downloads).to be
-    end
-
-    it 'defines a Learn Chef site' do
-      expect(learn_chef).to be
-    end
-
-    it 'defines a Manage site' do
-      expect(chef_manage).to be
-    end
-
-    it 'defines a Supermarket' do
-      expect(supermarket).to be
-    end
-
-    it 'exposes a Site object' do
-      site = Chef::Web::Core::URLHelpers::Site.new('www', 'example.com')
-      expect(site).to respond_to(:subdomain, :domain, :hostname, :url, :to_s, :secure_url, :non_secure_url, :protocol_relative_url, :canonical_url)
-    end
+  before :each do
+    stub_const 'ENV', 'CHEF_DOMAIN' => 'chef.io'
   end
 
-  describe 'for third-party sites' do
+  its(:chef_domain)         { is_expected.to eq 'chef.io' }
+  its(:chef_server_url)     { is_expected.to eq 'https://api.chef.io' }
+  its(:chef_blog_url)       { is_expected.to eq 'https://www.chef.io/blog' }
+  its(:chef_docs_url)       { is_expected.to eq 'https://docs.chef.io' }
+  its(:chef_downloads_url)  { is_expected.to eq 'https://downloads.chef.io' }
+  its(:chef_identity_url)   { is_expected.to eq 'https://id.chef.io/id' }
+  its(:chef_manage_url)     { is_expected.to eq 'https://manage.chef.io' }
+  its(:chef_sign_up_url)    { is_expected.to eq 'https://manage.chef.io/signup' }
+  its(:learn_chef_url)      { is_expected.to eq 'https://learn.chef.io' }
+  its(:supermarket_url)     { is_expected.to eq 'https://supermarket.chef.io' }
+  its(:chef_facebook_url)   { is_expected.to eq 'https://www.facebook.com/getchefdotcom' }
+  its(:chef_twitter_url)    { is_expected.to eq 'https://twitter.com/chef' }
+  its(:chef_youtube_url)    { is_expected.to eq 'http://www.youtube.com/user/getchef' }
+  its(:chef_linkedin_url)   { is_expected.to eq 'https://www.linkedin.com/groups/Chef-Users-Group-3751378' }
 
-    it 'should generate a Facebook URL' do
-      expect(application.facebook_url).to match(/facebook/)
+  context 'with a CHEF_DOMAIN set' do
+    before :each do
+      ENV['CHEF_DOMAIN'] = 'chef.wtf'
     end
 
-    it 'should generate a Twitter URL ' do
-      expect(application.twitter_url).to match(/twitter/)
+    its(:chef_domain)       { is_expected.to eq 'chef.wtf' }
+    its(:chef_www_url)      { is_expected.to eq 'https://www.chef.wtf' }
+  end
+
+  context 'with no CHEF_DOMAIN set' do
+    before :each do
+      ENV.delete('CHEF_DOMAIN')
     end
 
-    it 'should generate a LinkedIn URL ' do
-      expect(application.linkedin_url).to match(/linkedin/)
+    its(:chef_domain)       { is_expected.to eq 'chef.io' }
+    its(:chef_www_url)      { is_expected.to eq 'https://www.chef.io' }
+  end
+
+  context 'with a site-specific environment variable set' do
+    before :each do
+      ENV['CHEF_IDENTITY_URL'] = 'https://identity.opscode.com'
     end
 
-    it 'should generate a YouTube URL ' do
-      expect(application.youtube_url).to match(/youtube/)
-    end
+    its(:chef_identity_url) { is_expected.to eq 'https://identity.opscode.com' }
   end
 end

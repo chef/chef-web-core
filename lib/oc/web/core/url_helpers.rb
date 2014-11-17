@@ -4,89 +4,80 @@ class Chef
   module Web
     module Core
       module URLHelpers
-
-        class Site
-          attr_accessor :subdomain, :domain
-
-          def initialize(subdomain, domain=nil)
-            @subdomain = subdomain
-            @domain = domain || chef_domain
-          end
-
-          def hostname
-            "#{subdomain}.#{domain}"
-          end
-
-          def non_secure_url
-            "http://#{hostname}"
-          end
-
-          def secure_url
-            "https://#{hostname}"
-          end
-
-          def canonical_url
-            secure_url
-          end
-
-          def protocol_relative_url
-            "//#{hostname}"
-          end
-
-          alias_method :url, :canonical_url
-          alias_method :to_s, :canonical_url
-
-          private
-
-            def chef_domain
-              ENV['CHEF_DOMAIN'] || 'getchef.com'
-            end
+        
+        def chef_domain
+          ENV['CHEF_DOMAIN'] || 'chef.io'
         end
 
-        def opscode_domain
-          'opscode.com'
+        def chef_server_url
+          ENV['CHEF_SERVER_URL'] || "https://api.#{chef_domain}"
         end
 
-        def corpsite
-          @_corpsite ||= Site.new('www')
+        def chef_www_url(extra = nil)
+          url = ENV['CHEF_WWW_URL'] || "https://www.#{chef_domain}"
+          extra_dispatch(url, extra)
         end
 
-        def chef_docs
-          @_docs ||= Site.new('docs')
+        def chef_blog_url(extra = nil)
+          url = ENV['CHEF_BLOG_URL'] || "#{chef_www_url}/blog"
+          extra_dispatch(url, extra)
         end
 
-        def chef_downloads
-          @_downloads ||= Site.new('downloads')
+        def chef_docs_url(extra = nil)
+          url = ENV['CHEF_DOCS_URL'] || "https://docs.#{chef_domain}"
+          extra_dispatch(url, extra)
         end
 
-        def chef_manage
-          @_manage ||= Site.new('manage', opscode_domain)
+        def chef_downloads_url(extra = nil)
+          url = ENV['CHEF_DOWNLOADS_URL'] || "https://downloads.#{chef_domain}"
+          extra_dispatch(url, extra)
         end
 
-        def learn_chef
-          @_learn ||= Site.new('learn')
+        def chef_identity_url
+          ENV['CHEF_IDENTITY_URL'] || "https://id.#{chef_domain}/id"
         end
 
-        def supermarket
-          @_supermarket ||= Site.new('supermarket')
+        def chef_manage_url
+          ENV['CHEF_MANAGE_URL'] || "https://manage.#{chef_domain}"
         end
 
-        def facebook_url 
+        def chef_sign_up_url
+          ENV['CHEF_SIGN_UP_URL'] || "#{chef_manage_url}/signup"
+        end
+
+        def learn_chef_url
+          ENV['LEARN_CHEF_URL'] || "https://learn.#{chef_domain}"
+        end
+
+        def supermarket_url
+          ENV['SUPERMARKET_URL'] || "https://supermarket.#{chef_domain}"
+        end
+
+        def chef_facebook_url 
           'https://www.facebook.com/getchefdotcom'
         end
 
-        def twitter_url 
+        def chef_twitter_url 
           'https://twitter.com/chef'
         end
 
-        def youtube_url 
+        def chef_youtube_url 
           'http://www.youtube.com/user/getchef'
         end
 
-        def linkedin_url 
+        def chef_linkedin_url 
           'https://www.linkedin.com/groups/Chef-Users-Group-3751378'
         end
 
+        private
+
+        def extra_dispatch(url, extra = nil)
+          if extra.nil?
+            url
+          else
+            "#{url}/#{extra}"
+          end
+        end
       end
     end
   end
