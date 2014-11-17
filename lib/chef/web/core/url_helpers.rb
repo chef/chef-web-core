@@ -2,9 +2,12 @@ class Chef
   module Web
     module Core
       module URLHelpers
-        
         def chef_domain
           ENV['CHEF_DOMAIN'] || 'chef.io'
+        end
+
+        def chef_account_management_url
+          ENV['CHEF_ACCOUNT_MANAGEMENT_URL'] || "#{chef_www_url}/account"
         end
 
         def chef_server_url
@@ -51,19 +54,23 @@ class Chef
           ENV['SUPERMARKET_URL'] || "https://supermarket.#{chef_domain}"
         end
 
-        def chef_facebook_url 
+        def chef_supermarket_url
+          supermarket_url
+        end
+
+        def chef_facebook_url
           'https://www.facebook.com/getchefdotcom'
         end
 
-        def chef_twitter_url 
+        def chef_twitter_url
           'https://twitter.com/chef'
         end
 
-        def chef_youtube_url 
-          'http://www.youtube.com/user/getchef'
+        def chef_youtube_url
+          'https://www.youtube.com/user/getchef'
         end
 
-        def chef_linkedin_url 
+        def chef_linkedin_url
           'https://www.linkedin.com/groups/Chef-Users-Group-3751378'
         end
 
