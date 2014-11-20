@@ -1,0 +1,88 @@
+<header class="container">
+  <div class="container container-fix hidden-xs hidden-phone">
+    <div class="row">
+      <div class="span12 col-md-12">
+        <div class="sign-in-container text-right">
+          <div class="login-links">
+            <a href="<%= supermarket_url %>">Community</a>
+            <a href="<%= chef_www_url('blog/') %>">Blog</a>
+            <a href="<%= chef_www_url('support/') %>">Support</a>
+            <a href="<%= chef_www_url('account/') %>">Account</a>
+            <a href="<%= chef_manage_url %>">Management Console</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav" class="container" data-spy="affix" data-offset-top="20" data-offset-bottom="200">
+    <nav class="navbar navbar-default oc-navbar-default" role="navigation">
+      <div class="row">
+        <div class="span12 col-md-12">
+          <div class="navbar-inner navbar-header">
+            <a href="<%= chef_www_url %>" class="logo">
+              <img alt="Chef" onerror="this.src=<%= chef_www_url %>/images/logo.png" src="<%= chef_www_url %>/images/logo.svg" title="Chef">
+            </a>
+            <button  type="button" class="navbar-toggle" data-toggle="collapse" data-target="#c-navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse nav-collapse navbar-collapse navbar-right" id="c-navbar">
+            <ul class="nav navbar-nav oc-navbar">
+              <li>
+                <a href="<%= chef_www_url('chef/') %>">
+                  What Is Chef?
+                </a>
+              </li>
+              <li>
+                <a href="<%= learn_chef_url %>">
+                  Learn Chef
+                </a>
+              </li>
+              <li>
+                <a href="<%= chef_www_url('resources/') %>">
+                  Resources
+                </a>
+              </li>
+              <li class="getchef-box">
+                <div id="getchef-button">
+                  <div class="scene">
+                    <div class="cube">
+                      <div class="cube-face cube-face-front">
+                        <div class="cube-content">
+                          <a href="<%= chef_www_url('chef/choose-your-version/') %>" class="navbar-callout">Get Chef</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="choose-content text-left"></div>
+                </div>
+              </li>
+              <li id="responsive-sign-links" class="visible-phone visible-xs">
+                <ul>
+                  <li>
+                    <a href="<%= supermarket_url %>">Community</a>
+                  </li>
+                  <li>
+                    <a href="<%= chef_www_url('blog/') %>">Blog</a>
+                  </li>
+                  <li>
+                    <a href="<%= chef_www_url('support/') %>">Support</a>
+                  </li>
+                  <li>
+                    <a href="<%= chef_www_url('account/') %>">Account</a>
+                  </li>
+                  <li>
+                    <a href="<%= chef_manage_url %>">Management Console</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

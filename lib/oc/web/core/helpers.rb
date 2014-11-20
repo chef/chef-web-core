@@ -1,4 +1,6 @@
 require 'oc/web/core'
+require 'chef/web/core'
+require 'chef/web/core/component'
 
 # Base module for oc-web-core to be used with other frameworks.
 module OC
@@ -7,7 +9,7 @@ module OC
       module Helpers
         # Load a partial from templates/#{name}.html
         def oc_partial(name)
-          open(File.join(OC::Web::Core::TEMPLATES_PATH, "#{name}.html")).read
+          Chef::Web::Core::Component.new(type: name).render
         end
 
         # A title tag
