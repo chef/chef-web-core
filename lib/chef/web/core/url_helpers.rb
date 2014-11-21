@@ -3,7 +3,7 @@ class Chef
     module Core
       module URLHelpers
         def chef_domain
-          ENV['CHEF_DOMAIN'] || 'chef.io'
+          ENV['CHEF_DOMAIN'] || 'getchef.com'
         end
 
         def chef_account_management_url
