@@ -17,13 +17,7 @@ class Chef
 
         def render
           erb = ERB.new(open(File.join(Chef::Web::Core::TEMPLATES_PATH, "#{type}.html.erb")).read)
-          erb.result(get_binding)
-        end
-
-        private
-
-        def get_binding
-          binding
+          erb.result(binding)
         end
       end
     end
