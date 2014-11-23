@@ -46,6 +46,10 @@ class Chef
           ENV['CHEF_SIGN_UP_URL'] || "#{chef_manage_url}/signup"
         end
 
+        def chef_status_url
+          ENV['CHEF_STATUS_URL'] || "http://status.#{chef_domain}"
+        end
+
         def learn_chef_url
           ENV['LEARN_CHEF_URL'] || "https://learn.#{chef_domain}"
         end
