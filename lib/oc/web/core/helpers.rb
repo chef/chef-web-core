@@ -9,7 +9,7 @@ module OC
       module Helpers
         # Load a partial from templates/#{name}.html
         def oc_partial(name)
-          Chef::Web::Core::Component.new(type: name).render
+          Chef::Web::Core::Component.new(:type => name).render
         end
 
         # A title tag
