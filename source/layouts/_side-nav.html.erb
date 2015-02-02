@@ -1,0 +1,18 @@
+<nav>
+  <ul class="side-nav">
+    <% if current_page.data.layout == 'hologram' %>
+      <li class="heading"><a>Components</a></li>
+      <% current_page.data.categories.sort.each do |name, file| %>
+        <li <%= 'class="active"' if current_page.data.title == name %> ><%= link_to name, file %></li>
+      <% end %>
+    <% else %>
+      <li class="heading"><a>Getting Started</a></li>
+      <li><%= link_to 'Installing and Using Chef Style', '/getting-started' %></li>
+      <li><%= link_to 'Component Documentation', guide_path %></li>
+      <li><%= link_to 'Contributing', '/contributing' %></li>
+      <li class="heading"><a>Additional Resources</a></li>
+      <li><%= link_to 'Logos &amp; Brand Guidelines', '/branding' %></li>
+      <li><%= link_to 'Presentation Templates', '/presentations' %></li>
+    <% end %>
+  </ul>
+</nav>

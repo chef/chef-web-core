@@ -3,6 +3,7 @@
 .bundle
 .config
 .yardoc
+.sass-cache
 Gemfile.lock
 InstalledFiles
 _yardoc
@@ -20,3 +21,8 @@ tmp
 *.o
 *.a
 mkmf.log
+bower_components/
+node_modules/
+stylesheets/
+build/
+source/guide/

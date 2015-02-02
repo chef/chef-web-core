@@ -1,0 +1,9 @@
+bundler_args: --deployment --without development
+cache:
+  bundler: true
+  directories:
+  - $(rvm gemdir)
+  - build
+script:
+- bundle exec rspec
+sudo: false

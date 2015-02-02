@@ -1,0 +1,10 @@
+<nav>
+  <ul class="side-nav">
+    <% current_page.data.blocks.each do |block|  %>
+      <%= block %>
+      <% if block.see_also %>
+        <li class="heading"><a>See Also</a></li>
+      <% end %>
+    <% end %>
+  </ul>
+</nav>

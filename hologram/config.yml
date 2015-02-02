@@ -1,0 +1,6 @@
+source: ../lib
+destination: ../source/guide
+documentation_assets: ./doc_assets
+code_example_templates: ./code_example_templates
+nav_level: all
+exit_on_warnings: false

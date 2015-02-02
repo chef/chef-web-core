@@ -1,0 +1,73 @@
+---
+title: Getting Started
+---
+
+<h1>Getting Started</h1>
+<p class="lead">
+  Our goal is to make the Chef Style Guide as easy to use as possible. Here's what you
+  need to know to get going.
+</p>
+<h2>With a Ruby App</h2>
+<p>
+  For Ruby apps with <a href="https://github.com/sstephenson/sprockets">Sprockets</a> and 
+  <a href="http://sass-lang.com/">Sass</a>, the guide is available as a gem:
+</p>
+<p>
+  <pre>gem 'chef-web-core', github: 'chef/chef-web-core'</pre>
+</p>
+<p>
+  You can import either the whole library (with all of its components):
+</p>
+<p>
+  <pre>@import 'chef';</pre>
+</p>
+<p>...or just the ones that interest you:</p>
+<p>
+  <pre>@import 'chef/components/top-bar';
+@import 'chef/components/side-nav';
+@import 'chef/components/button';</pre>  
+</p>
+<p>
+  Many of our components have JavaScript subcomponents as well, so you'll want to be sure you
+  incorporate those as well. Similarly, either include everything:
+</p>
+<p>
+  <pre>//= require chef</pre>
+</p>
+<p>
+  ... or just what you need:
+</p>
+<p>
+  <pre>//= require chef/components/top-bar;
+//= require chef/components/side-nav;</pre>  
+</p>
+
+<h2>With a Non-Ruby App</h2>
+<p>
+  Working on this.
+</p>
+
+<h1>Example Boilerplate</h1>
+<p>
+  This is just placeholder for now, but we should provide something allowing for a quick copy-pasting 
+  of the necessary document structure.
+</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html class="no-js" lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My Awesome App&lt;/title&gt;
+    &lt;%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' %&gt;
+    &lt;%= stylesheet_link_tag 'all' %&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;%= yield %&gt;
+    &lt;%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js' %&gt;
+    &lt;%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js' %&gt;
+    &lt;%= javascript_include_tag  'all' %&gt;
+    &lt;script&gt;
+      $(document).foundation();
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>

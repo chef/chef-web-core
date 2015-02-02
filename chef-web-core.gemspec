@@ -7,14 +7,16 @@ Gem::Specification.new do |spec|
   spec.name          = 'chef-web-core'
   spec.version       = Chef::Web::Core::VERSION
   spec.authors       = ['Christian Nunciato', 'Jon Ong', 'Nathan L Smith']
-  spec.email         = ['webui@getchef.com']
+  spec.email         = ['vi@chef.io']
   spec.summary       = %q{Shared resources for Chef web properties}
-  spec.homepage      = 'https://github.com/opscode/chef-web-core'
+  spec.homepage      = 'https://github.com/chef/chef-web-core'
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
+
+  spec.add_dependency 'foundation-rails'
 
   spec.add_development_dependency 'bundler', '~> 1.6'
   spec.add_development_dependency 'rake'
