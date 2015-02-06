@@ -5,14 +5,15 @@ describe 'the home page', type: :feature do
     visit '/'
   end
   
-  it 'has the correct page title' do
+  it 'has a proper page title' do
     expect(page).to have_title 'Home | Chef Style Guide'
   end
 
   it 'renders the top bar' do
-    expect(find('.top-bar')).to have_link('Getting Started')
-    expect(find('.top-bar')).to have_link('Component Documentation')
-    expect(find('.top-bar')).to have_link('Contributing')
+    the_bar = find('.top-bar')
+    expect(the_bar).to have_link('Getting Started')
+    expect(the_bar).to have_link('Component Documentation')
+    expect(the_bar).to have_link('Contributing')
   end
 end
 
