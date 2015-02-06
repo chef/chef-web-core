@@ -5,5 +5,5 @@ cache:
   - $(rvm gemdir)
   - build
 script:
-- bundle exec rspec
+- bundle exec rake test
 sudo: false

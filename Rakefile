@@ -2,9 +2,7 @@ require 'rubygems'
 require 'fileutils'
 require 'bundler'
 require 'bundler/gem_tasks'
-
-# require 'execjs'
-# require 'react/source'
+require 'rspec/core/rake_task'
 
 Bundler.require
 
@@ -33,4 +31,9 @@ task :publish do
   sh 'bundle exec middleman s3_sync'
 end
 
+task :rspec do
+  sh 'bundle exec rspec'
+end
+
+task test: [:compile, :rspec]
 task default: [:compile, :server]
