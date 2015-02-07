@@ -23,6 +23,5 @@ tmp
 mkmf.log
 bower_components/
 node_modules/
-stylesheets/
 build/
 source/guide/
