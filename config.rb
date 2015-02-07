@@ -38,10 +38,6 @@ configure :development do
       `bundle exec rake compile`
     end
   end
-
-  # require 'chef_zero/server'
-  # server = ChefZero::Server.new(port: 4000, debug: true)
-  # server.start_background
 end
 
 set :fonts_dir, 'assets/fonts'
@@ -50,9 +46,10 @@ set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
 
 configure :build do
-  #activate :minify_css
-  #activate :minify_javascript
-  #activate :gzip
+  activate :asset_hash
+  activate :minify_css
+  activate :minify_javascript
+  activate :gzip
 
   compass_config do |config|
     config.line_comments = false

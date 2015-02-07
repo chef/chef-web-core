@@ -14,6 +14,5 @@ group :development, :test do
   gem 'rspec'
   gem 'pry'
   gem 'rspec-its'
-  gem 'chef-zero'
   gem 'capybara'
 end
