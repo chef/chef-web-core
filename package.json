@@ -15,7 +15,8 @@
   "licenses": [
   ],
   "files": [
-    "lib/assets"
+    "lib/assets",
+    "vendor/assets"
   ],
   "scripts": {
   },
