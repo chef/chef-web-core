@@ -10,21 +10,20 @@ describe Chef::Web::Core::URLHelpers do
 
   its(:chef_domain)         { is_expected.to eq 'chef.io' }
   its(:chef_account_management_url) { is_expected.to eq 'https://www.chef.io/account' }
+  its(:chef_server_url)     { is_expected.to eq 'https://api.chef.io' }
   its(:chef_blog_url)       { is_expected.to eq 'https://www.chef.io/blog' }
   its(:chef_docs_url)       { is_expected.to eq 'https://docs.chef.io' }
   its(:chef_downloads_url)  { is_expected.to eq 'https://downloads.chef.io' }
-  its(:chef_facebook_url)   { is_expected.to eq 'https://www.facebook.com/getchefdotcom' }
   its(:chef_identity_url)   { is_expected.to eq 'https://id.chef.io/id' }
-  its(:chef_linkedin_url)   { is_expected.to eq 'https://www.linkedin.com/groups/Chef-Users-Group-3751378' }
-  its(:chef_mailing_lists_url) { is_expected.to eq 'http://lists.chef.io' }
   its(:chef_manage_url)     { is_expected.to eq 'https://manage.chef.io' }
-  its(:chef_server_url)     { is_expected.to eq 'https://api.chef.io' }
   its(:chef_sign_up_url)    { is_expected.to eq 'https://manage.chef.io/signup' }
-  its(:chef_supermarket_url)     { is_expected.to eq 'https://supermarket.chef.io' }
-  its(:chef_twitter_url)    { is_expected.to eq 'https://twitter.com/chef' }
-  its(:chef_youtube_url)    { is_expected.to eq 'https://www.youtube.com/user/getchef' }
   its(:learn_chef_url)      { is_expected.to eq 'https://learn.chef.io' }
   its(:supermarket_url)     { is_expected.to eq 'https://supermarket.chef.io' }
+  its(:chef_supermarket_url)     { is_expected.to eq 'https://supermarket.chef.io' }
+  its(:chef_facebook_url)   { is_expected.to eq 'https://www.facebook.com/getchefdotcom' }
+  its(:chef_twitter_url)    { is_expected.to eq 'https://twitter.com/chef' }
+  its(:chef_youtube_url)    { is_expected.to eq 'https://www.youtube.com/user/getchef' }
+  its(:chef_linkedin_url)   { is_expected.to eq 'https://www.linkedin.com/groups/Chef-Users-Group-3751378' }
 
   context 'with a CHEF_DOMAIN set' do
     before :each do
