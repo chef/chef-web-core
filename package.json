@@ -1,0 +1,26 @@
+{
+  "name": "chef-web-core",
+  "version": "0.1.0",
+  "description": "Assets comprising the Chef Style Guide.",
+  "homepage": "https://style.chef.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chef/chef-web-core"
+  },
+  "bugs": {
+    "url": "https://github.com/chef/chef-web-core/issues"
+  },
+  "keywords": [
+  ],
+  "licenses": [
+  ],
+  "files": [
+    "lib/assets",
+    "vendor/assets"
+  ],
+  "scripts": {
+  },
+  "dependencies": {
+    "zurb-foundation-5": "^5.4.7"
+  }
+}

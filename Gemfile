@@ -1,9 +1,18 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in oc-web-core.gemspec
-gemspec
+gemspec name: 'chef-web-core'
+
+gem 'middleman'
+gem 'middleman-core'
+gem 'middleman-s3_sync'
+gem 'middleman-livereload'
+gem 'sass', '~> 3.4.4'
+gem 'hologram'
 
 group :development, :test do
+  gem 'rspec-core'
   gem 'rspec'
+  gem 'pry'
   gem 'rspec-its'
+  gem 'capybara'
 end

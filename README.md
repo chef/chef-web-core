@@ -13,7 +13,7 @@ you're not using this, but they won't look right.
 
 Add this line to your application's Gemfile:
 
-    gem 'chef-web-core', git: 'git@github.com:opscode/chef-web-core'
+    gem 'chef-web-core', git: 'git@github.com:chef/chef-web-core'
 
 It's currently a private repo, so you will need permissions to read it.
 

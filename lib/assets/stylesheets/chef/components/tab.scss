@@ -1,0 +1,45 @@
+/*doc
+---
+title: Tab
+name: tab
+category: Tab
+---
+
+```html_example
+<ul class="tabs" data-tab>
+  <li class="tab-title active"><a href="#tab-1">Tab 1</a></li>
+  <li class="tab-title"><a href="#tab-2">Tab 2</a></li>
+  <li class="tab-title"><a href="#tab-3">Tab 3</a></li>
+</ul>
+<div class="tabs-content">
+  <div class="content active" id="tab-1">
+    <p>Welcome to Tab 1!</p>
+  </div>
+  <div class="content" id="tab-2">
+    <p>Greetings from Tab 2.</p>
+  </div> 
+  <div class="content" id="tab-3">
+    <p>Hey.</p>
+  </div>
+</div>
+
+```
+
+## Import and Customization
+
+```
+@import 'chef/components/tabs'
+```
+
+<div data-alert class="alert-box secondary radius">
+  The Tabs component also requires a JavaScript module to work properly. Be sure to include 
+  chef.js in your page, along with whatever additional scripts you might need. See the 
+  <a href="/installing">Installation and Usage</a> section for more information.
+</div>
+
+## More Information
+  * [Foundation Tabs documentation](http://foundation.zurb.com/docs/components/tabs.html)
+*/
+
+@import '../settings';
+@import 'foundation/components/tabs';

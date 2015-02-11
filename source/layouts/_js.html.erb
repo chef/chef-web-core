@@ -1,0 +1,12 @@
+<%# Foundation dependencies %>
+<%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js' %>
+<%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js' %>
+
+<%# Style guide-specific scripts %>
+<%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js' %>
+<%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react-with-addons.js' %>
+<%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/react/0.12.2/JSXTransformer.js' %>
+
+<%= javascript_include_tag 'chef-web-core' %>
+<%= javascript_include_tag 'guide' %>
+<%= yield_content :js %>

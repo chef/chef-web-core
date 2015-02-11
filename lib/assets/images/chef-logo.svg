@@ -1,0 +1,71 @@
+<!DOCTYPE svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 60">
+  <style>
+    .base path {
+      fill: #3f5364;
+    }
+    .accent path, .accent text {
+      fill: #f18b21;
+    }
+    .accent text {
+      display: none;
+      font-family: 'Helvetica Neue', Helvetica, sans-serif;
+      font-size: 14px;
+    }
+  </style>
+  <script>
+    <![CDATA[
+      window.addEventListener('load', function() {
+        var qs = location.search.substring(1);
+        var params = {};
+
+        qs.split('&').forEach(function(o, i) {
+          var p = o.split('=');
+          params[p[0]] = p[1];
+        });
+
+        var basePaths = document.querySelectorAll('.base path');
+        for (var i = 0; i < basePaths.length; i++) {
+          basePaths[i].style.setProperty('fill', (params.theme === 'inverse' ? '#fff' : '#425363'));
+        }
+        
+        if (params.site) {
+          var logotype = document.getElementById('logotype');
+          var site = document.querySelector('#site text');
+
+          logotype.setAttribute('transform', 'translate(24, 2) scale(.65)');
+          site.textContent = decodeURI(params.site).toUpperCase();
+          site.style.setProperty('display', 'block');
+        }
+      });
+    ]]>
+  </script>
+  <g id="logo">
+    <g class="base">
+      <path d="M29.8,43.3c-7.5,0-13.4-6.1-13.4-13.4s6.1-13.4,13.4-13.4c6.2,0,11.3,4.1,12.9,9.7h5.2 c-1.7-8.5-9.1-14.8-18.1-14.8c-10.2,0-18.5,8.3-18.5,18.5s8.3,18.5,18.5,18.5c8.9,0,16.4-6.4,18.1-14.7h-5.2 C41.2,39.2,36,43.3,29.8,43.3z"/>
+      <path d="M20.8,38.9c2.3,2.3,5.6,3.8,9,3.8v-5.4c-2.1,0-3.9-0.8-5.3-2.2L20.8,38.9z"/>
+      <path d="M34.5,17.9l-2,5c1.6,0.6,2.9,1.8,3.8,3.2h5.8C41,22.4,38.1,19.3,34.5,17.9z"/>
+      <path d="M54.3,26.2h5.1c-0.6-4.4-2.1-8.5-4.3-12l-4.3,2.7C52.6,19.5,53.8,22.7,54.3,26.2z"/>
+      <path d="M29.8,10.7L29.8,10.7V5.7l0,0c-10.2,0-19,6.4-22.5,15.4l4.7,1.8C14.8,15.8,21.8,10.7,29.8,10.7z"/>
+      <path d="M29.8,48.9V54c12,0,22.1-8.8,23.9-20.4h-5.2C46.8,42.4,39.1,48.9,29.8,48.9z"/>
+      <path d="M0,29.9c0.2,6.2,1.3,10,2.6,12.9l4.9-2c-1.1-2.6-2.3-5.3-2.4-10.9"/>
+    </g>
+    <g class="accent">
+      <path d="M17,29.8c0,1.8,0.4,3.6,1.1,5.2l4.9-2.2c-0.4-0.9-0.6-1.9-0.6-3c0-4.1,3.4-7.5,7.5-7.5V17 C22.8,17,17,22.8,17,29.8z"/>
+      <path d="M32.5,36.8l2,5c3.7-1.4,6.5-4.5,7.7-8.3h-5.8C35.5,35,34.1,36.2,32.5,36.8z"/>
+      <path d="M29.8,54.6c-6.9,0-13-2.8-17.5-7.3l-3.6,3.6c5.4,5.5,12.8,8.8,21.1,8.8c15.2,0,27.7-11.4,29.6-26.2h-5.1 C52.5,45.4,42.3,54.6,29.8,54.6z"/>
+      <path d="M29.8,5.1c5.6,0,10.6,1.8,14.8,5L47.7,6c-5-3.8-11.2-6-17.9-6C17.2,0,6.4,7.9,2,19l4.8,1.9 C10.3,11.6,19.4,5.1,29.8,5.1z"/>
+      <path d="M48.6,26.2h5.1c-1.3-8.6-7.3-15.7-15.1-18.8L36.8,12C42.8,14.4,47.3,19.7,48.6,26.2z"/>
+      <path d="M10.7,29.8L10.7,29.8H5.7l0,0c0,10.1,6.3,18.9,15.2,22.5l1.9-4.7C15.7,44.7,10.7,37.9,10.7,29.8z"/>
+    </g>
+  </g>
+  <g id="logotype" class="base">
+    <path d="M67.7,29.7L67.7,29.7c0-13.5,10-24.5,24.6-24.5c8.8,0,14.2,3,18.6,7.3l-6.6,7.6c-3.7-3.3-7.4-5.3-12-5.3 c-8,0-13.6,6.6-13.6,14.6v0.1c0,8.1,5.6,14.8,13.6,14.8c5.4,0,8.7-2.2,12.3-5.5l6.6,6.7c-4.9,5.2-10.2,8.5-19.3,8.5 C78,53.9,67.7,43.3,67.7,29.7z"/>
+    <path d="M119.4,6.1h10.3v18.6h19.1V6.1h10.3v47h-10.3V34.2h-19.1v18.9h-10.3V6.1z"/>
+    <path d="M171.8,6.1h35.5v9.2h-25.3v9.5h22.2v9.2h-22.2V44h25.6v9.2h-35.8V6.1z"/>
+    <path d="M218.3,6.1h35.8v9.4h-25.5v10h22.5V35h-22.5v18.2h-10.3V6.1z"/>
+  </g>
+  <g id="site" class="accent">
+    <text x="69" y="54"/>
+  </g>
+</svg>
