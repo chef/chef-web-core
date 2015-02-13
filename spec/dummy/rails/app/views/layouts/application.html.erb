@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Awesome App</title>
+    <%= stylesheet_link_tag 'all' %>
+    <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="contain-to-grid">
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <a href="/" class="logo" data-tag-line="Some App"></a>
+            </h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+        </ul>
+        <div class="top-bar-section">
+          <ul class="left">
+            <li><a href="#"><%= link_to 'Home', chef_www_url %></a></li>
+            <li><a href="#"><%= link_to 'Blog', chef_blog_url %></a></li>
+            <li><a href="#"><%= link_to 'Manage', chef_manage_url %></a></li>
+            <li><a href="#"><%= link_to 'Docs', chef_docs_url %></a></li>
+            <li><a href="#"><%= link_to 'Downloads', chef_downloads_url %></a></li>
+            <li><a href="#"><%= link_to 'Learn', learn_chef_url %></a></li>
+            <li><a href="#"><%= link_to 'Supermarket', supermarket_url %></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="row">
+      <%= yield %>
+    </div>
+    <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js' %>
+    <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js' %>
+    <%= javascript_include_tag  'all' %>
+    <script>
+      $(document).chef();
+    </script>
+  </body>
+</html>

@@ -25,3 +25,4 @@ bower_components/
 node_modules/
 build/
 source/guide/
+spec/dummy/rails/log/*.log

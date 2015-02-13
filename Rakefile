@@ -18,7 +18,7 @@ task :compile do
 end
 
 task :server do
-  sh 'bundle exec middleman server'
+  sh 'MIDDLEMAN_SERVER=1 bundle exec middleman server'
 end
 
 task :build do
@@ -31,9 +31,27 @@ task :publish do
   sh 'bundle exec middleman s3_sync'
 end
 
-task :rspec do
-  sh 'bundle exec rspec'
+namespace :test do
+  task all: [:compile, :lib, :middleman, :rails]
+
+  task :lib do
+    sh 'bundle exec rspec spec/lib'
+  end
+
+  task :middleman do
+    sh 'bundle exec rspec spec/features/middleman'
+  end
+
+  task :rails do
+    sh 'bundle exec rspec spec/features/rails'
+  end
 end
 
-task test: [:compile, :rspec]
+task test: 'test:all'
 task default: [:compile, :server]
+
+%w[INT TERM].each do |signal|
+  Signal.trap(signal) do
+    puts 'Stopping...'
+  end
+end

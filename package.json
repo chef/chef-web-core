@@ -16,7 +16,8 @@
   ],
   "files": [
     "lib/assets",
-    "vendor/assets"
+    "vendor/assets",
+    "LICENSE"
   ],
   "scripts": {
   },
