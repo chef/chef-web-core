@@ -2,83 +2,62 @@ require 'spec_helper'
 require 'rails_helper'
 
 describe 'the set of SASS assets', type: :feature do
+  subject { page }
 
   context 'when @imported as a bundle' do
 
-    before :each do
-      visit '/assets/all.css'
-    end
+    before { visit '/assets/all.css' }
 
-    it 'renders and exposes all CSS components' do
-      expect(page).to have_text('.accordion')
-      expect(page).to have_text('.alert-box')
-      expect(page).to have_text('.button')
-      expect(page).to have_text('code')
-      expect(page).to have_text('.f-dropdown')
-      expect(page).to have_text('form')
-      expect(page).to have_text('.fi-')
-      expect(page).to have_text('.label')
-      expect(page).to have_text('.logo')
-      expect(page).to have_text('.reveal-modal')
-      expect(page).to have_text('.side-nav')
-      expect(page).to have_text('.tabs')
-      expect(page).to have_text('.tabs-content')
-      expect(page).to have_text('table')
-      expect(page).to have_text('.top-bar')
-    end
-
-    it 'exposes SASS mixins' do
-      expect(page).to have_text('.top-bar-2x .title-area{height:10rem}')
-      expect(page).to have_text('.logo-2x object{width:512px;height:120px;pointer-events:none}')
-    end
+    it { is_expected.to have_text('.accordion') }
+    it { is_expected.to have_text('.alert-box') }
+    it { is_expected.to have_text('.button') }
+    it { is_expected.to have_text('code') }
+    it { is_expected.to have_text('.f-dropdown') }
+    it { is_expected.to have_text('form') }
+    it { is_expected.to have_text('.fi-') }
+    it { is_expected.to have_text('.label') }
+    it { is_expected.to have_text('.logo') }
+    it { is_expected.to have_text('.reveal-modal') }
+    it { is_expected.to have_text('.side-nav') }
+    it { is_expected.to have_text('.tabs') }
+    it { is_expected.to have_text('.tabs-content') }
+    it { is_expected.to have_text('table') }
+    it { is_expected.to have_text('.top-bar') }
+    it { is_expected.to have_text('.top-bar-2x .title-area{height:10rem}') }
+    it { is_expected.to have_text('.logo-2x object{width:512px;height:120px;pointer-events:none}') }
   end
 
   context 'when imported individually' do
 
-    before :each do
-      visit '/assets/top-bar.css'
-    end
+    before { visit '/assets/just-top-bar.css' }
 
-    it 'renders and exposes only the requested CSS component' do
-      expect(page).to have_text('.top-bar')
-      expect(page).to_not have_text('.accordion')
-    end
+    it { is_expected.to have_text('.top-bar') }
+    it { is_expected.to_not have_text('.accordion') }
   end
 
   it 'supports the inverse theme' do
     visit '/assets/all-inverse.css'
-    expect(page).to have_text('.top-bar.expanded .title-area{background:#3f5364}')
-    expect(page).to_not have_text('.top-bar.expanded .title-area{background:#ffffff}')
+
+    is_expected.to have_text('.top-bar.expanded .title-area{background:#3f5364}')
+    is_expected.to_not have_text('.top-bar.expanded .title-area{background:#ffffff}')
   end
 end
 
 describe 'the set of JavaScript assets', type: :feature do
-
-  it 'exposes the Chef.Web.Core object' do
-    visit '/assets/all.js'
-    expect(page).to have_text('Chef.Web.Core = {')
-  end
+  subject { page }
 
   context 'when required as a bundle' do
 
-    before :each do
-      visit '/assets/all.js'
-    end
+    before { visit '/assets/all.js' }
 
-    it 'exposes all components to the applicaton' do
-      expect(page).to have_text('Chef.Web.Core')
-    end
+    it { is_expected.to have_text('Chef.Web.Core.components.sideNav') }
+    it { is_expected.to have_text('Chef.Web.Core.components.topBar') }
   end
 
   context 'when required individually' do
 
-    before :each do
-      visit '/assets/top-bar.js'
-    end
+    before { visit '/assets/just-top-bar.js' }
 
-    it 'exposes only the requested asset to the application' do
-      pending 'support for individual JavaScript component import'
-      fail
-    end
+    it { is_expected.to_not have_text('Chef.Web.Core.components.sideNav') }
   end
 end
