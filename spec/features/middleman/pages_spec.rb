@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'middleman_helper'
 
 describe 'the home page', type: :feature do
   before :each do
