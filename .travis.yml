@@ -4,6 +4,15 @@ cache:
   directories:
   - $(rvm gemdir)
   - build
+env:
+  global:
+  - secure: "mncITsW85j+Fgpklt2hNsDz2U7Cw1EnmcxWpGxHwW9aDkhdvx6lOrWwplhGiMTo7/DDt35ho33Md59W6o4CRn8o1uIflOd9d22U1byulEn2IQuWMXC+/z+EWk6Qcsw/xa/t+iiklAcS14J2KXF8S9U9OZ+qPcAfL9bmVVxPJZKU="
+  - secure: "fhkSOztQOhF8DUXwG7oZK8QIk/UP3GCXxclMI9zUpLfwD+VGNVDz5/lHKh0Mg9GWlNTEAt71VNImI1FZQ37vhXTEUFpboz3qV+E2tOECPWrOSu4ZxgQ/F0mDru8UYePHudsG/wD4+F4DzZXsjGw4TiRoP5zw5QWa5Ghrdcoke+8="
+  - secure: "OkthPsaIdHaX+jb3c2HGASX27psg2GLA5ajFXMC/HGVgCq17pFlDNckq/5vXHIWcleIjOS0QB8TyQCTRjaoCjBM34neXktGXgQbiY7PjVPJW//BDYFoIQsbIg7YSteW5Ju+hsvab3oPbO4FkG5zSjUOUkyuYxRUooRNaHfTUb8Q="
+  - AWS_S3_BUCKET=style.chef.io
+  - AWS_DEFAULT_REGION=us-west-1
+  - SPEC_OPTS="--format doc"
 script:
 - bundle exec rake test
+- bundle exec rake publish
 sudo: false
