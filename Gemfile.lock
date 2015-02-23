@@ -335,6 +335,7 @@ DEPENDENCIES
   middleman-livereload
   middleman-s3_sync
   pry
+  rake
   rspec
   rspec-core
   rspec-its
