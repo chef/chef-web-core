@@ -12,6 +12,7 @@ gem 'middleman-s3_sync'
 gem 'middleman-livereload'
 gem 'sass', '~> 3.4.4'
 gem 'hologram'
+gem 'rake'
 
 group :development, :test do
   gem 'pry'
@@ -21,6 +22,7 @@ group :test do
   gem 'rspec-core'
   gem 'rspec'
   gem 'rspec-its'
+  gem 'rspec-rails'
   gem 'capybara'
   gem 'sass-rails', '~> 5.0.0'
   gem 'selenium-webdriver'

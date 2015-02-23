@@ -4,7 +4,6 @@
 .config
 .yardoc
 .sass-cache
-Gemfile.lock
 InstalledFiles
 _yardoc
 coverage
@@ -25,4 +24,5 @@ bower_components/
 node_modules/
 build/
 source/guide/
+spec/dummy/rails/Gemfile.lock
 spec/dummy/rails/log/*.log

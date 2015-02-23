@@ -59,7 +59,7 @@ that provides a working example you might like to refer to. You can run that loc
 This repo is also a Middleman app, so it can be used as a reference as well:
 
     bundle
-    bin/rake
+    bin/rake server
 
 ### Node.js
 
@@ -101,7 +101,7 @@ permissions, you should be able to:
     git clone git@github.com:chef/chef-web-core.git
     cd chef-web-core
     bundle
-    bin/rake
+    bin/rake server
 
 This starts a Middleman server at http://localhost:4567; open that address in your browser
 and look around. Review the Middleman and Hologram docs to see how they work. When you
@@ -113,6 +113,6 @@ a suggestion or a new feature &mdash; [use Github issues](issues).
 
 ## Running the Tests
 
-    bin/rake test
+    bin/rake
 
 See the `Rakefile` for additional options.
