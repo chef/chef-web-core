@@ -17,18 +17,13 @@ task :compile do
   end
 end
 
-task :server do
+task :view do
   sh 'MIDDLEMAN_SERVER=1 bundle exec middleman server'
 end
 
 task :build do
   sh 'bundle exec rake compile'
   sh 'bundle exec middleman build'
-end
-
-task :publish do
-  sh 'bundle exec rake build'
-  sh 'bundle exec middleman s3_sync'
 end
 
 namespace :test do
@@ -47,8 +42,23 @@ namespace :test do
   end
 end
 
+task :publish do  
+
+  if ENV['TRAVIS_BRANCH'] && ENV['TRAVIS_BRANCH'] != 'master'
+    warn "Not going to deploy: $TRAVIS_BRANCH is #{ENV['TRAVIS_BRANCH']}, should be master."
+    exit 0
+  elsif ENV['TRAVIS_PULL_REQUEST'] && ENV['TRAVIS_PULL_REQUEST'] != 'false'
+    warn "Not going to deploy: This is a pull request."
+    exit 0
+  end
+
+  sh 'bundle exec rake build'
+  sh 'bundle exec middleman s3_sync'
+end
+
 task test: 'test:all'
-task default: [:compile, :server]
+task server: [:compile, :view]
+task default: :test
 
 %w[INT TERM].each do |signal|
   Signal.trap(signal) do
