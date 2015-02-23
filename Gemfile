@@ -12,6 +12,7 @@ gem 'middleman-s3_sync'
 gem 'middleman-livereload'
 gem 'sass', '~> 3.4.4'
 gem 'hologram'
+gem 'rake'
 
 group :development, :test do
   gem 'pry'
