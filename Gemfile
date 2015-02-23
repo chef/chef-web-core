@@ -10,6 +10,7 @@ gem 'middleman', :github => 'middleman/middleman', :branch => 'v3-stable'
 gem 'middleman-core'
 gem 'middleman-s3_sync'
 gem 'middleman-livereload'
+gem 'rake'
 gem 'sass', '~> 3.4.4'
 gem 'hologram'
 
@@ -18,10 +19,11 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec-core'
-  gem 'rspec'
-  gem 'rspec-its'
   gem 'capybara'
+  gem 'rspec'
+  gem 'rspec-core'
+  gem 'rspec-its'
+  gem 'rspec-rails'
   gem 'sass-rails', '~> 5.0.0'
   gem 'selenium-webdriver'
 end

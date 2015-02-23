@@ -4,7 +4,6 @@
 .config
 .yardoc
 .sass-cache
-Gemfile.lock
 InstalledFiles
 _yardoc
 coverage
