@@ -1,0 +1,26 @@
+/*doc
+---
+title: Typography
+name: typography
+category: Typography
+---
+
+```html_example
+<div>
+  <h1>Heading 1</h1>
+  <h2>Heading 2</h2>
+  <h3>Heading 3</h3>
+  <h4>Heading 4</h4>
+  <h5>Heading 5</h5>
+  <h6>Heading 6</h6>
+  <p>Some paragraph text.</p>
+</div>
+``` 
+*/
+
+@import url(//fonts.googleapis.com/css?family=Montserrat:400);
+@import 'foundation/components/type';
+
+$chef-type-label:     Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$chef-type-code:      Consolas, Liberation Mono, Courier, monospace;
+$code-font-family:    $chef-type-code;

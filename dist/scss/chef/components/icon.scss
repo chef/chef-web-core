@@ -1,0 +1,21 @@
+/*doc
+---
+title: Icon
+name: icon
+category: Icon
+---
+
+We use [Foundation icons](http://zurb.com/playground/foundation-icon-fonts-3). Feel free to use anything you see there.
+
+```html_example
+<h3><i class="fi-like"></i></h3>
+```
+
+```html_example
+<button class="button secondary small"><i class="fi-upload-cloud"></i> Upload to the Cloud</button>
+<button class="button secondary small"><i class="fi-download"></i> Download to Earth</button>
+```
+*/
+
+@import '../settings';
+@import 'foundation/foundation-icons';
