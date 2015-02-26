@@ -26,6 +26,10 @@ task :build do
   sh 'bundle exec middleman build'
   sh 'npm run build'
   sh 'npm pack'
+
+  %w(dist chef-web-core-*.tgz).each do |item|
+    FileUtils.mv Dir.glob(item), 'build/', force: true
+  end 
 end
 
 namespace :test do
