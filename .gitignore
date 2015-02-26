@@ -20,9 +20,12 @@ tmp
 *.o
 *.a
 mkmf.log
+npm-debug.log
 bower_components/
 node_modules/
 build/
+dist/
+chef-web-core-*.tgz
 source/guide/
 spec/dummy/rails/Gemfile.lock
 spec/dummy/rails/log/*.log

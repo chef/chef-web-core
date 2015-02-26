@@ -24,6 +24,8 @@ end
 task :build do
   sh 'bundle exec rake compile'
   sh 'bundle exec middleman build'
+  sh 'npm run build'
+  sh 'npm pack'
 end
 
 namespace :test do

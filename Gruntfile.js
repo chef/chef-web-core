@@ -1,10 +1,6 @@
 module.exports = function(grunt) {
 
-  // Find out where Foundation 5 is installed
-  var foundationSource = require('shelljs')
-    .exec('bundle show foundation-rails', { async: false, silent: true })
-    .output
-    .replace('\n', '');
+  var foundationSource = './node_modules/zurb-foundation-5';
 
   grunt.initConfig({ 
 
@@ -48,6 +44,12 @@ module.exports = function(grunt) {
             cwd: 'vendor/assets/stylesheets',
             src: ['csstyle.scss', 'foundation/**'], 
             dest: 'dist/scss/vendor'
+          },
+          {
+            expand: true, 
+            cwd: foundationSource + '/scss',
+            src: ['foundation.scss', 'normalize.scss', 'foundation/**'], 
+            dest: 'dist/scss/vendor/foundation'
           }
         ],
       },
@@ -59,7 +61,7 @@ module.exports = function(grunt) {
         options: {
           include: [
             'lib/assets/javascripts',
-            foundationSource + '/vendor/assets/javascripts'
+            foundationSource + '/js/foundation'
           ]
         },
         files: [
@@ -94,7 +96,7 @@ module.exports = function(grunt) {
           style: 'expanded',
           loadPath: [
             './vendor/assets/stylesheets',
-            foundationSource + '/vendor/assets/stylesheets'
+            foundationSource + '/scss'
           ]
         },
         files: {
