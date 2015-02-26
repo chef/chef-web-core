@@ -1,6 +1,9 @@
 module.exports = function(grunt) {
 
-  var foundationSource = './node_modules/zurb-foundation-5';
+  var foundationSource = require('shelljs')
+    .exec('bundle show foundation-rails', { async: false, silent: true })
+    .output
+    .replace('\n', '');
 
   grunt.initConfig({ 
 
@@ -47,9 +50,9 @@ module.exports = function(grunt) {
           },
           {
             expand: true, 
-            cwd: foundationSource + '/scss',
+            cwd: foundationSource + '/vendor/assets/stylesheets',
             src: ['foundation.scss', 'normalize.scss', 'foundation/**'], 
-            dest: 'dist/scss/vendor/foundation'
+            dest: 'dist/scss/vendor'
           }
         ],
       },
@@ -61,7 +64,7 @@ module.exports = function(grunt) {
         options: {
           include: [
             'lib/assets/javascripts',
-            foundationSource + '/js/foundation'
+            foundationSource + '/vendor/assets/javascripts'
           ]
         },
         files: [
@@ -96,7 +99,7 @@ module.exports = function(grunt) {
           style: 'expanded',
           loadPath: [
             './vendor/assets/stylesheets',
-            foundationSource + '/scss'
+            foundationSource + '/vendor/assets/stylesheets'
           ]
         },
         files: {
