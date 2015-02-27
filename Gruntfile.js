@@ -97,6 +97,7 @@ module.exports = function(grunt) {
       dist: {                           
         options: {                      
           style: 'expanded',
+          sourcemap: 'none',
           loadPath: [
             './vendor/assets/stylesheets',
             foundationSource + '/vendor/assets/stylesheets'

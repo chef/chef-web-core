@@ -28,7 +28,7 @@ task :build do
   sh 'npm pack'
 
   %w(dist chef-web-core-*.tgz).each do |item|
-    FileUtils.mv Dir.glob(item), 'build/', force: true
+    FileUtils.cp_r Dir.glob(item), 'build/'
   end 
 end
 
