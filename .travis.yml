@@ -4,6 +4,7 @@ cache:
   directories:
   - $(rvm gemdir)
   - build
+  - node_modules
 env:
   global:
   # CloudFront distribution ID
@@ -15,6 +16,8 @@ env:
   - AWS_S3_BUCKET=style.chef.io
   - AWS_DEFAULT_REGION=us-west-1
   - SPEC_OPTS="--format doc"
+before_script:
+- npm install
 script:
 - bundle exec rake test
 - bundle exec rake publish

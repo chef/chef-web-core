@@ -24,6 +24,12 @@ end
 task :build do
   sh 'bundle exec rake compile'
   sh 'bundle exec middleman build'
+  sh 'npm run build'
+  sh 'npm pack'
+
+  %w(dist chef-web-core-*.tgz).each do |item|
+    FileUtils.cp_r Dir.glob(item), 'build/'
+  end 
 end
 
 namespace :test do
