@@ -5,6 +5,9 @@ module.exports = function(grunt) {
     .output
     .replace('\n', '');
 
+  var version = require('./package.json').version;
+  grunt.log.writeln('Building version ' + version + '...');
+
   grunt.initConfig({ 
 
     clean: {
@@ -22,7 +25,7 @@ module.exports = function(grunt) {
             expand: true, 
             cwd: 'lib/assets/stylesheets',
             src: ['chef.scss', 'chef*/**'], 
-            dest: 'dist/scss'
+            dest: distDir('scss')
           },
 
           // Copy in our images
@@ -30,7 +33,7 @@ module.exports = function(grunt) {
             expand: true, 
             cwd: 'lib/assets/images',
             src: ['*.png', '*.svg'], 
-            dest: 'dist/images'
+            dest: distDir('images')
           },
 
           // Copy in our fonts
@@ -38,7 +41,7 @@ module.exports = function(grunt) {
             expand: true, 
             cwd: 'lib/assets/fonts',
             src: ['*'], 
-            dest: 'dist/fonts'
+            dest: distDir('fonts')
           },
 
           // Copy in vendored stylesheets
@@ -46,13 +49,13 @@ module.exports = function(grunt) {
             expand: true, 
             cwd: 'vendor/assets/stylesheets',
             src: ['csstyle.scss', 'foundation/**'], 
-            dest: 'dist/scss/vendor'
+            dest: distDir('scss/vendor')
           },
           {
             expand: true, 
             cwd: foundationSource + '/vendor/assets/stylesheets',
             src: ['foundation.scss', 'normalize.scss', 'foundation/**'], 
-            dest: 'dist/scss/vendor'
+            dest: distDir('scss/vendor')
           }
         ],
       },
@@ -72,21 +75,21 @@ module.exports = function(grunt) {
           // One big JS with everything
           {
             src: 'lib/assets/javascripts/chef.js',
-            dest: 'dist/javascripts/chef.js'
+            dest: distDir('javascripts/chef.js')
           },
 
           // Individual JS components
           {
             src: 'lib/assets/javascripts/chef/components/top-bar.js',
-            dest: 'dist/javascripts/chef/components/top-bar.js'
+            dest: distDir('javascripts/chef/components/top-bar.js')
           },
           {
             src: 'lib/assets/javascripts/chef/components/side-nav.js',
-            dest: 'dist/javascripts/chef/components/side-nav.js'
+            dest: distDir('javascripts/chef/components/side-nav.js')
           },
           {
             src: 'lib/assets/javascripts/chef/components/logo.js',
-            dest: 'dist/javascripts/chef/components/logo.js'
+            dest: distDir('javascripts/chef/components/logo.js')
           }
         ]
       }
@@ -103,27 +106,7 @@ module.exports = function(grunt) {
             foundationSource + '/vendor/assets/stylesheets'
           ]
         },
-        files: {
-
-          // One big CSS file with everything
-          'dist/stylesheets/chef.css': './lib/assets/stylesheets/chef.scss',
-
-          // Individual CSS components
-          'dist/stylesheets/chef/components/accordion.css': './lib/assets/stylesheets/chef/components/accordion.scss',
-          'dist/stylesheets/chef/components/alert.css': './lib/assets/stylesheets/chef/components/alert.scss',
-          'dist/stylesheets/chef/components/button.css': './lib/assets/stylesheets/chef/components/button.scss',
-          'dist/stylesheets/chef/components/code.css': './lib/assets/stylesheets/chef/components/code.scss',
-          'dist/stylesheets/chef/components/dropdown.css': './lib/assets/stylesheets/chef/components/dropdown.scss',
-          'dist/stylesheets/chef/components/form.css': './lib/assets/stylesheets/chef/components/form.scss',
-          'dist/stylesheets/chef/components/icon.css': './lib/assets/stylesheets/chef/components/icon.scss',
-          'dist/stylesheets/chef/components/label.css': './lib/assets/stylesheets/chef/components/label.scss',
-          'dist/stylesheets/chef/components/logo.css': './lib/assets/stylesheets/chef/components/logo.scss',
-          'dist/stylesheets/chef/components/modal.css': './lib/assets/stylesheets/chef/components/modal.scss',
-          'dist/stylesheets/chef/components/side-nav.css': './lib/assets/stylesheets/chef/components/side-nav.scss',
-          'dist/stylesheets/chef/components/tab.css': './lib/assets/stylesheets/chef/components/tab.scss',
-          'dist/stylesheets/chef/components/table.css': './lib/assets/stylesheets/chef/components/table.scss',
-          'dist/stylesheets/chef/components/top-bar.css': './lib/assets/stylesheets/chef/components/top-bar.scss'
-        }
+        files: sassFiles()
       }
     },
 
@@ -142,6 +125,37 @@ module.exports = function(grunt) {
       }
     }
   });
+
+  function distDir(path) {
+    return ['dist', path].join('/');
+  }
+
+  function sassFiles() {
+    var files = {};
+
+    files[distDir('stylesheets/chef.css')] = './lib/assets/stylesheets/chef.scss';
+
+    [
+      'accordion',
+      'alert',
+      'button',
+      'code',
+      'dropdown',
+      'form',
+      'icon',
+      'label',
+      'logo',
+      'modal',
+      'side-nav',
+      'tab',
+      'table',
+      'top-bar'
+    ].forEach(function(o) {
+      files[distDir('stylesheets/chef/components/' + o + '.css')] = './lib/assets/stylesheets/chef/components/' + o + '.scss'
+    });
+
+    return files;
+  }
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');

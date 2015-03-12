@@ -24,12 +24,46 @@ end
 task :build do
   sh 'bundle exec rake compile'
   sh 'bundle exec middleman build'
-  sh 'npm run build'
-  sh 'npm pack'
+end
 
-  %w(dist chef-web-core-*.tgz).each do |item|
-    FileUtils.cp_r Dir.glob(item), 'build/'
-  end 
+namespace :version do
+  version = File.read('VERSION')
+
+  task :set do
+    package = JSON.parse(File.read('package.json'))
+    package['version'] = version
+    File.write('package.json', JSON.pretty_generate(package))
+  end
+
+  task :bump, :level do |t, args|
+    require 'git'
+
+    level = args[:level]
+
+    unless level && %(major minor patch).include?(level)
+      warn 'Please specify major, minor or patch (e.g., "rake bump[patch]").'
+      exit 1
+    end
+
+    g = Git.open('.')
+
+    if g.status.changed.count > 0
+      warn 'The Git working directory has local modifications. Please commit your work before running this task.'
+      exit 1
+    end
+
+    if g.current_branch != 'master'
+      warn 'Please switch to the master branch before running this task.'
+      exit 1
+    end
+
+    sh 'bundle exec rake test'
+    sh "bundle exec bump #{level} --no-commit"
+
+    g.add(['Gemfile.lock', 'VERSION', 'package.json'])
+    g.commit("Bump to version #{version}")
+    g.add_tag(version)
+  end
 end
 
 namespace :test do
@@ -48,7 +82,7 @@ namespace :test do
   end
 end
 
-task :publish do  
+task :publish do
 
   if ENV['TRAVIS_BRANCH'] && ENV['TRAVIS_BRANCH'] != 'master'
     warn "Not going to deploy: $TRAVIS_BRANCH is #{ENV['TRAVIS_BRANCH']}, should be master."
@@ -59,6 +93,12 @@ task :publish do
   end
 
   sh 'bundle exec rake build'
+
+  if ENV['TRAVIS_TAG']
+    sh 'npm run build'
+    sh 'npm pack'
+  end
+
   sh 'bundle exec middleman s3_sync'
 end
 

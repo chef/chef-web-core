@@ -1,7 +1,7 @@
 class Chef
   module Web
     module Core
-      VERSION = "0.0.1"
+      VERSION = File.read(File.expand_path('../../../../VERSION', File.dirname(__FILE__)))
     end
   end
 end
