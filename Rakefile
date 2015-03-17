@@ -93,13 +93,12 @@ task :publish do
   end
 
   sh 'bundle exec rake build'
+  sh 'bundle exec middleman s3_sync'
 
   if ENV['TRAVIS_TAG']
     sh 'npm run build'
     sh 'npm pack'
   end
-
-  sh 'bundle exec middleman s3_sync'
 end
 
 task test: 'test:all'
