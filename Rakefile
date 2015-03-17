@@ -42,19 +42,19 @@ namespace :version do
 
     unless level && %(major minor patch).include?(level)
       warn 'Please specify major, minor or patch (e.g., "rake bump[patch]").'
-      exit 1
+      exit 0
     end
 
     g = Git.open('.')
 
     if g.status.changed.count > 0
       warn 'The Git working directory has local modifications. Please commit your work before running this task.'
-      exit 1
+      exit 0
     end
 
     if g.current_branch != 'master'
       warn 'Please switch to the master branch before running this task.'
-      exit 1
+      exit 0
     end
 
     sh 'bundle exec rake test'
