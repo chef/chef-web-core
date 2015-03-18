@@ -68,7 +68,7 @@ configure :development do
     end
 
     files.changed /^hologram|^lib|^source\/layouts\/hologram/ do |file|
-      system 'bundle exec rake compile'
+      system 'bundle exec rake compile:hologram'
     end
 
     delayed.kill
