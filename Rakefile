@@ -3,6 +3,7 @@ require 'fileutils'
 require 'bundler'
 require 'bundler/gem_tasks'
 require 'rspec/core/rake_task'
+require 'tasks/helpers/version'
 
 Bundler.require
 
@@ -30,57 +31,20 @@ task :view do
 end
 
 namespace :version do
-  
-  def version
-    File.read('VERSION')
-  end
 
   desc 'Apply the version number in VERSION to package.json'
   task :apply do
-    sh 'bundle install --quiet'
-    package = JSON.parse(File.read('package.json'))
-    package['version'] = version
-    File.write('package.json', JSON.pretty_generate(package))
-    puts  "Applied version #{version}."
+    Version.apply!
   end
 
   desc 'Increment the version number in VERSION according to Semver'
-  task :bump, :level do |t, args|
-    require 'git'
-
-    level = args[:level]
-
-    unless level && %(major minor patch).include?(level)
-      warn 'Please specify major, minor or patch (e.g., "rake bump[patch]").'
-      exit 0
-    end
-
-    g = Git.open('.')
-
-    if g.status.changed.count > 0
-      warn 'The Git working directory has local modifications. Please commit your work before running this task.'
-      exit 0
-    end
-
-    if g.current_branch != 'master'
-      warn 'Please switch to the master branch before running this task.'
-      exit 0
-    end
-
-    Rake::Task['test'].execute
-    sh "bundle exec bump #{level} --no-commit"
-
-    Rake::Task['version:apply'].execute
-
-    g.add(['Gemfile.lock', 'VERSION', 'package.json'])
-    g.commit("Bump to version #{version}")
-    g.add_tag(version)
-    puts "Committed and tagged version #{version}."
+  task :bump, [:level] do |t, args|
+    Version.bump!(args[:level])
   end
 end
 
 namespace :test do
-  task all: [:compile, :lib, :middleman, :rails]
+  task all: [:compile, :lib, :middleman, :rails, :tasks]
 
   desc 'Run only the tests in spec/lib'
   task :lib do
@@ -95,6 +59,11 @@ namespace :test do
   desc 'Run only the tests in spec/features/rails'
   task :rails do
     sh 'bundle exec rspec spec/features/rails'
+  end
+
+  desc 'Run only the tests in spec/tasks'
+  task :tasks do
+    sh 'bundle exec rspec spec/tasks'
   end
 end
 

@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Shared resources for Chef web properties}
   spec.homepage      = 'https://github.com/chef/chef-web-core'
 
-  spec.files         = Dir['{lib,vendor}/**/*', 'VERSION', 'LICENSE']
+  spec.files         = Dir['{lib/assets,lib/chef,lib/oc,vendor}/**/*', 'VERSION', 'LICENSE']
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']

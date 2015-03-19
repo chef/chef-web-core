@@ -2,6 +2,7 @@ class Chef
   module Web
     module Core
       module URLHelpers
+        
         def chef_domain
           ENV['CHEF_DOMAIN'] || 'chef.io'
         end
