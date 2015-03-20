@@ -84,7 +84,8 @@ class Chef
           if extra.nil?
             url
           else
-            "#{url}/#{extra}"
+            sanitized = "/#{extra}".gsub(%r{\/\/}, '/')
+            "#{url}#{sanitized}"
           end
         end
       end
