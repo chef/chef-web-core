@@ -13,6 +13,8 @@ RSpec.configure do |config|
 
     FileUtils.mkdir_p(temp_dir)
     g = Git.init(temp_dir)
+    g.config('user.name', 'Someone Awesome')
+    g.config('user.email', 'someone@example.com')
 
     %w(lib VERSION Gemfile Gemfile.lock package.json chef-web-core.gemspec).each do |f|
       FileUtils.cp_r(f, temp_dir)
