@@ -3,7 +3,7 @@ require 'fileutils'
 require 'bundler'
 require 'bundler/gem_tasks'
 require 'rspec/core/rake_task'
-require 'tasks/helpers/version'
+require 'version'
 
 Bundler.require
 
@@ -39,6 +39,7 @@ namespace :version do
 
   desc 'Increment the version number in VERSION according to Semver'
   task :bump, [:level] do |t, args|
+    Rake::Task['test'].execute
     Version.bump!(args[:level])
   end
 end
