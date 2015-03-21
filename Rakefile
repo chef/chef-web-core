@@ -79,7 +79,7 @@ task :publish do
     exit 0
   end
 
-  Rake::Task['compile:site'].execute
+  Rake::Task['compile'].execute
   sh 'bundle exec middleman s3_sync'
 
   if ENV['TRAVIS_TAG']
