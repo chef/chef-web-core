@@ -1,6 +1,6 @@
 {
   "name": "chef-web-core",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Assets comprising the Chef Style Guide.",
   "homepage": "https://style.chef.io",
   "repository": {
@@ -10,8 +10,12 @@
   "bugs": {
     "url": "https://github.com/chef/chef-web-core/issues"
   },
-  "keywords": [],
-  "licenses": [],
+  "keywords": [
+
+  ],
+  "licenses": [
+
+  ],
   "files": [
     "dist",
     "LICENSE"
@@ -20,7 +24,8 @@
     "build": "node -e \"require('grunt').tasks(['build']);\"",
     "watch-build": "node -e \"require('grunt').tasks(['watch-build']);\""
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",

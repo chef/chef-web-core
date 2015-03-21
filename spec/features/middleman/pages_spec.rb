@@ -19,12 +19,19 @@ describe 'the home page', type: :feature do
 end
 
 describe 'the getting-started page', type: :feature do
+
+  let(:current_version) { File.read('VERSION') }
+
   before :each do
     visit '/getting-started'
   end
 
   it 'exists' do
     expect(page).to have_content 'Getting Started'
+  end
+
+  it 'has a link to download the current version' do
+    expect(page).to have_link "Chef Style #{current_version}"
   end
 end
 

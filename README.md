@@ -12,15 +12,19 @@ for Chef web properties, all bundled into a living style guide published at
 
 If you're running in a Ruby environment with Bundler and [Sprockets](https://github.com/sstephenson/sprockets) 
 (e.g., [Middleman](https://middlemanapp.com/), [Rails](http://rubyonrails.org/)), add 
-the following line to your `Gemfile` (the repo is currently private, so you'll need 
-permissions to read it):
+the following line to your `Gemfile` to install from the `master` branch. (The repo is 
+currently private, so you'll need permissions to read it):
 
     gem 'chef-web-core', git: 'git@github.com:chef/chef-web-core'
 
+To install a particular version, specify it by tag:
+
+    gem 'chef-web-core', git: 'git@github.com:chef/chef-web-core', tag: 0.0.1    
+
 Then `bundle` to install. Once you've done that, you'll be able to include and use 
-the Sass and JavaScript components [detailed in the style guide](https://style.chef.io/guide). 
-For example, to include all of our CSS components in your app, add the following line to your 
-main `.scss` file:
+the Sass and JavaScript components [detailed in the style guide](https://style.chef.io/guide)
+in your app. For example, to include all of our CSS components, add the following 
+line to your main `.scss` file:
 
     @import 'chef';
 
@@ -65,28 +69,33 @@ This repo is also a Middleman app, so it can be used as a reference as well:
 
 ### Node.js
 
-We're still working on first-class support for Node, but for now, you should be able to add 
-a Git reference to your `package.json`:
+We deploy our builds to Github Releases, so you can install our Node.js package directly from 
+there. Just specify the version you'd like to install in your `package.json`:
 
     {
       ...
       "dependencies": {
-        "chef-web-core": "git+ssh://git@github.com/chef/chef-web-core.git"
+        "chef-web-core": "https://github.com/chef/chef-web-core/releases/download/0.0.1/chef-web-core-0.0.1.tgz"
       }
       ...
     }
 
-... and then `npm install` to pull the Sass and JavaScript assets into your app. 
+... and then `npm install`. That'll get you a module with a `dist` directory containing all 
+of the fonts, images, Sass and compiled JavaScript &amp; CSS comprising the guide for 
+use in your app.
 
-## Updating
+### CDN
 
-To get the latest updates, either:
-
-    bundle update chef-web-core
-
-or 
-
-    npm update chef-web-core
+If neither of these options works for you, you can always just load the assets over the network, 
+via Cloudfront:
+    
+    <!DOCTYPE html>
+    <html>
+      <head>
+        ...
+        <link rel="stylesheet" href="//style.chef.io/dist/0.0.1/stylesheets/chef.css">
+        <script src="//style.chef.io/dist/0.0.1/javascripts/chef.js">
+        ...
 
 ## Contributing
 
@@ -112,6 +121,24 @@ reviewed, incorporated and published!
 
 If you'd like to contribute something other than code &mdash; feedback, a bug report or 
 a suggestion or a new feature &mdash; [use Github issues](issues).
+
+## Releasing
+
+We use Rake to tag our releases, which we deploy automatically with Travis to S3 and Github. 
+When you're ready to tag a release, first determine whether it constitutes a `major`, `minor` or 
+`patch` revision, then with a clean working tree, on the `master` branch, run the Rake task 
+accordingly:
+
+    bin/rake version:bump[patch]
+
+This'll update the appropriate files, commit and tag the release for you, but it won't push it 
+to Github. You can do that yourself when you're ready:
+
+    git push origin --tags 
+
+When the tests pass, Travis will run the `publish` task, which will deploy the style-guide site to 
+[style.chef.io](https://style.chef.io), compiled assets to style.chef.io/dist, and a gzipped 
+archive to Github Releases.
 
 ## Running the Tests
 

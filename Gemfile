@@ -15,6 +15,8 @@ gem 'hologram'
 gem 'rake'
 
 group :development, :test do
+  gem 'bump'
+  gem 'git'
   gem 'pry'
 end
 

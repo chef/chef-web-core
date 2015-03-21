@@ -8,11 +8,11 @@ cache:
 env:
   global:
   # CloudFront distribution ID
-  - secure: "mncITsW85j+Fgpklt2hNsDz2U7Cw1EnmcxWpGxHwW9aDkhdvx6lOrWwplhGiMTo7/DDt35ho33Md59W6o4CRn8o1uIflOd9d22U1byulEn2IQuWMXC+/z+EWk6Qcsw/xa/t+iiklAcS14J2KXF8S9U9OZ+qPcAfL9bmVVxPJZKU="
+  - secure: mncITsW85j+Fgpklt2hNsDz2U7Cw1EnmcxWpGxHwW9aDkhdvx6lOrWwplhGiMTo7/DDt35ho33Md59W6o4CRn8o1uIflOd9d22U1byulEn2IQuWMXC+/z+EWk6Qcsw/xa/t+iiklAcS14J2KXF8S9U9OZ+qPcAfL9bmVVxPJZKU=
   # AWS access key ID
-  - secure: "fhkSOztQOhF8DUXwG7oZK8QIk/UP3GCXxclMI9zUpLfwD+VGNVDz5/lHKh0Mg9GWlNTEAt71VNImI1FZQ37vhXTEUFpboz3qV+E2tOECPWrOSu4ZxgQ/F0mDru8UYePHudsG/wD4+F4DzZXsjGw4TiRoP5zw5QWa5Ghrdcoke+8="
+  - secure: fhkSOztQOhF8DUXwG7oZK8QIk/UP3GCXxclMI9zUpLfwD+VGNVDz5/lHKh0Mg9GWlNTEAt71VNImI1FZQ37vhXTEUFpboz3qV+E2tOECPWrOSu4ZxgQ/F0mDru8UYePHudsG/wD4+F4DzZXsjGw4TiRoP5zw5QWa5Ghrdcoke+8=
   # AWS secret access key
-  - secure: "OkthPsaIdHaX+jb3c2HGASX27psg2GLA5ajFXMC/HGVgCq17pFlDNckq/5vXHIWcleIjOS0QB8TyQCTRjaoCjBM34neXktGXgQbiY7PjVPJW//BDYFoIQsbIg7YSteW5Ju+hsvab3oPbO4FkG5zSjUOUkyuYxRUooRNaHfTUb8Q="
+  - secure: OkthPsaIdHaX+jb3c2HGASX27psg2GLA5ajFXMC/HGVgCq17pFlDNckq/5vXHIWcleIjOS0QB8TyQCTRjaoCjBM34neXktGXgQbiY7PjVPJW//BDYFoIQsbIg7YSteW5Ju+hsvab3oPbO4FkG5zSjUOUkyuYxRUooRNaHfTUb8Q=
   - AWS_S3_BUCKET=style.chef.io
   - AWS_DEFAULT_REGION=us-west-1
   - SPEC_OPTS="--format doc"
@@ -22,3 +22,25 @@ script:
 - bundle exec rake test
 - bundle exec rake publish
 sudo: false
+deploy:
+  - provider: releases
+    api_key:
+      secure: clPBc49dzkQXimhIx4AmMJlVv1km8iEAGvIt3A128N9UT/KQAEx/J45eI/7+vl3SjCBE8goUJQbgwAA+8UX7GRnhy7/EgcnCWRs+D0X4MiOmDz4QRs/lk7DkfeFttj1JzNELbgqhGPxR31Nq/hXMhITQfHJQwgVk4dCAAjzObS4=
+    file_glob: true 
+    file: 
+    - chef-web-core-*.tgz
+    skip_cleanup: true
+    on:
+      tags: true
+      repo: chef/chef-web-core
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: $AWS_S3_BUCKET
+    local-dir: dist
+    upload-dir: dist/$TRAVIS_TAG
+    acl: public_read
+    skip_cleanup: true
+    on:
+      tags: true
+      repo: cnunciato/test

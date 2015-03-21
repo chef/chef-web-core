@@ -13,8 +13,16 @@ helpers do
     '/guide/accordion'
   end
 
+  def current_version
+    Chef::Web::Core::VERSION
+  end
+
   def repo_url
     'https://github.com/chef/chef-web-core'
+  end
+
+  def download_url
+    "#{repo_url}/releases/download/#{current_version}/chef-web-core-#{current_version}.tgz"
   end
 end
 
@@ -37,6 +45,12 @@ unless test?
   activate :s3_sync do |s3_sync|
     s3_sync.bucket = ENV['AWS_S3_BUCKET'] || 'chef-web-core'
     s3_sync.region = ENV['AWS_DEFAULT_REGION'] || 'us-west-1'
+
+    # Don't delete things that are remote but not local, because
+    # CI-built resources will be exactly that. We should leave this 
+    # setting in place until we have a reliable way to tell s3_sync 
+    # to ignore remote resources by pattern. 
+    s3_sync.delete = false
   end 
 end
 
@@ -54,7 +68,7 @@ configure :development do
     end
 
     files.changed /^hologram|^lib|^source\/layouts\/hologram/ do |file|
-      system 'bundle exec rake compile'
+      system 'bundle exec rake compile:hologram'
     end
 
     delayed.kill
