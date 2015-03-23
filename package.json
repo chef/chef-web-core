@@ -1,6 +1,6 @@
 {
   "name": "chef-web-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Assets comprising the Chef Style Guide.",
   "homepage": "https://style.chef.io",
   "repository": {
