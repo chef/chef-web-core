@@ -1,6 +1,6 @@
 # Chef Web Core
 
-[![Build Status](https://magnum.travis-ci.com/chef/chef-web-core.svg?token=nLJzarE6qzx4H4HiqzJu&branch=master)](https://magnum.travis-ci.com/chef/chef-web-core)
+[![Build Status](https://travis-ci.org/chef/chef-web-core.svg)](https://travis-ci.org/chef/chef-web-core)
 
 A shared set of CSS ([Sass](http://sass-lang.com)), JavaScript and Ruby resources 
 for Chef web properties, all bundled into a living style guide published at 
