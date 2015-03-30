@@ -25,7 +25,7 @@ sudo: false
 deploy:
   - provider: releases
     api_key:
-      secure: clPBc49dzkQXimhIx4AmMJlVv1km8iEAGvIt3A128N9UT/KQAEx/J45eI/7+vl3SjCBE8goUJQbgwAA+8UX7GRnhy7/EgcnCWRs+D0X4MiOmDz4QRs/lk7DkfeFttj1JzNELbgqhGPxR31Nq/hXMhITQfHJQwgVk4dCAAjzObS4=
+      secure: "ZLJrqlUdxePqDGFY3VFh3vVD7y4hqePT1QmbWLFHMIlcqsvqK7ntqhMFunm5l42YDN6ufuzOqJGSTGbdPmEFo7v/Ij5hmHrAy/ja/jUjSfBillp0QzTBfi19+c+cnKwOqdLMdSSynow06tvQvCoT1RLl2AOgTCwHZNOCZ+OgwtE="
     file_glob: true
     file:
     - chef-web-core-*.tgz
@@ -43,4 +43,4 @@ deploy:
     skip_cleanup: true
     on:
       tags: true
-      repo: cnunciato/test
+      repo: chef/chef-web-core
