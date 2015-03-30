@@ -12,14 +12,13 @@ for Chef web properties, all bundled into a living style guide published at
 
 If you're running in a Ruby environment with Bundler and [Sprockets](https://github.com/sstephenson/sprockets) 
 (e.g., [Middleman](https://middlemanapp.com/), [Rails](http://rubyonrails.org/)), add 
-the following line to your `Gemfile` to install from the `master` branch. (The repo is 
-currently private, so you'll need permissions to read it):
+the following line to your `Gemfile` to install from the `master` branch:
 
-    gem 'chef-web-core', git: 'git@github.com:chef/chef-web-core'
+    gem "chef-web-core", :git => "https://github.com:chef/chef-web-core"
 
 To install a particular version, specify it by tag:
 
-    gem 'chef-web-core', git: 'git@github.com:chef/chef-web-core', tag: 0.0.1    
+    gem "chef-web-core", :git => "https://github.com:chef/chef-web-core", :tag => "0.0.1"
 
 Then `bundle` to install. Once you've done that, you'll be able to include and use 
 the Sass and JavaScript components [detailed in the style guide](https://style.chef.io/guide)
