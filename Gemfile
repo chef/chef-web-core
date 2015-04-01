@@ -8,6 +8,7 @@ gemspec name: 'chef-web-core'
 gem 'middleman', :github => 'middleman/middleman', :branch => 'v3-stable'
 
 gem 'middleman-core'
+gem 'middleman-cloudfront'
 gem 'middleman-s3_sync'
 gem 'middleman-livereload'
 gem 'sass', '~> 3.4.4'

@@ -200,6 +200,9 @@ GEM
       rb-inotify (>= 0.9)
     map (6.5.5)
     method_source (0.8.2)
+    middleman-cloudfront (0.1.1)
+      fog (~> 1.9)
+      middleman-core (~> 3.0)
     middleman-livereload (3.4.2)
       em-websocket (~> 0.5.1)
       middleman-core (>= 3.3)
@@ -335,6 +338,7 @@ DEPENDENCIES
   git
   hologram
   middleman!
+  middleman-cloudfront
   middleman-core
   middleman-livereload
   middleman-s3_sync

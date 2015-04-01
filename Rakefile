@@ -81,6 +81,7 @@ task :publish do
 
   Rake::Task['compile'].execute
   sh 'bundle exec middleman s3_sync'
+  sh 'bundle exec middleman invalidate'
 
   if ENV['TRAVIS_TAG']
     sh 'npm run build'
