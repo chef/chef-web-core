@@ -10,9 +10,9 @@ env:
   # CloudFront distribution ID
   - secure: "e8zwPodD6BYKTxtf/lr/91U1Mfcos1cfrkfx9dtcmdi8+7vpuPAXrS6v/NORS+JgHeI63W1OjkfDjykcng3e2WWLb5i/+pZe5VITXI88CrNoiXND90YuvI2Ll0kspfJPe6H1TQu15RJAbeW9Aa6KFeL9JD4m9+W7r71uN60UsHM="
   # AWS access key ID
-  - secure: "BoEZqOpxDMmu3AcW3OZMxBzM6K4DOkdx1ig7VXIjRB6ffrKoXMdGpDMDyTc9IGy7bUfpWeQcuHjToDsd7K9mE6vF5v5HMkBlsUIUlE+V+cMzZt5w917+Rb6Md+Qq0VLr+ibNR59eDhA4774beMqeERPVTZEgHAFhkLMOlKWLrL4="
+  - secure: "bhZuu2HEUFPslesJUlgRUUr+RLyKBXmPUJaR/pZW4WHhjpY0KgV/nSWDXZ6JW5U7/zKRkdghQ8n4Cx28pgS24vLhRLvA0jWuLyrkQ3q5LK5KNOa5pLIgua4Cn6WLOQpDFUTw1bPV5Yq9AXrHknRxOSHR6OKx/P3zFKPYNyIHqOU="
   # AWS secret access key
-  - secure: "L3Owj6zOxnGNwdoyWcNGOxkSXDf27U7A7t3Qwe5NwppcuWY2bpzzffMkLIhM/HOhRT9tBiBdEYmkWwZTjIGp6O1+AOfVFxCfjQbjfkam3mdcDsR0UouIkh4R+5PFl2XwG9Gdeuib0QPVwf8jJ6eHyG26TyBceLHqoAAfl5OoWBo="
+  - secure: "N/WMRhHh3J5QQ2VbblhBNojcEJIL9YDMlLK5g86oDvnr2g9cvJFUiISL3dhvbHBho8zeepLky8ukmzMzvVZl7mYMNYbo0UYKMxyQCjpxYZfzVUa/OdQ2rHgbF2UgyTNuDSdcRC8bUcrqlgnS910RKIErsh43DVJMxiEeQgb7L2g="
   - AWS_S3_BUCKET=style.chef.io
   - AWS_DEFAULT_REGION=us-west-1
   - SPEC_OPTS="--format doc"
