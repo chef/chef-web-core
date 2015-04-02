@@ -8,7 +8,7 @@ cache:
 env:
   global:
   # CloudFront distribution ID
-  - secure: "e8zwPodD6BYKTxtf/lr/91U1Mfcos1cfrkfx9dtcmdi8+7vpuPAXrS6v/NORS+JgHeI63W1OjkfDjykcng3e2WWLb5i/+pZe5VITXI88CrNoiXND90YuvI2Ll0kspfJPe6H1TQu15RJAbeW9Aa6KFeL9JD4m9+W7r71uN60UsHM="
+  - secure: "hbOnJbFFOUCkaR7kxgCX8Z2ExmJZNLSLlEv7sOlNCLoBTgH1EwULG4gjX+5rTLgELcbqIPEy+ZUBV6oZSF4k3we5W2xmb7a0x09WY4MbN38Ovv1VmYQIuDRZlFm8aKqXoUzJaOeUE+E5BDs1J4X03xOZcyQq4nrCk5xKuFriqVg="
   # AWS access key ID
   - secure: "bhZuu2HEUFPslesJUlgRUUr+RLyKBXmPUJaR/pZW4WHhjpY0KgV/nSWDXZ6JW5U7/zKRkdghQ8n4Cx28pgS24vLhRLvA0jWuLyrkQ3q5LK5KNOa5pLIgua4Cn6WLOQpDFUTw1bPV5Yq9AXrHknRxOSHR6OKx/P3zFKPYNyIHqOU="
   # AWS secret access key
