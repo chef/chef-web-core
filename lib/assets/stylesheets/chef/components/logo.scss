@@ -5,22 +5,34 @@ name: logo
 category: Logo
 ---
 
-Logos are delivered as configurable SVG graphics with PNG fallbacks for older browsers.
+Logos are delivered as SVG graphics with PNG fallbacks for older browsers.
 
 The paths to the files may vary depending on the platform you're using. For
-example, on Ruby platform's you'll want to use an `image_tag` helper to properly
-have your system resolve the correct asset path.
+example, on Ruby platform's you'll want to use an `image_tag` or `image_path`
+helper to properly have your system resolve the correct asset path.
 
+The subtitle text can be changed by downloading the example and editing in an
+SVG editor. It uses the Gotham font. If you're a Chef employee, the font is
+available on Google Drive.
 
 ```html_example
 <div class="panel swatch">
-  <img class="logo vertical" src="/assets/images/logo-vertical.svg" onerror="this.src='/assets/images/logo-vertical.png'" title="Vertical Form" />
+  <!-- vertical form, dark text -->
+  <a class="logo vertical" href="#">
+    <img src="/assets/images/logo-vert-dark.svg" onerror="this.src='/assets/images/logo-vert-dark.png'" />
+  </a>
 </div>
 <div class="panel swatch">
-  <img class="logo" src="/assets/images/chef-logo.svg" onerror="this.src='/assets/images/chef-logo.png'" />
+  <!-- horizontal form, dark text, example subtitle -->
+  <a class="logo horizontal" href="#">
+    <img src="/assets/images/logo-horiz-dark-example.svg" onerror="this.src='/assets/images/logo-horiz-dark-example.png'" />
+  </a>
 </div>
 <div class="panel swatch dark-blue">
-  <img class="logo inverse" src="/assets/images/logo.svg" onerror="this.src='/assets/images/logo.png'" title="Against a Dark Color" />
+  <!-- horizontal form, light text, example subtitle -->
+  <a class="logo horizontal" href="#">
+    <img src="/assets/images/logo-horiz-light-example.svg" onerror="this.src='/assets/images/logo-horiz-light-example.png'" />
+  </a>
 </div>
 ```
 
