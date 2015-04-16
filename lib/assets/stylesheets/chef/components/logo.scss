@@ -7,17 +7,23 @@ category: Logo
 
 Logos are delivered as configurable SVG graphics with PNG fallbacks for older browsers.
 
+The paths to the files may vary depending on the platform you're using. For
+example, on Ruby platform's you'll want to use an `image_tag` helper to properly
+have your system resolve the correct asset path.
+
+
 ```html_example
 <div class="panel swatch">
-  <div class="logo default" data-tag-line="Against a Light Color"></div>
-</div>
-<div class="panel swatch dark-blue">
-  <a href="/" class="logo inverse" data-tag-line="Against a Dark Color"></a>
+  <img class="logo vertical" src="/assets/images/logo-vertical.svg" onerror="this.src='/assets/images/logo-vertical.png'" title="Vertical Form" />
 </div>
 <div class="panel swatch">
-  <div class="logo default"></div><!-- sans tag line -->
+  <img class="logo" src="/assets/images/chef-logo.svg" onerror="this.src='/assets/images/chef-logo.png'" />
+</div>
+<div class="panel swatch dark-blue">
+  <img class="logo inverse" src="/assets/images/logo.svg" onerror="this.src='/assets/images/logo.png'" title="Against a Dark Color" />
 </div>
 ```
+
 #### Source Files
 
 Logo source files are available as well (in Adobe Illustrator format):
@@ -32,15 +38,19 @@ Logo source files are available as well (in Adobe Illustrator format):
 
 $logo-width: 256px;
 $logo-height: 60px;
+$logo-vertical-height: 80px;
+$logo-vertical-width: 81px;
 
 @mixin logo($scale: 1) {
-  object {
-    width: $logo-width * $scale;
-    height: $logo-height * $scale;
-    pointer-events: none;    
-  }
+  width: $logo-width * $scale;
+  height: $logo-height * $scale;
 }
 
 .logo {
   @include logo;
+
+  &.vertical {
+    height: $logo-vertical-height;
+    width: $logo-vertical-width;
+  }
 }
