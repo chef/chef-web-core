@@ -30,7 +30,7 @@ GIT
 PATH
   remote: .
   specs:
-    chef-web-core (0.1.5)
+    chef-web-core (0.1.6)
       foundation-rails (= 5.5.1.0)
 
 GEM
