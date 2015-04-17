@@ -73,20 +73,23 @@ task :publish do
 
   if ENV['TRAVIS_BRANCH'] && ENV['TRAVIS_BRANCH'] != 'master'
     warn "Not going to deploy: $TRAVIS_BRANCH is #{ENV['TRAVIS_BRANCH']}, should be master."
-    exit 0
+    exit 0 unless ENV['TRAVIS_TAG']
   elsif ENV['TRAVIS_PULL_REQUEST'] && ENV['TRAVIS_PULL_REQUEST'] != 'false'
     warn "Not going to deploy: This is a pull request."
     exit 0
   end
 
   Rake::Task['compile'].execute
-  sh 'bundle exec middleman s3_sync'
-  sh 'bundle exec middleman invalidate'
 
   if ENV['TRAVIS_TAG']
+    warn "Tag detected. Continuing with artifact package building."
     sh 'npm run build'
     sh 'npm pack'
+    exit 0
   end
+
+  sh 'bundle exec middleman s3_sync'
+  sh 'bundle exec middleman invalidate'
 end
 
 desc 'Run all tests'
