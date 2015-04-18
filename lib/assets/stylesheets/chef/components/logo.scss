@@ -5,42 +5,82 @@ name: logo
 category: Logo
 ---
 
-Logos are delivered as configurable SVG graphics with PNG fallbacks for older browsers.
+Logos are delivered as SVG graphics with PNG fallbacks for older browsers.
+
+The paths to the files may vary depending on the platform you're using. For
+example, on Ruby platform's you'll want to use an `image_tag` or `image_path`
+helper to properly have your system resolve the correct asset path.
+
+## Subtitles
+
+The subtitle text can be changed by downloading the example and editing in an
+SVG editor. It uses the Gotham font. If you're a Chef employee, the font is
+available on Google Drive.
+
+## Horizontal and Vertical Forms
+
+In most cases you'll want to use the `logo vertical` form, while some
+applications may have the `logo horizontal` form with subtitle text in the
+image.
+
+## File Names
+
+The file names correspond with the type of logo:
+
+    logo-$ORIENTATION-$TEXT_COLOR-$TAG_LINE.svg
+
+So, "logo-vert-dark.svg" is the vertical, dark logo, and
+"logo-horiz-light-example.svg" is the horizontal logo, with light text, and
+"example" as the subtitle.
+
+## PNG Fallback
+
+The `onerror` handlers in the image tags make it so that if the browser is not
+capable of loading SVG, it will set the source attribute of the image to the PNG
+version.
 
 ```html_example
 <div class="panel swatch">
-  <div class="logo default" data-tag-line="Against a Light Color"></div>
-</div>
-<div class="panel swatch dark-blue">
-  <a href="/" class="logo inverse" data-tag-line="Against a Dark Color"></a>
+  <!-- vertical form, dark text -->
+  <a href="#">
+    <img class="logo vertical" src="/assets/images/logo-vert-dark.svg" onerror="this.src='/assets/images/logo-vert-dark.png'" />
+  </a>
 </div>
 <div class="panel swatch">
-  <div class="logo default"></div><!-- sans tag line -->
+  <!-- horizontal form, dark text, example subtitle -->
+  <a href="#">
+    <img class="logo horizontal" src="/assets/images/logo-horiz-dark-example.svg" onerror="this.src='/assets/images/logo-horiz-dark-example.png'" />
+  </a>
+</div>
+<div class="panel swatch dark-blue">
+  <!-- horizontal form, light text, example subtitle -->
+  <a href="#">
+    <img class="logo horizontal" src="/assets/images/logo-horiz-light-example.svg" onerror="this.src='/assets/images/logo-horiz-light-example.png'" />
+  </a>
 </div>
 ```
-#### Source Files
 
-Logo source files are available as well (in Adobe Illustrator format):
-
-<a href="/images/source/logo.ai" class="button secondary">
-  <i class="fi-download"></i>
-  logo.ai
-</a>
 */
 
 @import '../settings';
 
-$logo-width: 256px;
-$logo-height: 60px;
+$logo-horizontal-width: 133px;
+$logo-horizontal-height: 34px;
+$logo-vertical-height: 80px;
+$logo-vertical-width: 81px;
 
-@mixin logo($scale: 1) {
-  object {
-    width: $logo-width * $scale;
-    height: $logo-height * $scale;
-    pointer-events: none;    
-  }
-}
+// Top Bar uses these, but we should probably not depend on them.
+$logo-width: $logo-horizontal-width;
+$logo-height: $logo-horizontal-height;
 
 .logo {
-  @include logo;
+  &.horizontal {
+    height: $logo-horizontal-height;
+    width: $logo-horizontal-width;
+  }
+
+  &.vertical {
+    height: $logo-vertical-height;
+    width: $logo-vertical-width;
+  }
 }

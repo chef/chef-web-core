@@ -18,7 +18,7 @@ link to those resources from within the bodies of your pages.
   <ul class="title-area">
     <li class="name">
       <h1>
-        <a href="/" class="logo inverse" data-tag-line="Your App Name"></a>
+        <a href="/">Your App Name</a>
       </h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
@@ -40,7 +40,7 @@ Add the `skinny` modifier to get a thinner bar more appropriate for apps or smal
   <ul class="title-area">
     <li class="name">
       <h1>
-        <a href="/" class="logo inverse" data-tag-line="Your App Name"></a>
+        <a href="/">Your App Name</a>
       </h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
@@ -63,7 +63,7 @@ name to identify your site as the selected one:
   <ul class="title-area">
     <li class="name">
       <h1>
-        <a href="/" class="logo inverse" data-tag-line="Your App Name"></a>
+        <a href="/">Your App Name</a>
       </h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
@@ -83,7 +83,7 @@ name to identify your site as the selected one:
   <ul class="title-area">
     <li class="name">
       <h1>
-        <a href="/" class="logo inverse" data-tag-line="Manage"></a>
+        <a href="/">Manage</a>
       </h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
@@ -160,7 +160,7 @@ $topbar-margin-bottom:              $paragraph-margin-bottom;
     position: absolute;
     z-index: 2;
     top: 0;
-    left: $logo-width * $scale - (30px * $scale);
+    left: $logo-width * $scale;
     height: 20px;
     padding: 0 10px;
   }
@@ -174,31 +174,14 @@ $topbar-margin-bottom:              $paragraph-margin-bottom;
   }
 }
 
-@mixin top-bar-logo($scale: 1) {
-  @include logo($scale);
-
-  object {
-    margin-top: rem-calc(10) * $scale;
-    vertical-align: top;
-  }
-}
-
 .top-bar {
   @include top-bar;
-
-  .logo {
-    @include top-bar-logo;
-  }
 }
 
 .top-bar.skinny {
   $scale: .5;
 
   @include top-bar($scale);
-
-  .logo {
-    @include top-bar-logo($scale);
-  }
 }
 
 .top-bar-tab-content {
