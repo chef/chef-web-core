@@ -16,14 +16,16 @@ title: Branding
 </p>
 <h3>Download a Logo</h3>
 <p>
-  <a href="/assets/images/source/chef-logo.ai" class="button secondary">
+  <% link_to image_path("source/chef-logo.ai"), :class => "button secondary",
+       :download => "logo.ai" do %>
     <i class="fi-download"></i>
     logo.ai
-  </a>
-  <a href="/assets/images/chef-logo.svg" class="button secondary">
+  <% end %>
+  <% link_to image_path("logo-vert-dark.svg"), :class => "button secondary",
+      :download => "logo.svg" do %>
     <i class="fi-download"></i>
     logo.svg
-  </a>
+  <% end %>
 </p>
 <p> 
   The messaging under the logo can read one of three options: CODE CAN, CHEF.IO, or remain blank. Under no circumstances may something else be displayed in that area.

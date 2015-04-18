@@ -23,8 +23,6 @@ describe 'the set of SASS assets', type: :feature do
     it { is_expected.to have_text('.tabs-content') }
     it { is_expected.to have_text('table') }
     it { is_expected.to have_text('.top-bar') }
-    it { is_expected.to have_text('.top-bar-2x .title-area{height:10rem}') }
-    it { is_expected.to have_text('.logo-2x object{width:512px;height:120px;pointer-events:none}') }
   end
 
   context 'when imported individually' do
