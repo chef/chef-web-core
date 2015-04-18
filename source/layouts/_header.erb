@@ -5,7 +5,8 @@
         <h1>
           <% link_to "/" do %>
             <%= image_tag "logo-horiz-light-style_guide.svg",
-            :onerror => "this.src='#{image_path "logo-horiz-light-style_guide.png"}'" %>
+              :class => "logo horizontal",
+              :onerror => "this.src='#{image_path "logo-horiz-light-style_guide.png"}'" %>
           <% end %>
         </h1>
       </li>
