@@ -22,7 +22,7 @@ helpers do
   end
 
   def download_url
-    "#{repo_url}/archive/#{current_version}.tar.gz"
+    "#{repo_url}/releases/download/#{current_version}/chef-web-core-#{current_version}.tgz"
   end
 end
 
