@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+@import 'chef/layouts/default';
+@import 'chef/themes/default';
+@import 'chef/base/color';
+@import 'chef/base/layout';
+@import 'chef/base/typography';
 @import 'chef/components/accordion';
 @import 'chef/components/alert';
 @import 'chef/components/dropdown';

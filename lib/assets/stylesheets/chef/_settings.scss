@@ -10,12 +10,12 @@ $chef-white:                      #ffffff;
 $global-radius:                   4px;
 $primary-color:                   $chef-orange;
 
-$chef-palette-background-color:   $chef-dark-blue !default;
-$chef-palette-foreground-color:   $chef-white !default;
-$chef-palette-muted:              $chef-grey !default;
-$chef-palette-link-color:         $chef-dark-blue !default;
-$theme:                           'default' !global;
+$logo-width-vertical:             80px;
+$logo-height-vertical:            84px;
+$logo-width-horizontal:           256px;
+$logo-height-horizontal:          60px;
 
-@import 'base/color';
-@import 'base/typography';
-@import 'base/layout';
+$theme-default:                   'default';
+$theme-inverse:                   'inverse';
+$logo-orientation-vertical:       'vertical';
+$logo-orientation-horizontal:     'horizontal';

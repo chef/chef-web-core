@@ -9,13 +9,13 @@ Logos are delivered as configurable SVG graphics with PNG fallbacks for older br
 
 ```html_example
 <div class="panel swatch">
-  <div class="logo default" data-tag-line="Against a Light Color"></div>
+  <div class="logo" data-tag-line="Against a Light Color"></div>
 </div>
 <div class="panel swatch dark-blue">
   <a href="/" class="logo inverse" data-tag-line="Against a Dark Color"></a>
 </div>
 <div class="panel swatch">
-  <div class="logo default"></div><!-- sans tag line -->
+  <div class="logo"></div><!-- sans tag line -->
 </div>
 ```
 #### Source Files
@@ -29,18 +29,45 @@ Logo source files are available as well (in Adobe Illustrator format):
 */
 
 @import '../settings';
+@import '../themes/default';
+@import '../layouts/default';
 
-$logo-width: 256px;
-$logo-height: 60px;
+@mixin logo($scale: 1, $width: $logo-width-vertical, $height: $logo-height-vertical) {
+  width: auto;
+  height: auto;
 
-@mixin logo($scale: 1) {
   object {
-    width: $logo-width * $scale;
-    height: $logo-height * $scale;
+    width: $width * $scale;
+    height: $height * $scale;
     pointer-events: none;    
   }
 }
 
 .logo {
   @include logo;
+
+  &:after {
+    content: $theme +  '-' + $logo-orientation;
+    display: none;
+  }
+
+  &.logo-horizontal {
+    @include logo($width: $logo-width-horizontal, $height: $logo-height-horizontal);
+    &:after {
+      content: 'default-horizontal';
+    }
+  }
+}
+
+.logo-inverse {
+
+  &:after {
+    content: 'inverse-vertical';
+  }
+  
+  &.logo-horizontal {
+    &:after {
+      content: 'inverse-horizontal';
+    }
+  }
 }

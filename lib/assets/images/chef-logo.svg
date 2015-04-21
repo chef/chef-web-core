@@ -1,6 +1,9 @@
 <!DOCTYPE svg>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 60">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMinYMin meet" viewBox="0 0 256 60">
   <style>
+    #logo, #logotype {
+      display: none;
+    }
     .base path {
       fill: #3f5364;
     }
@@ -24,22 +27,35 @@
           params[p[0]] = p[1];
         });
 
+        var svg = document.getElementsByTagName('svg')[0];
+        var logo = document.getElementById('logo');
+        var logotype = document.getElementById('logotype');
+        var site = document.querySelector('#site text');
+
         var basePaths = document.querySelectorAll('.base path');
         for (var i = 0; i < basePaths.length; i++) {
           basePaths[i].style.setProperty('fill', (params.theme === 'inverse' ? '#fff' : '#425363'));
         }
-        
-        if (params.site) {
-          var logotype = document.getElementById('logotype');
-          var site = document.querySelector('#site text');
 
-          logotype.setAttribute('transform', 'translate(24, 2) scale(.65)');
-          site.textContent = decodeURI(params.site).toUpperCase();
-          site.style.setProperty('display', 'block');
+        if (params.orientation !== 'horizontal') {
+          logo.setAttribute('transform', 'translate(10.5, 0) scale(.9)');
+          logotype.setAttribute('transform', 'translate(-27, 62) scale(.4)');
+          svg.setAttribute('viewBox', '0 0 80 84');
         }
+        else {
+          if (params.site) {
+            logotype.setAttribute('transform', 'translate(24, 2) scale(.65)');
+            site.textContent = decodeURI(params.site).toUpperCase();
+            site.style.setProperty('display', 'block');
+          }
+        }
+        
+        logo.style.setProperty('display', 'block');
+        logotype.style.setProperty('display', 'block');
       });
     ]]>
   </script>
+
   <g id="logo">
     <g class="base">
       <path d="M29.8,43.3c-7.5,0-13.4-6.1-13.4-13.4s6.1-13.4,13.4-13.4c6.2,0,11.3,4.1,12.9,9.7h5.2 c-1.7-8.5-9.1-14.8-18.1-14.8c-10.2,0-18.5,8.3-18.5,18.5s8.3,18.5,18.5,18.5c8.9,0,16.4-6.4,18.1-14.7h-5.2 C41.2,39.2,36,43.3,29.8,43.3z"/>
@@ -59,12 +75,14 @@
       <path d="M10.7,29.8L10.7,29.8H5.7l0,0c0,10.1,6.3,18.9,15.2,22.5l1.9-4.7C15.7,44.7,10.7,37.9,10.7,29.8z"/>
     </g>
   </g>
+
   <g id="logotype" class="base">
     <path d="M67.7,29.7L67.7,29.7c0-13.5,10-24.5,24.6-24.5c8.8,0,14.2,3,18.6,7.3l-6.6,7.6c-3.7-3.3-7.4-5.3-12-5.3 c-8,0-13.6,6.6-13.6,14.6v0.1c0,8.1,5.6,14.8,13.6,14.8c5.4,0,8.7-2.2,12.3-5.5l6.6,6.7c-4.9,5.2-10.2,8.5-19.3,8.5 C78,53.9,67.7,43.3,67.7,29.7z"/>
     <path d="M119.4,6.1h10.3v18.6h19.1V6.1h10.3v47h-10.3V34.2h-19.1v18.9h-10.3V6.1z"/>
     <path d="M171.8,6.1h35.5v9.2h-25.3v9.5h22.2v9.2h-22.2V44h25.6v9.2h-35.8V6.1z"/>
     <path d="M218.3,6.1h35.8v9.4h-25.5v10h22.5V35h-22.5v18.2h-10.3V6.1z"/>
   </g>
+
   <g id="site" class="accent">
     <text x="69" y="54"/>
   </g>
