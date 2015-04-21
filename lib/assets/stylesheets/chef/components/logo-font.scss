@@ -1,3 +1,19 @@
+/*doc
+---
+title: Chef-Logo
+name: icon-chef
+category: Icon
+---
+Use Chef logo as a font icon.
+
+```html_example
+<h3><i class="icon-chef"></i></h3>
+```
+```html_example
+<button class="button secondary small"><i class="icon-chef"></i> Upload to Chef Server</button>
+```
+*/
+
 @font-face {
   font-family: 'chef';
   src: url('../fonts/chef.eot?-8vpdz');
