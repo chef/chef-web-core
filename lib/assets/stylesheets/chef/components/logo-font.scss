@@ -16,8 +16,8 @@ Use Chef logo as a font icon.
 
 @font-face {
   font-family: 'chef';
-  src: url('../fonts/chef.eot?-8vpdz');
-  src: url('../fonts/chef.eot?#iefix-8vpdz') format("embedded-opentype"), url('../fonts/chef.woff?-8vpdz') format("woff"), url('../fonts/chef.ttf?-8vpdz') format("truetype"), url('../fonts/chef.svg?-8vpdz#chef') format("svg");
+  src: font-url('chef.eot?-8vpdz');
+  src: font-url('chef.eot?#iefix-8vpdz') format("embedded-opentype"), font-url('chef.woff?-8vpdz') format("woff"), font-url('chef.ttf?-8vpdz') format("truetype"), font-url('chef.svg?-8vpdz#chef') format("svg");
   font-weight: normal;
   font-style: normal;
 }
