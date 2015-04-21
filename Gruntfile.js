@@ -145,6 +145,7 @@ module.exports = function(grunt) {
       'icon',
       'label',
       'logo',
+      'logo-font',
       'modal',
       'side-nav',
       'tab',
