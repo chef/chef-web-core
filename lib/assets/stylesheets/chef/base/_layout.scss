@@ -34,15 +34,15 @@ Foundation provides [some very helpful helpers](http://foundation.zurb.com/docs/
 for working with media queries:
 
 ```
-@media #{$large-up} { 
+@media #{\$large-up} { 
   // These rules will apply to large screens and above 
 }
 
-@media #{$large-only} { 
+@media #{\$large-only} { 
   // These to large only
 }
 
-@media #{$medium-up} { 
+@media #{\$medium-up} { 
   // These to medium and above 
 }
 ```
