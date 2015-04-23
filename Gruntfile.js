@@ -56,6 +56,14 @@ module.exports = function(grunt) {
             cwd: foundationSource + '/vendor/assets/stylesheets',
             src: ['foundation.scss', 'normalize.scss', 'foundation/**'], 
             dest: distDir('scss/vendor')
+          },
+
+          // Copy in vendored scripts
+          {
+            expand: true,
+            cwd: foundationSource + '/vendor/assets/javascripts/vendor',
+            src: ['modernizr.js'],
+            dest: distDir('javascripts/vendor')
           }
         ],
       },
