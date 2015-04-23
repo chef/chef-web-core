@@ -52,6 +52,12 @@ unless test?
     # to ignore remote resources by pattern. 
     s3_sync.delete = false
   end 
+
+  activate :cloudfront do |cloudfront|
+    cloudfront.access_key_id     = ENV['AWS_ACCESS_KEY_ID']
+    cloudfront.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
+    cloudfront.distribution_id   = ENV['CLOUDFRONT_DISTRIBUTION_ID']
+  end
 end
 
 configure :development do
@@ -73,12 +79,6 @@ configure :development do
 
     delayed.kill
   end
-end
-
-activate :cloudfront do |cloudfront|
-  cloudfront.access_key_id     = ENV['AWS_ACCESS_KEY_ID']
-  cloudfront.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
-  cloudfront.distribution_id   = ENV['CLOUDFRONT_DISTRIBUTION_ID']
 end
 
 configure :build do

@@ -71,21 +71,27 @@ end
 desc 'Compile and deploy the site, build asset packages for distribution'
 task :publish do
 
-  if ENV['TRAVIS_BRANCH'] && ENV['TRAVIS_BRANCH'] != 'master'
-    warn "Not going to deploy: $TRAVIS_BRANCH is #{ENV['TRAVIS_BRANCH']}, should be master."
-    exit 0 unless ENV['TRAVIS_TAG']
-  elsif ENV['TRAVIS_PULL_REQUEST'] && ENV['TRAVIS_PULL_REQUEST'] != 'false'
-    warn "Not going to deploy: This is a pull request."
+  branch = ENV['TRAVIS_BRANCH']
+  tag = ENV['TRAVIS_TAG']
+  pr = ENV['TRAVIS_PULL_REQUEST']
+
+  puts "TRAVIS_BRANCH: '#{branch}'"
+  puts "TRAVIS_TAG: '#{tag}'"
+
+  if branch && !['master', tag].include?(branch)
+    warn "Not going to publish: TRAVIS_BRANCH should be 'master' or a tag named '#{branch}'."
+    exit 0
+  elsif pr && pr != 'false'
+    warn "Not going to publish: This is a pull request."
     exit 0
   end
 
   Rake::Task['compile'].execute
 
-  if ENV['TRAVIS_TAG']
+  if tag && tag != ''
     warn "Tag detected. Continuing with artifact package building."
     sh 'npm run build'
     sh 'npm pack'
-    exit 0
   end
 
   sh 'bundle exec middleman s3_sync'
