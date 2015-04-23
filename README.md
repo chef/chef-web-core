@@ -132,7 +132,8 @@ accordingly:
 
 This'll update the appropriate files, commit and tag the release for you, but it won't push it 
 to Github. You can do that yourself when you're ready:
-
+    
+    git push origin master
     git push origin --tags 
 
 When the tests pass, Travis will run the `publish` task, which will deploy the style-guide site to 
