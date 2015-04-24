@@ -10,8 +10,7 @@ title: Getting Started
 <h3>Ruby</h3>
 <p>
   If you're running in a Ruby environment with Bundler and <a href="https://github.com/sstephenson/sprockets">Sprockets</a>,
-  add the following line to your <code>Gemfile</code> to install from the <code>master</code> branch. (The repo is 
-  currently private, so you'll need permissions to read it):
+  add the following line to your <code>Gemfile</code> to install from the <code>master</code> branch:
 </p>
 <p>
   <pre>gem 'chef-web-core', git: 'https://github.com/chef/chef-web-core.git'</pre>
@@ -68,7 +67,7 @@ title: Getting Started
 
 <h3>Node.js</h3>
 <p>
-  We deploy our builds to Github Releases, so you can install our Node.js package directly from 
+  We deploy our builds to <%= link_to 'GitHub Releases', "#{repo_url}/releases" %>, so you can install our Node.js package directly from 
   there. Just specify the version you'd like to install in your <code>package.json</code>:
 </p>
 <p>
@@ -121,17 +120,21 @@ title: Getting Started
   &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;My Awesome App&lt;/title&gt;
-    &lt;script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"&gt;&lt;/script&gt;
-    &lt;link rel="stylesheet" href="//style.chef.io/dist/<%= current_version %>/stylesheets/chef.css"&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;script src="https://style.chef.io/dist/0.1.8/javascripts/vendor/modernizr.js"&gt;&lt;/script&gt;
+    &lt;link rel="stylesheet" href="https://style.chef.io/dist/<%= current_version %>/stylesheets/chef.css"&gt;
   &lt;/head&gt;
   &lt;body&gt;
-    &lt;%= yield %&gt;
-    &lt;script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"&gt;&lt;/script&gt;
-    &lt;script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js"&gt;&lt;/script&gt;
-    &lt;script src="//style.chef.io/dist/<%= current_version %>/javascripts/chef.js"&gt;
+    &lt;a class="logo"&gt;&lt;/a&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://style.chef.io/dist/<%= current_version %>/javascripts/chef.js"&gt;&lt;/script&gt;
     &lt;script&gt;
-      $(document).chef();
+      $(document).chef({
+        assets: {
+          images: 'https://style.chef.io/assets/images'
+        }
+      });
     &lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</pre>
