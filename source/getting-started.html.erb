@@ -14,13 +14,13 @@ title: Getting Started
   currently private, so you'll need permissions to read it):
 </p>
 <p>
-  <pre>gem 'chef-web-core', git: 'git@github.com:chef/chef-web-core'</pre>
+  <pre>gem 'chef-web-core', git: 'https://github.com/chef/chef-web-core.git'</pre>
 </p>
 <p>
   To install a particular version, specify it by tag:
 </p>
 <p>
-  <pre>gem 'chef-web-core', git: 'git@github.com:chef/chef-web-core', tag: <%= current_version %></pre>
+  <pre>gem 'chef-web-core', git: 'https://github.com/chef/chef-web-core.git', tag: '<%= current_version %>'</pre>
 </p>
 <p>
   Then <code>bundle</code> to install. Once you've done that, you'll be able to include 
