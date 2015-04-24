@@ -22,8 +22,6 @@ class Chef
           Sass.load_paths << Compass::Frameworks['compass'].stylesheets_directory
 
           app.config.assets.precompile += %w(
-            *.css
-            *.js
             *.png
             *.svg
             *.eot
