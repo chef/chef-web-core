@@ -6,7 +6,7 @@ describe 'the set of SASS assets', type: :feature do
 
   context 'when @imported as a bundle' do
 
-    before { visit '/assets/all.css' }
+    before { visit '/assets/application.css' }
 
     it { is_expected.to have_text('.accordion') }
     it { is_expected.to have_text('.alert-box') }
@@ -36,7 +36,7 @@ describe 'the set of SASS assets', type: :feature do
   end
 
   it 'supports the inverse theme' do
-    visit '/assets/all-inverse.css'
+    visit '/assets/application-inverse.css'
 
     is_expected.to have_text('.top-bar.expanded .title-area{background:#3f5364}')
     is_expected.to_not have_text('.top-bar.expanded .title-area{background:#ffffff}')
@@ -48,7 +48,7 @@ describe 'the set of JavaScript assets', type: :feature do
 
   context 'when required as a bundle' do
 
-    before { visit '/assets/all.js' }
+    before { visit '/assets/application.js' }
 
     it { is_expected.to have_text('Chef.Web.Core.components.sideNav') }
     it { is_expected.to have_text('Chef.Web.Core.components.topBar') }
