@@ -13,7 +13,7 @@ describe 'the home page', type: :feature do
   it 'renders the top bar' do
     the_bar = find('.top-bar')
     expect(the_bar).to have_link('Getting Started')
-    expect(the_bar).to have_link('Component Documentation')
+    expect(the_bar).to have_link('Documentation')
     expect(the_bar).to have_link('Contributing')
   end
 end

@@ -5,8 +5,8 @@ name: top-bar
 category: Top Bar
 ---
 
-The Top Bar is the primary component of your site. It offers a Chef logo and optional 
-site name, and is available in both default and Inverse themes.
+The Top Bar is the primary navigational component of a site. It offers a [Chef logo](../logo) and optional 
+site name, and is available in both default and inverse [themes](../themes).
 
 Use the Top Bar to provide access to your site's top-level resources &mdash; your home
 page, the main sections of your site, etc. Don't use the top-bar logo or its primary links
@@ -14,44 +14,44 @@ to point to other Chef or third-party sites; instead, include a global bar, or
 link to those resources from within the bodies of your pages.
 
 ```html_example
-<nav class="top-bar inverse" data-topbar role="navigation">
+<nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
       <h1>
-        <a href="/" class="logo inverse" data-tag-line="Your App Name"></a>
+        <a href="/" class="logo" data-tag-line="Your App Name"></a>
       </h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
   </ul>
-  <div class="top-bar-section">
-    <ul class="left">
+  <section class="top-bar-section main">
+    <ul>
       <li><a href="#">Link</a></li>
       <li><a href="#">Link</a></li>
       <li><a href="#">Link</a></li>
     </ul>
-  </div>
+  </section>
 </nav>
 ```
 
 Add the `skinny` modifier to get a thinner bar more appropriate for apps or smaller screens:
 
 ```html_example
-<nav class="top-bar inverse skinny" data-topbar role="navigation">
+<nav class="top-bar skinny" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
       <h1>
-        <a href="/" class="logo inverse" data-tag-line="Your App Name"></a>
+        <a href="/" class="logo"></a>
       </h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
   </ul>
-  <div class="top-bar-section">
-    <ul class="left">
+  <section class="top-bar-section main">
+    <ul>
       <li><a href="#">Link</a></li>
       <li><a href="#">Link</a></li>
       <li><a href="#">Link</a></li>
     </ul>
-  </div>
+  </section>
 </nav>
 ```
 
@@ -59,17 +59,17 @@ To include the global bar as well, add the `data-global` attribute. Specify an o
 name to identify your site as the selected one:
 
 ```html_example
-<nav class="top-bar inverse" data-global data-topbar role="navigation">
+<nav class="top-bar" data-global data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
       <h1>
-        <a href="/" class="logo inverse" data-tag-line="Your App Name"></a>
+        <a href="/" class="logo" data-tag-line="Your App Name"></a>
       </h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
   </ul>
-  <div class="top-bar-section">
-    <ul class="left">
+  <div class="top-bar-section main">
+    <ul>
       <li><a href="#">Link</a></li>
       <li><a href="#">Link</a></li>
       <li><a href="#">Link</a></li>
@@ -79,22 +79,22 @@ name to identify your site as the selected one:
 ```
 
 ```html_example
-<nav class="top-bar inverse skinny" data-global="manage" data-topbar role="navigation">
+<nav class="top-bar skinny" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
       <h1>
-        <a href="/" class="logo inverse" data-tag-line="Manage"></a>
+        <a href="/" class="logo" data-tag-line="Manage"></a>
       </h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
   </ul>
-  <div class="top-bar-section">
+  <section class="top-bar-section">
     <ul class="left">
       <li><a href="#">Link</a></li>
       <li><a href="#">Link</a></li>
       <li><a href="#">Link</a></li>
     </ul>
-  </div>
+  </section>
 </nav>
 ```
 
@@ -150,26 +150,54 @@ $topbar-margin-bottom:              $paragraph-margin-bottom !default;
 // Structure
 
 @mixin top-bar($scale: 1, $height: $topbar-height) {
-  max-height: $height * $scale;
+  $scaled-height: $height * $scale;
+
+  max-height: $scaled-height;
   transition: max-height .4s ease-in;
 
   .title-area {
-    height: $height * $scale;
+    height: $scaled-height;
+
+    .name {
+      h1 {
+        line-height: $scaled-height;
+        a {
+          .logo {
+            object {
+              
+            }
+          }
+        }
+      }
+    }
   }
 
-  .top-bar-section.main ul {
-    float: $topbar-section-main-float;
-  }
+  .top-bar-section {
+    &.main {
+      ul {
+        float: $topbar-section-main-float;
+      }
+    }
+    ul {
+      li {
+        line-height: $scaled-height;
 
-  button, .button {
-    height: $topbar-button-height;
-    padding-top: $topbar-link-padding;
-    padding-bottom: $topbar-link-padding;
-    top: ($topbar-height - $topbar-button-height) / 2 - rem-calc(2);
+        &:not(.has-form) a:not(.button) {
+          line-height: $scaled-height;
+        }
+
+        button, .button {
+          height: $topbar-button-height;
+          padding-top: $topbar-link-padding;
+          padding-bottom: $topbar-link-padding;
+          top: ($topbar-height - $topbar-button-height) / 2 - rem-calc(2);
+        }
+      }
+    }
   }
 
   .toggle-topbar.menu-icon {
-    top: ($topbar-height - rem-calc(16)) / 2;
+    top: ($scaled-height - rem-calc(16)) / 2;
   }
 
   .top-bar-tab {
@@ -185,13 +213,18 @@ $topbar-margin-bottom:              $paragraph-margin-bottom !default;
   &.expanded {
     max-height: 1000px;
 
-    .top-bar-section li a {
-      line-height: ($height / 6) * $scale;
-    }
-
-    button, .button {
-      top: 0;
-    }
+    .top-bar-section {
+      ul {
+        li {
+          a {
+            line-height: $scaled-height / 6 !important;
+          }
+          button, .button {
+            top: 0;
+          }
+        }
+      }
+    } 
   }
 }
 
@@ -200,28 +233,20 @@ $topbar-margin-bottom:              $paragraph-margin-bottom !default;
   margin-top: rem-calc(10) * $scale;
 }
 
-.top-bar {
-  @include top-bar;
-
-  .name h1 {
-    // line-height: inherit;
-
-    a {
-      &.logo {
-        @include top-bar-logo;
-      }
-    }
-  }
-}
-
-.top-bar.skinny {
-  $scale: .5;
-
+@mixin top-bar-with-logo($scale: 1) {
   @include top-bar($scale);
 
   .logo {
-    @include top-bar-logo;
+    @include top-bar-logo($scale);
   }
+}
+
+.top-bar {
+  @include top-bar-with-logo;
+}
+
+.top-bar.skinny {
+  @include top-bar-with-logo(.5);
 }
 
 .top-bar-tab-content {

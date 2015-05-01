@@ -16,7 +16,7 @@ importing any other components.
 
 @import '../settings';
 
-$theme:                           'inverse';
+$theme:                           $theme-inverse;
 $chef-palette-link-color:         $chef-dark-blue;
 $topbar-link-color:               $chef-white;
 $topbar-link-color-hover:         scale-color($topbar-link-color, $lightness: -20%);
