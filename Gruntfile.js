@@ -118,6 +118,50 @@ module.exports = function(grunt) {
       }
     },
 
+    // Optimize the SVGs
+    svgmin: {
+      options: {
+        plugins: [
+          {
+            removeViewBox: false
+          }, {
+            removeUselessStrokeAndFill: false
+          }
+        ]
+      },
+      multiple: {
+        files: [{
+          expand: true,
+          cwd: 'lib/assets/images/source/icons/',
+          src: ['**/*.svg'],
+          dest: 'lib/assets/images/icons/'
+        }]
+      }
+    },
+
+    // Merge all the SVGs into a single sprite
+    svgstore: {
+      options: {
+        svg: { 
+          xmlns: 'http://www.w3.org/2000/svg',
+          'xmlns:xlink': 'http://www.w3.org/1999/xlink',
+          viewBox : '0 0 100 100'
+        }
+      },
+      default: {
+        files: {
+          'lib/assets/images/icons/all.svg': ['lib/assets/images/source/icons/*.svg'],
+        },
+        options: {
+          formatting : {
+            indent_size : 2
+          },
+          cleanup: ['fill'],
+          includeTitleElement: false
+        }
+      }
+    },
+
     // Rebuild when assets change
     watch: {
       scripts: {
@@ -170,7 +214,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mincer');
+  grunt.loadNpmTasks('grunt-svgmin');
+  grunt.loadNpmTasks('grunt-svgstore');
 
   grunt.registerTask('default', ['build']);
   grunt.registerTask('build', ['clean:start', 'copy', 'mince', 'sass']);
+  grunt.registerTask('build-svgs', ['svgmin', 'svgstore']);
 };
