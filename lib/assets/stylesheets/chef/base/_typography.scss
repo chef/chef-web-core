@@ -18,9 +18,10 @@ category: Typography
 ``` 
 */
 
-@import url(//fonts.googleapis.com/css?family=Montserrat:400);
-@import 'foundation/components/type';
+@if variable-exists(chef-type-font-urls) {
+  @each $url in $chef-type-font-urls {
+    @import url($url);
+  }
+}
 
-$chef-type-label:     Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-$chef-type-code:      Consolas, Liberation Mono, Courier, monospace;
-$code-font-family:    $chef-type-code;
+@import 'foundation/components/type';

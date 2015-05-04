@@ -14,10 +14,12 @@ importing any other components.
 ```
 */
 
-@import '../settings'; 
+@import '../settings';
 
-$chef-palette-background-color:   $chef-white;
-$chef-palette-foreground-color:   $chef-dark-blue;
-$chef-palette-muted:              $chef-grey;
+$theme:                           $theme-inverse;
 $chef-palette-link-color:         $chef-dark-blue;
-$theme:                           'inverse' !global;
+$topbar-link-color:               $chef-white;
+$topbar-link-color-hover:         scale-color($topbar-link-color, $lightness: -20%);
+$topbar-link-font-size:           14px;
+$topbar-link-weight:              normal;
+$topbar-bg:                       $chef-dark-blue;

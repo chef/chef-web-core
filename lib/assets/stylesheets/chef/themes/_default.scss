@@ -1,0 +1,26 @@
+/*doc
+---
+title: Default Theme
+name: default
+category: Themes
+---
+
+The default theme.
+
+```
+@import 'chef/themes/default'; // optional
+@import 'chef';
+```
+*/
+
+@import '../settings';
+
+$theme:                             $theme-default !default;
+$chef-palette-link-color:           $chef-dark-blue !default;
+$topbar-link-color:                 $chef-dark-blue !default;
+$topbar-link-font-size:             16px !default;
+$topbar-bg:                         $chef-white !default;
+$chef-type-font-urls:               '//fonts.googleapis.com/css?family=Montserrat:400';
+$chef-type-label:                   Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$chef-type-code:                    Consolas, Liberation Mono, Courier, monospace !default;
+$code-font-family:                  $chef-type-code !default;

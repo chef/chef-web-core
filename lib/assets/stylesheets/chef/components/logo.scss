@@ -5,42 +5,75 @@ name: logo
 category: Logo
 ---
 
-Logos are delivered as configurable SVG graphics with PNG fallbacks for older browsers.
+Logos are delivered as configurable SVG graphics. The default orientation is vertical, 
+but you can also specify horizontal. Available for both the default and inverse [themes](../themes).
 
 ```html_example
-<div class="panel swatch">
-  <div class="logo default" data-tag-line="Against a Light Color"></div>
-</div>
-<div class="panel swatch dark-blue">
-  <a href="/" class="logo inverse" data-tag-line="Against a Dark Color"></a>
-</div>
-<div class="panel swatch">
-  <div class="logo default"></div><!-- sans tag line -->
+<div class="row">
+  <div class="large-3 columns">
+    <div class="logo logo-default logo-vertical"></div>
+  </div>
+  <div class="large-4 columns">
+    <div class="logo logo-horizontal" data-tag-line="Manage"></div>
+  </div>
+  <div class="large-4 columns end">
+    <div class="logo logo-horizontal"></div>
+  </div>
 </div>
 ```
-#### Source Files
-
-Logo source files are available as well (in Adobe Illustrator format):
-
-<a href="/images/source/logo.ai" class="button secondary">
-  <i class="fi-download"></i>
-  logo.ai
-</a>
 */
 
 @import '../settings';
+@import '../themes/default';
+@import '../layouts/default';
 
-$logo-width: 256px;
-$logo-height: 60px;
+@mixin logo($scale: 1, $width: $logo-width-vertical, $height: $logo-height-vertical) {
+  width: auto;
+  height: auto;
 
-@mixin logo($scale: 1) {
   object {
-    width: $logo-width * $scale;
-    height: $logo-height * $scale;
+    width: $width * $scale;
+    height: $height * $scale;
     pointer-events: none;    
   }
 }
 
 .logo {
   @include logo;
+
+  &:after {
+    content: $theme +  '-' + $logo-orientation;
+    display: none;
+  }
+
+  &.logo-horizontal {
+    @include logo($width: $logo-width-horizontal, $height: $logo-height-horizontal);
+    &:after {
+      content: 'default-horizontal';
+    }
+  }
+}
+
+.logo-inverse {
+  &:after {
+    content: 'inverse-vertical';
+  }
+  
+  &.logo-horizontal {
+    &:after {
+      content: 'inverse-horizontal';
+    }
+  }
+}
+
+.logo-default {
+  &:after {
+    content: 'default-vertical';
+  }
+  
+  &.logo-horizontal {
+    &:after {
+      content: 'default-horizontal';
+    }
+  }
 }

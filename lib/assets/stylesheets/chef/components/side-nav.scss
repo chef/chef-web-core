@@ -51,9 +51,10 @@ React.render(
 
 @import '../settings';
 
-$side-nav-link-color:   $chef-palette-link-color;
-$side-nav-padding:      rem-calc(0);
-$side-nav-font-size:    rem-calc(13);
+$side-nav-background-color:     $chef-grey !default;
+$side-nav-link-color:           $chef-grey !default;
+$side-nav-padding:              rem-calc(0) !default;
+$side-nav-font-size:            rem-calc(13) !default;
 
 @import 'foundation/components/side-nav';
 
@@ -67,9 +68,9 @@ $side-nav-font-size:    rem-calc(13);
 
 .side-nav {
   
-  background-color: scale-color($chef-palette-muted, $lightness: 92%);
+  background-color: scale-color($side-nav-background-color, $lightness: 92%);
   li.active {
-    background-color: scale-color($chef-palette-muted, $lightness: 80%);
+    background-color: scale-color($side-nav-background-color, $lightness: 80%);
   }
 
   &.ugly {
