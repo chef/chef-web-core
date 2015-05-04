@@ -14,13 +14,13 @@ category: Form
       <div>
         <label>
           Username
-          <input type="text" class="radius">
+          <input type="text" class="radius" required>
         </label>
       </div>
       <div>
         <label>
           Password
-          <input type="password" class="radius">
+          <input type="password" class="radius"required>
         </label>
       </div>
       <div>
