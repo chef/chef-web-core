@@ -35,3 +35,12 @@ category: Alert
 
 @import '../settings';
 @import 'foundation/components/alert-boxes';
+
+.alert-box.info {
+  a {
+    color: scale-color($info-color, $lightness: 70%);
+    &:hover {
+      color: scale-color($info-color, $lightness: 90%);
+    }
+  }
+}
