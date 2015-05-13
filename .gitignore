@@ -27,5 +27,6 @@ build/
 dist/
 chef-web-core-*.tgz
 source/guide/
+lib/assets/images/source/icons/
 spec/dummy/rails/Gemfile.lock
 spec/dummy/rails/log/*.log

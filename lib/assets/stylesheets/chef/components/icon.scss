@@ -5,17 +5,295 @@ name: icon
 category: Icon
 ---
 
-We use [Foundation icons](http://zurb.com/playground/foundation-icon-fonts-3). Feel free to use anything you see there.
+For general-purpose icons, we use [Foundation icons](http://zurb.com/playground/foundation-icon-fonts-3). 
+Feel free to use anything you see there.
 
 ```html_example
-<h3><i class="fi-like"></i></h3>
+<button class="button secondary small">
+  <i class="fi-upload-cloud"></i> 
+  Upload to the Cloud
+</button>
+
+<button class="button secondary small">
+  <i class="fi-download"></i> 
+  Download to Earth
+</button>
 ```
 
+## Chef Icons
+
+We also have our own set of SVG icons, which you can use in a few different ways.
+
+With JavaScript, the simplest approach is to include the `icon` component (which comes 
+bundled with chef.js) and specify your icons with `i` tags, similar to the way you might 
+be used to working with icon fonts:
+
 ```html_example
-<button class="button secondary small"><i class="fi-upload-cloud"></i> Upload to the Cloud</button>
-<button class="button secondary small"><i class="fi-download"></i> Download to Earth</button>
+<h2>
+  <i class="icon_chef_delivery"></i>
+</h2>
+
+<button class="button tiny secondary">
+  <i class="icon_resources_link"></i>
+  Link Something
+</button>
+``` 
+
+This approach adds an SVG sprite containing all Chef icons to the body of your page, then 
+appends an `svg` element for each of the icons you refer to in this way. You can then 
+apply styling with CSS:
+
+```html_example
+<style>
+  .icon_chef_delivery.light-blue {
+    color: #6bb2e2;
+    width: 75px;
+    height: 75px;
+  }
+</style>
+<i class="icon_chef_delivery light-blue"></i>
 ```
+
+If you need to add icons dynamically to the DOM after initial page load, be sure to call the Icon 
+component's `refresh` method:
+
+```
+Chef.Web.Core.components.icon.refresh();
+```
+
+If you'd rather not use JavaScript, you can achieve the same result by including the SVG
+sprite in your document yourself (inline, ideally just inside your opening `body` tag) and 
+using `svg` elements to refer to each icon symbol:
+
+```html_example
+<body>
+  <!-- Place the full SVG icon sprite (images/icons/all.svg) here: -->
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="display: none;">
+    <symbol id="icon_chef_analytics">
+      <g>
+        ...
+  </svg>
+
+  <!-- Then, reference each icon individually: -->
+  <svg class="icon_chef_delivery light-blue">
+    <use xlink:href="#icon_chef_delivery"></use>
+  </svg>
+</body>
+```
+
+Lastly, you can use them with standard `img` tags:
+
+```html_example
+<img src="/assets/images/icons/icon_chef_delivery.svg" width="75" height="75">
+```
+
+Keep in mind, though, that using this method limits your ability to style the
+icons with CSS.
+
+### The Complete List
+
+```html_example
+<div id="all-icons">
+  <i class="icon_chef_analytics"></i>
+  <i class="icon_chef_client"></i>
+  <i class="icon_chef_community"></i>
+  <i class="icon_chef_delivery"></i>
+  <i class="icon_chef_dk"></i>
+  <i class="icon_chef_manage"></i>
+  <i class="icon_chef_ohai"></i>
+  <i class="icon_chef_push_jobs"></i>
+  <i class="icon_chef_server"></i>
+  <i class="icon_chef_supermarket"></i>
+  <i class="icon_chef_unikitty"></i>
+  <i class="icon_logos_centos"></i>
+  <i class="icon_logos_github"></i>
+  <i class="icon_logos_macosx"></i>
+  <i class="icon_logos_redhat"></i>
+  <i class="icon_logos_rubygems"></i>
+  <i class="icon_logos_ubuntu"></i>
+  <i class="icon_logos_windows"></i>
+  <i class="icon_node_types_application"></i>
+  <i class="icon_node_types_bare_metal"></i>
+  <i class="icon_node_types_container"></i>
+  <i class="icon_node_types_middleware"></i>
+  <i class="icon_node_types_network_device"></i>
+  <i class="icon_node_types_platform"></i>
+  <i class="icon_node_types_private_cloud"></i>
+  <i class="icon_node_types_public_cloud"></i>
+  <i class="icon_node_types_server"></i>
+  <i class="icon_node_types_storage_device"></i>
+  <i class="icon_node_types_virtual_machine"></i>
+  <i class="icon_node_types_virtual_platform"></i>
+  <i class="icon_objects_cookbook_attributes"></i>
+  <i class="icon_objects_cookbook_cookbooks"></i>
+  <i class="icon_objects_cookbook_definitions"></i>
+  <i class="icon_objects_cookbook_files"></i>
+  <i class="icon_objects_cookbook_libraries"></i>
+  <i class="icon_objects_cookbook_metadata"></i>
+  <i class="icon_objects_cookbook_providers"></i>
+  <i class="icon_objects_cookbook_recipes"></i>
+  <i class="icon_objects_cookbook_resources"></i>
+  <i class="icon_objects_cookbook_templates"></i>
+  <i class="icon_objects_cookbook_tests"></i>
+  <i class="icon_objects_cookbook_versions"></i>
+  <i class="icon_objects_server_api"></i>
+  <i class="icon_objects_server_client"></i>
+  <i class="icon_objects_server_cookbook"></i>
+  <i class="icon_objects_server_data_bag"></i>
+  <i class="icon_objects_server_environment"></i>
+  <i class="icon_objects_server_group"></i>
+  <i class="icon_objects_server_node"></i>
+  <i class="icon_objects_server_organization"></i>
+  <i class="icon_objects_server_policy"></i>
+  <i class="icon_objects_server_roles"></i>
+  <i class="icon_objects_server_run_list"></i>
+  <i class="icon_objects_server_search"></i>
+  <i class="icon_objects_server_user"></i>
+  <i class="icon_objects_server_workstation"></i>
+  <i class="icon_resources_apt_package"></i>
+  <i class="icon_resources_bash"></i>
+  <i class="icon_resources_batch"></i>
+  <i class="icon_resources_bff_package"></i>
+  <i class="icon_resources_breakpoint"></i>
+  <i class="icon_resources_chef_acl"></i>
+  <i class="icon_resources_chef_client"></i>
+  <i class="icon_resources_chef_container"></i>
+  <i class="icon_resources_chef_data_bag"></i>
+  <i class="icon_resources_chef_environment"></i>
+  <i class="icon_resources_chef_gem"></i>
+  <i class="icon_resources_chef_group"></i>
+  <i class="icon_resources_chef_handler"></i>
+  <i class="icon_resources_chef_mirror"></i>
+  <i class="icon_resources_chef_node"></i>
+  <i class="icon_resources_chef_organization"></i>
+  <i class="icon_resources_chef_role"></i>
+  <i class="icon_resources_chef_user"></i>
+  <i class="icon_resources_cookbook_file"></i>
+  <i class="icon_resources_cron"></i>
+  <i class="icon_resources_csh"></i>
+  <i class="icon_resources_deploy"></i>
+  <i class="icon_resources_directory"></i>
+  <i class="icon_resources_dpkg_package"></i>
+  <i class="icon_resources_dsc_resource"></i>
+  <i class="icon_resources_dsc_script"></i>
+  <i class="icon_resources_easy_install_package"></i>
+  <i class="icon_resources_env"></i>
+  <i class="icon_resources_erl_call"></i>
+  <i class="icon_resources_execute"></i>
+  <i class="icon_resources_file"></i>
+  <i class="icon_resources_freebsd_package"></i>
+  <i class="icon_resources_gem"></i>
+  <i class="icon_resources_git"></i>
+  <i class="icon_resources_group"></i>
+  <i class="icon_resources_homebrew_package"></i>
+  <i class="icon_resources_http_request"></i>
+  <i class="icon_resources_ifconfig"></i>
+  <i class="icon_resources_ips_package"></i>
+  <i class="icon_resources_link"></i>
+  <i class="icon_resources_load_balancer"></i>
+  <i class="icon_resources_log"></i>
+  <i class="icon_resources_machine"></i>
+  <i class="icon_resources_machine_batch"></i>
+  <i class="icon_resources_machine_execute"></i>
+  <i class="icon_resources_machine_file"></i>
+  <i class="icon_resources_machine_image"></i>
+  <i class="icon_resources_macports_package"></i>
+  <i class="icon_resources_mdadm"></i>
+  <i class="icon_resources_mount"></i>
+  <i class="icon_resources_ohai"></i>
+  <i class="icon_resources_openbsd_package"></i>
+  <i class="icon_resources_package"></i>
+  <i class="icon_resources_pacman_package"></i>
+  <i class="icon_resources_paludis_package"></i>
+  <i class="icon_resources_perl"></i>
+  <i class="icon_resources_portage_package"></i>
+  <i class="icon_resources_powershell_script"></i>
+  <i class="icon_resources_private_key"></i>
+  <i class="icon_resources_public_key"></i>
+  <i class="icon_resources_python"></i>
+  <i class="icon_resources_reboot"></i>
+  <i class="icon_resources_registry_key"></i>
+  <i class="icon_resources_remote_directory"></i>
+  <i class="icon_resources_remote_file"></i>
+  <i class="icon_resources_route"></i>
+  <i class="icon_resources_rpm_package"></i>
+  <i class="icon_resources_ruby"></i>
+  <i class="icon_resources_ruby_block"></i>
+  <i class="icon_resources_script"></i>
+  <i class="icon_resources_service"></i>
+  <i class="icon_resources_smartos_package"></i>
+  <i class="icon_resources_solaris_package"></i>
+  <i class="icon_resources_subversion"></i>
+  <i class="icon_resources_template"></i>
+  <i class="icon_resources_user"></i>
+  <i class="icon_resources_windows_package"></i>
+  <i class="icon_resources_windows_service"></i>
+  <i class="icon_resources_yum_package"></i>
+  <i class="icon_workflow_cd"></i>
+  <i class="icon_workflow_chef_repo"></i>
+  <i class="icon_workflow_chefspec"></i>
+  <i class="icon_workflow_ci"></i>
+  <i class="icon_workflow_config_rb"></i>
+  <i class="icon_workflow_controls"></i>
+  <i class="icon_workflow_cookbooks"></i>
+  <i class="icon_workflow_delivery_accept"></i>
+  <i class="icon_workflow_delivery_approve"></i>
+  <i class="icon_workflow_delivery_build"></i>
+  <i class="icon_workflow_delivery_deliver"></i>
+  <i class="icon_workflow_delivery_publish"></i>
+  <i class="icon_workflow_delivery_rehearse"></i>
+  <i class="icon_workflow_delivery_union"></i>
+  <i class="icon_workflow_delivery_verify"></i>
+  <i class="icon_workflow_dk"></i>
+  <i class="icon_workflow_foodcritic"></i>
+  <i class="icon_workflow_kitchen"></i>
+  <i class="icon_workflow_knife"></i>
+  <i class="icon_workflow_policyfile"></i>
+  <i class="icon_workflow_recipe_dsl"></i>
+  <i class="icon_workflow_recipes"></i>
+  <i class="icon_workflow_reports"></i>
+  <i class="icon_workflow_resources"></i>
+  <i class="icon_workflow_rubocop"></i>
+  <i class="icon_workflow_ruby"></i>
+  <i class="icon_workflow_rules"></i>
+  <i class="icon_workflow_secrets"></i>
+  <i class="icon_workflow_tests"></i>
+  <i class="icon_workflow_workstation"></i>
+</div>
+```
+
+<style>
+  #all-icons > i {
+    margin: 8px;
+    height: 2em;
+    width: 2em;
+  }
+</style>
+
+<script>
+  var icons = document.querySelectorAll('#all-icons i');
+  for (var i = 0; i < icons.length; i++) {
+    icons[i].setAttribute('title', icons[i].getAttribute('class'));
+  }
+</script>
 */
 
 @import '../settings';
+
+body > #chef-icons {
+  display: none;
+}
+
+i[class^="icon_"] {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+
+svg[class^="icon_"] {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
 @import 'foundation/foundation-icons';
