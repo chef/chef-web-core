@@ -54,6 +54,13 @@ apply styling with CSS:
 <i class="icon_chef_delivery light-blue"></i>
 ```
 
+If you need to add icons dynamically to the DOM after initial page load, be sure to call the Icon 
+component's `refresh` method:
+
+```
+Chef.Web.Core.components.icon.refresh();
+```
+
 If you'd rather not use JavaScript, you can achieve the same result by including the SVG
 sprite in your document yourself (inline, ideally just inside your opening `body` tag) and 
 using `svg` elements to refer to each icon symbol:
@@ -262,6 +269,13 @@ icons with CSS.
     width: 2em;
   }
 </style>
+
+<script>
+  var icons = document.querySelectorAll('#all-icons i');
+  for (var i = 0; i < icons.length; i++) {
+    icons[i].setAttribute('title', icons[i].getAttribute('class'));
+  }
+</script>
 */
 
 @import '../settings';
