@@ -81,6 +81,15 @@ configure :development do
 
     delayed.kill
   end
+
+  require 'rack/cors'
+  use Rack::Cors do
+    allow do
+      origins '*'
+      resource '*.svg',  
+        methods: [:get, :options]
+    end
+  end
 end
 
 configure :build do

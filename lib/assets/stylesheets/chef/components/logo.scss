@@ -5,75 +5,207 @@ name: logo
 category: Logo
 ---
 
-Logos are delivered as configurable SVG graphics. The default orientation is vertical, 
-but you can also specify horizontal. Available for both the default and inverse [themes](../themes).
+Logos are delivered as stylable SVG graphics. The default orientation is vertical, 
+but you can also specify horizontal, provided you also supply a site name. Available 
+for both the default and inverse [themes](../themes).
 
 ```html_example
 <div class="row">
-  <div class="large-3 columns">
-    <div class="logo logo-default logo-vertical"></div>
+
+  <!-- Just the logo -->
+  <div class="large-2 columns">
+    <div class="logo"></div>
   </div>
-  <div class="large-4 columns">
-    <div class="logo logo-horizontal" data-tag-line="Manage"></div>
+
+  <!-- Inverse (for dark backgrounds) -->
+  <div class="large-2 columns">
+    <div class="logo inverse"></div>
   </div>
+
+  <!-- Grayscale -->
+  <div class="large-2 columns">
+    <div class="logo grayscale"></div>
+  </div>
+
+  <!-- Animating -->
+  <div class="large-2 columns end">
+    <div class="logo animate"></div>
+  </div>
+
+</div>
+<div class="row">
+  
+  <!-- Just the mark -->
+  <div class="large-1 columns">
+    <div class="logo mark"></div>
+  </div>
+
+  <!-- Just the mark, animating -->
+  <div class="large-1 columns end">
+    <div class="logo mark animate"></div>
+  </div>
+
+  <!-- Horizontally oriented, with site name -->
   <div class="large-4 columns end">
-    <div class="logo logo-horizontal"></div>
+    <div class="logo horizontal" data-tag-line="Manage"></div>
   </div>
+
 </div>
 ```
+
+<style>
+  .logo.inverse {
+    padding: 12px;
+    background-color: #3f5364;
+  }
+</style>
 */
 
 @import '../settings';
 @import '../themes/default';
-@import '../layouts/default';
+@import '../layouts/default'; 
 
-@mixin logo($scale: 1, $width: $logo-width-vertical, $height: $logo-height-vertical) {
+@import 'compass/css3/transform';
+@import 'compass/css3/animation';
+
+@mixin logo($scale: 1, $width: $logo-width-vertical, $height: $logo-height-vertical, $base-color: $logo-base-color, $accent-color: $logo-accent-color) {
+  display: inline-block;
+  font-size: 0;
   width: auto;
   height: auto;
 
-  object {
-    width: $width * $scale;
-    height: $height * $scale;
-    pointer-events: none;    
+  .base {
+    fill: $base-color;
+  }
+
+  .accent {
+    fill: $accent-color;
+  }
+
+  &.inverse {
+    .base {
+      fill: scale-color($base-color, $lightness: 100%);
+    }
+  }
+
+  &.grayscale {
+    .base {
+      fill: grayscale($base-color);
+    }
+    .accent {
+      fill: grayscale($accent-color);
+    }
+  }
+
+  &.mark {
+    .type {
+      display: none;
+    }
+    .mark {
+      width: $height * $scale;
+      height: auto;
+      @include transform(translate(-108px, 24px) scale(1.48));
+    }
+  }
+
+  .tag-line {
+    display: none;
+    text {
+      font-family: $chef-type-label;
+      text-transform: uppercase;
+      letter-spacing: rem-calc(1.4);
+      font-size: rem-calc(13);
+    }
+  }
+
+  &[data-tag-line] {
+    &.horizontal {
+      width: $logo-width-horizontal;
+      height: $logo-height-horizontal;
+
+      .mark {
+        @include transform(translate(-114px, 2px) scale(1.58));
+      }
+      .type {
+        @include transform(translate(544px, -746px) scale(2.18));
+      }
+      .tag-line {
+        @include transform(translate(550px, 422px) scale(7.5));
+        display: block;
+      }
+    }
+  }
+
+  .mark g {
+    transition: opacity 1s;
+    @include transform-origin(223px, 150px);
+  }
+  
+  &.animate .mark g {
+    @include transform-origin(223px, 150px); 
+    opacity: 0.7;
+  }
+
+  &.horizontal .mark g { 
+    @include transform-origin(30px, 30px); 
+  }
+  
+  &.horizontal .animate .mark g {
+    @include transform-origin(30px, 30px); 
+  }
+
+  &.animated .mark g {
+    opacity: 1;
+  }
+
+  &.animate .band-0 {
+    @include animation(rotate-band-0 1.5s infinite ease-in-out);
+  }
+
+  &.animate .band-1 {
+    @include animation(rotate-band-1 1.5s infinite ease-in-out);
+  }
+
+  &.animate .band-2 {
+    @include animation(rotate-band-2 1.5s infinite ease-in-out);
+  }
+
+  &.animate .band-3 {
+    @include animation(rotate-band-3 1.5s infinite ease-in-out);
+  }
+
+  @include keyframes(rotate-band-0) {
+    50% { @include transform(translateZ(0) rotate(360deg)); }
+    100% { @include transform(rotate(360deg)); }
+  }
+
+  @include keyframes(rotate-band-1) {
+    60% { @include transform(translateZ(0) rotate(360deg)); }
+    100% { @include transform(rotate(360deg)); }
+  }
+
+  @include keyframes(rotate-band-2) {
+    80% { @include transform(translateZ(0) rotate(360deg)); }
+    100% { @include transform(rotate(360deg)); }
+  }
+
+  @include keyframes(rotate-band-3) {
+    90% { @include transform(translateZ(0) rotate(360deg)); }
+    100% { @include transform(rotate(360deg)); }
+  }
+
+
+  svg {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
   }
 }
 
 .logo {
   @include logo;
 
-  &:after {
-    content: $theme +  '-' + $logo-orientation;
-    display: none;
-  }
-
-  &.logo-horizontal {
+  &.horizontal {
     @include logo($width: $logo-width-horizontal, $height: $logo-height-horizontal);
-    &:after {
-      content: 'default-horizontal';
-    }
-  }
-}
-
-.logo-inverse {
-  &:after {
-    content: 'inverse-vertical';
-  }
-  
-  &.logo-horizontal {
-    &:after {
-      content: 'inverse-horizontal';
-    }
-  }
-}
-
-.logo-default {
-  &:after {
-    content: 'default-vertical';
-  }
-  
-  &.logo-horizontal {
-    &:after {
-      content: 'default-horizontal';
-    }
   }
 }

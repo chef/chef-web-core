@@ -55,12 +55,12 @@ describe 'the brand-guidelines page', type: :feature do
   end
 
   it 'has a link to download the logo in Illustrator format' do
-    click_link 'logo.ai'
+    click_link 'chef-logo.ai'
     expect(page.status_code).to be(200)
   end
 
   it 'has a link to download the logo in SVG format' do
-    click_link 'logo.svg'
+    click_link 'chef-logo.svg'
     expect(page.status_code).to be(200)
   end
 end

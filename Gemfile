@@ -14,6 +14,7 @@ group :development, :test do
   gem 'bump'
   gem 'git'
   gem 'pry'
+  gem 'rack-cors', :require => 'rack/cors'
 end
 
 group :test do
