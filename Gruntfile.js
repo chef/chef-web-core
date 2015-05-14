@@ -32,7 +32,7 @@ module.exports = function(grunt) {
           {
             expand: true, 
             cwd: 'lib/assets/images',
-            src: ['*.png', '*.svg'], 
+            src: ['*.png', '*.svg', 'icons/*.svg'],
             dest: distDir('images')
           },
 
