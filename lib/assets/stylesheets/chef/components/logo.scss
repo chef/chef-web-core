@@ -10,53 +10,48 @@ but you can also specify horizontal, provided you also supply a site name. Avail
 for both the default and inverse [themes](../themes).
 
 ```html_example
-<div class="row">
+<!-- Default -->
+<div class="logo"></div>
 
-  <!-- Just the logo -->
-  <div class="large-2 columns">
-    <div class="logo"></div>
-  </div>
+<!-- Inverse (for dark backgrounds) -->
+<div class="logo inverse"></div>
 
-  <!-- Inverse (for dark backgrounds) -->
-  <div class="large-2 columns">
-    <div class="logo inverse"></div>
-  </div>
+<!-- Grayscale -->
+<div class="logo grayscale"></div>
 
-  <!-- Grayscale -->
-  <div class="large-2 columns">
-    <div class="logo grayscale"></div>
-  </div>
+<!-- Animating -->
+<div class="logo animate"></div>
 
-  <!-- Animating -->
-  <div class="large-2 columns end">
-    <div class="logo animate"></div>
-  </div>
+<!-- Just the mark -->
+<div class="logo mark"></div>
 
-</div>
-<div class="row">
-  
-  <!-- Just the mark -->
-  <div class="large-1 columns">
-    <div class="logo mark"></div>
-  </div>
-
-  <!-- Just the mark, animating -->
-  <div class="large-1 columns end">
-    <div class="logo mark animate"></div>
-  </div>
-
-  <!-- Horizontally oriented, with site name -->
-  <div class="large-4 columns end">
-    <div class="logo horizontal" data-tag-line="Manage"></div>
-  </div>
-
-</div>
+<!-- Animating mark -->
+<div class="logo mark animate"></div>
 ```
 
+### Using Ruby? Have a Helper
+
+The method above uses JavaScript to retrieve the logo and place it into the DOM. If you'd 
+rather the logo be rendered into your document, you can use a Ruby helper instead:
+
+```html_example
+<!-- Just the logo in a div -->
+<%= chef_logo %>
+
+<!-- As a link, horizontal, with site name -->
+<%= chef_logo :a, :class => 'horizontal inverse', :href => '/', :data => { :'tag-line' => 'Style Guide' } %>
+```
+
+Just be sure to use one of these two methods, as the content of the logo will likely change 
+with future versions of this component.
+
 <style>
+  .logo {
+    margin: 0 12px 12px 0;
+  }
   .logo.inverse {
-    padding: 12px;
     background-color: #3f5364;
+    padding: 4px 8px;
   }
 </style>
 */
@@ -71,8 +66,8 @@ for both the default and inverse [themes](../themes).
 @mixin logo($scale: 1, $width: $logo-width-vertical, $height: $logo-height-vertical, $base-color: $logo-base-color, $accent-color: $logo-accent-color) {
   display: inline-block;
   font-size: 0;
-  width: auto;
-  height: auto;
+  width: $width;
+  height: $height;
 
   .base {
     fill: $base-color;
@@ -104,7 +99,14 @@ for both the default and inverse [themes](../themes).
     .mark {
       width: $height * $scale;
       height: auto;
-      @include transform(translate(-108px, 24px) scale(1.48));
+
+      svg.vertical {
+        display: none;
+      }
+
+      svg.mark {
+        display: block;
+      }
     }
   }
 
@@ -123,14 +125,15 @@ for both the default and inverse [themes](../themes).
       width: $logo-width-horizontal;
       height: $logo-height-horizontal;
 
-      .mark {
-        @include transform(translate(-114px, 2px) scale(1.58));
+      svg.vertical {
+        display: none;
       }
-      .type {
-        @include transform(translate(544px, -746px) scale(2.18));
+
+      svg.horizontal {
+        display: block;
       }
+
       .tag-line {
-        @include transform(translate(550px, 422px) scale(7.5));
         display: block;
       }
     }
@@ -152,10 +155,6 @@ for both the default and inverse [themes](../themes).
   
   &.horizontal .animate .mark g {
     @include transform-origin(30px, 30px); 
-  }
-
-  &.animated .mark g {
-    opacity: 1;
   }
 
   &.animate .band-0 {
@@ -193,7 +192,6 @@ for both the default and inverse [themes](../themes).
     90% { @include transform(translateZ(0) rotate(360deg)); }
     100% { @include transform(rotate(360deg)); }
   }
-
 
   svg {
     width: 100%;

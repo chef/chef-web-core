@@ -1,3 +1,4 @@
+require 'chef/web/core/helpers'
 require 'chef/web/core/url_helpers'
 
 begin
@@ -7,6 +8,7 @@ rescue LoadError
 end
 
 helpers do
+  include Chef::Web::Core::Helpers
   include Chef::Web::Core::URLHelpers
 
   def guide_path

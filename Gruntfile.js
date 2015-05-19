@@ -116,10 +116,18 @@ module.exports = function(grunt) {
       }
     },
 
+    // Configure Compass
+    compass: {
+      dist: {
+        config: 'config/compass.rb'
+      }
+    },
+
     // Compile the CSS
     sass: {         
       dist: {                           
-        options: {                      
+        options: {
+          compass: true,
           style: 'expanded',
           sourcemap: 'none',
           loadPath: [
@@ -223,6 +231,7 @@ module.exports = function(grunt) {
   }
 
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
