@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'chef/web/core/helpers'
+require 'chef/web/core/asset_helpers'
 require 'nokogiri'
 
-describe Chef::Web::Core::Helpers do
+describe Chef::Web::Core::AssetHelpers do
   let(:application) { Object.new.extend(described_class) }
 
   describe 'the chef_logo helper' do

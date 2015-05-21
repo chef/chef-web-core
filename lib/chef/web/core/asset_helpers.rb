@@ -5,7 +5,7 @@ require 'nokogiri'
 class Chef
   module Web
     module Core
-      module Helpers
+      module AssetHelpers
 
         def chef_logo(element=:div, opts={})
           opts[:attributes] = opts.reject { |key| key == :data }
