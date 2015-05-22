@@ -13,11 +13,14 @@ module.exports = function(grunt) {
     clean: {
 
       // Delete the dist directory when the build starts
-      start: ['dist']
+      dist: ['dist'],
+
+      // Delete the SVG working directory
+      svg: ['lib/assets/images/icons/svg']
     },
 
     copy: {
-      main: {
+      dist: {
         files: [
 
           // Copy in our Sass 
@@ -67,6 +70,16 @@ module.exports = function(grunt) {
           }
         ],
       },
+      svg: {
+        files: [
+          {
+            expand: true, 
+            cwd: 'lib/assets/images/icons/svg',
+            src: ['*.svg'], 
+            dest: 'lib/assets/images/icons'
+          }
+        ]
+      }
     }, 
 
     // Concatenate the JS
@@ -150,7 +163,7 @@ module.exports = function(grunt) {
       },
       default: {
         files: {
-          'lib/assets/images/icons/all.svg': ['lib/assets/images/source/icons/*.svg'],
+          'lib/assets/images/icons/all.svg': ['lib/assets/images/source/icons/svg/*.svg'],
         },
         options: {
           formatting : {
@@ -218,6 +231,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-svgstore');
 
   grunt.registerTask('default', ['build']);
-  grunt.registerTask('build', ['clean:start', 'copy', 'mince', 'sass']);
-  grunt.registerTask('build-svgs', ['svgmin', 'svgstore']);
+  grunt.registerTask('build', ['clean:dist', 'copy:dist', 'mince', 'sass']);
+  grunt.registerTask('build-svgs', ['svgmin', 'svgstore', 'copy:svg', 'clean:svg']);
 };
