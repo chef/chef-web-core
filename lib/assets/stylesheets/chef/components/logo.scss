@@ -32,7 +32,19 @@ for both the default and inverse [themes](../themes).
 ### Using Ruby? Have a Helper
 
 The method above uses JavaScript to retrieve the logo and place it into the DOM. If you'd 
-rather the logo be rendered into your document, you can use a Ruby helper instead:
+rather the logo be rendered into your document, you can use a Ruby helper instead. Just 
+include the `AssetHelpers` module (in Rails, that's typically done in `application_helper.rb`):
+
+```
+require 'chef/web/core/asset_helpers'
+
+module ApplicationHelper
+  include Chef::Web::Core::AssetHelpers
+  ...
+end
+```
+
+Then use it in your templates:
 
 ```html_example
 <!-- Just the logo in a div -->
@@ -42,7 +54,7 @@ rather the logo be rendered into your document, you can use a Ruby helper instea
 <%= chef_logo :a, :class => 'horizontal inverse', :href => '/', :data => { :'tag-line' => 'Style Guide' } %>
 ```
 
-Just be sure to use one of these two methods, as the content of the logo will likely change 
+Be sure to use one of these two methods, as the content of the logo will likely change 
 with future versions of this component.
 
 <style>
