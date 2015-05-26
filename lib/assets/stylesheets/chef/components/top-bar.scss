@@ -10,8 +10,8 @@ site name, and is available in both default and inverse [themes](../themes).
 
 Use the Top Bar to provide access to your site's top-level resources &mdash; your home
 page, the main sections of your site, etc. Don't use the top-bar logo or its primary links
-to point to other Chef or third-party sites; instead, include a global bar, or 
-link to those resources from within the bodies of your pages.
+to point to other Chef or third-party sites; instead, link to those resources from within the 
+bodies of your pages.
 
 ```html_example
 <nav class="top-bar" data-topbar role="navigation">
@@ -52,29 +52,6 @@ Add the `skinny` modifier to get a thinner bar more appropriate for apps or smal
       <li><a href="#">Link</a></li>
     </ul>
   </section>
-</nav>
-```
-
-To include the global bar as well, add the `data-global` attribute. Specify an optional site 
-name to identify your site as the selected one:
-
-```html_example
-<nav class="top-bar" data-global data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1>
-        <a href="/" class="logo" data-tag-line="Your App Name"></a>
-      </h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-  </ul>
-  <div class="top-bar-section main">
-    <ul>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-    </ul>
-  </div>
 </nav>
 ```
 
@@ -124,8 +101,8 @@ name to identify your site as the selected one:
 $topbar-bg-color:                   $chef-white !default;
 $topbar-bg:                         $topbar-bg-color !default;
 $topbar-dropdown-bg:                $topbar-bg !default;
-$topbar-logo-padding:               10px !default;
-$topbar-height:                     rem-calc($logo-height + ($topbar-logo-padding * 2)) !default;
+$topbar-logo-margin:                10px !default;
+$topbar-height:                     rem-calc($logo-height + ($topbar-logo-margin * 2)) !default;
 $topbar-link-color:                 scale-color($chef-dark-blue, $lightness: 10%) !default;
 $topbar-link-color-active:          $topbar-link-color !default;
 $topbar-link-color-active-hover:    $topbar-link-color !default;
@@ -147,11 +124,9 @@ $topbar-margin-bottom:              $paragraph-margin-bottom !default;
 
 @import 'foundation/components/top-bar';
 
-// Structure
-
-@mixin top-bar($scale: 1, $height: $topbar-height) {
+@mixin top-bar($scale: 1, $height: $topbar-height, $link-font-size: $topbar-link-font-size) {
   $scaled-height: $height * $scale;
-
+  
   max-height: $scaled-height;
   transition: max-height .4s ease-in;
 
@@ -161,6 +136,18 @@ $topbar-margin-bottom:              $paragraph-margin-bottom !default;
     .name {
       h1 {
         line-height: $scaled-height;
+
+        a.logo {
+          width: $logo-width-vertical * $scale;
+          height: $logo-height * $scale;
+          margin-top: $topbar-logo-margin * $scale;
+          margin-left: $topbar-logo-margin * $scale;
+          padding: 0;
+
+          &.horizontal {
+            width: $logo-width-horizontal * $scale;
+          }
+        }
       }
     }
   }
@@ -174,6 +161,9 @@ $topbar-margin-bottom:              $paragraph-margin-bottom !default;
     ul {
       li {
         line-height: $scaled-height;
+        a {
+          font-size: $link-font-size;
+        }
 
         &:not(.has-form) a:not(.button) {
           line-height: $scaled-height;
@@ -187,20 +177,6 @@ $topbar-margin-bottom:              $paragraph-margin-bottom !default;
         }
       }
     }
-  }
-
-  .toggle-topbar.menu-icon {
-    top: ($scaled-height - rem-calc(16)) / 2;
-  }
-
-  .top-bar-tab {
-    display: none;
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: $logo-width * $scale - (30px * $scale);
-    height: 20px;
-    padding: 0 10px;
   }
 
   &.expanded {
@@ -217,17 +193,20 @@ $topbar-margin-bottom:              $paragraph-margin-bottom !default;
           }
         }
       }
-    } 
+    }
+  }
+
+  .toggle-topbar.menu-icon {
+    top: ($scaled-height - rem-calc(16)) / 2;
   }
 }
 
 @mixin top-bar-logo($scale: 1, $width: $logo-width, $height: $logo-height) {
-  @include logo($scale, $width: $width, $height: $height);
-  margin-top: rem-calc(10) * $scale;
+  @include logo($scale, $width: $width, $height: $height, $base-color: $topbar-logo-base-color, $accent-color: $topbar-logo-accent-color);
 }
 
-@mixin top-bar-with-logo($scale: 1) {
-  @include top-bar($scale);
+@mixin top-bar-with-logo($scale: 1, $link-font-size: $topbar-link-font-size) {
+  @include top-bar($scale: $scale, $link-font-size: $link-font-size);
 
   .logo {
     @include top-bar-logo($scale);
@@ -239,51 +218,9 @@ $topbar-margin-bottom:              $paragraph-margin-bottom !default;
 }
 
 .top-bar.skinny {
-  @include top-bar-with-logo(.5);
-}
+  @include top-bar-with-logo($scale: .5, $link-font-size: 12px);
 
-.top-bar-tab-content {
-  display: none;
-  height: 2px;
-  transition: height .2s ease-in;
-
-  .content {
-    padding: 10px;
-    font-size: rem-calc(13);
-  }
-
-  &.expanded {
-    height: 40px;
-  }
-}
-
-@media #{$medium-up} {
-  .top-bar-tab-content {
-    display: block;
-  }
-
-  .top-bar, .top-bar.skinny {
-    .top-bar-tab {
-      display: block;
-    }
-  }
-}
-
-// Skin
-
-@mixin top-bar-tab-skin {
-  background-color: $chef-white;
-  color: $chef-dark-blue;
-  border-radius: 0 0 $global-radius $global-radius;
-}
-
-.top-bar .top-bar-tab {
-  @include top-bar-tab-skin;
-}
-
-.top-bar-tab-content {
-  background-color: $chef-white;
-  .content {
-    color: $chef-dark-blue;
+  .toggle-topbar.menu-icon {
+    top: 50%;
   }
 }

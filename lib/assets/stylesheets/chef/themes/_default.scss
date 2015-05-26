@@ -1,7 +1,7 @@
 /*doc
 ---
 title: Default Theme
-name: default
+name: _default
 category: Themes
 ---
 
@@ -15,8 +15,9 @@ The default theme.
 
 @import '../settings';
 
-$theme:                             $theme-default !default;
 $chef-palette-link-color:           $chef-dark-blue !default;
+$logo-base-color:                   $chef-dark-blue !default;
+$logo-accent-color:                 $chef-orange !default;
 
 // Alert
 $alert-border-style:                none;
@@ -32,3 +33,5 @@ $code-font-family:                  $chef-type-code !default;
 $topbar-link-color:                 $chef-dark-blue !default;
 $topbar-link-font-size:             16px !default;
 $topbar-bg:                         $chef-white !default;
+$topbar-logo-base-color:            $logo-base-color !default;
+$topbar-logo-accent-color:          $logo-accent-color !default;

@@ -1,3 +1,4 @@
+require 'chef/web/core/asset_helpers'
 require 'chef/web/core/url_helpers'
 
 begin
@@ -7,6 +8,7 @@ rescue LoadError
 end
 
 helpers do
+  include Chef::Web::Core::AssetHelpers
   include Chef::Web::Core::URLHelpers
 
   def guide_path
@@ -80,6 +82,15 @@ configure :development do
     end
 
     delayed.kill
+  end
+
+  require 'rack/cors'
+  use Rack::Cors do
+    allow do
+      origins '*'
+      resource '*.svg',  
+        methods: [:get, :options]
+    end
   end
 end
 
