@@ -15,8 +15,11 @@ module.exports = function(grunt) {
       // Delete the dist directory when the build starts
       dist: ['dist'],
 
-      // Delete the SVG working directory
-      svg: ['lib/assets/images/icons/svg']
+      // Delete the SVG working directories
+      svg: [
+        'lib/assets/images/source/icons/minified',
+        'lib/assets/images/source/icons/renamed',
+      ]
     },
 
     copy: {
@@ -70,11 +73,24 @@ module.exports = function(grunt) {
           }
         ],
       },
+      svgRename: {
+        files: [
+          {
+            expand: true, 
+            cwd: 'lib/assets/images/source/icons/minified/svg',
+            src: ['*.svg'], 
+            dest: 'lib/assets/images/source/icons/renamed/',
+            rename: function(dest, src) {
+              return dest + src.replace(/_/g, '-');
+            }
+          }
+        ]
+      },
       svg: {
         files: [
           {
             expand: true, 
-            cwd: 'lib/assets/images/icons/svg',
+            cwd: 'lib/assets/images/source/icons/renamed',
             src: ['*.svg'], 
             dest: 'lib/assets/images/icons'
           }
@@ -155,7 +171,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'lib/assets/images/source/icons/',
           src: ['**/*.svg'],
-          dest: 'lib/assets/images/icons/'
+          dest: 'lib/assets/images/source/icons/minified'
         }]
       }
     },
@@ -171,14 +187,14 @@ module.exports = function(grunt) {
       },
       default: {
         files: {
-          'lib/assets/images/icons/all.svg': ['lib/assets/images/source/icons/svg/*.svg'],
+          'lib/assets/images/icons/all.svg': ['lib/assets/images/source/icons/renamed/*.svg'],
         },
         options: {
           formatting : {
             indent_size : 2
           },
           cleanup: ['fill'],
-          includeTitleElement: false
+          includeTitleElement: true
         }
       }
     },
@@ -241,5 +257,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['build']);
   grunt.registerTask('build', ['clean:dist', 'copy:dist', 'mince', 'sass']);
-  grunt.registerTask('build-svgs', ['svgmin', 'svgstore', 'copy:svg', 'clean:svg']);
+  grunt.registerTask('build-svgs', ['svgmin', 'copy:svgRename', 'svgstore', 'copy:svg', 'clean:svg']);
 };
