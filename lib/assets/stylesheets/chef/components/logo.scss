@@ -5,7 +5,7 @@ name: logo
 category: Logo
 ---
 
-Logos are delivered as stylable SVG graphics. The default orientation is vertical, 
+Logos are delivered as CSS-configurable SVG graphics. The default orientation is vertical, 
 but you can also specify horizontal, provided you also supply a site name. Available 
 for both the default and inverse [themes](../themes).
 
@@ -19,19 +19,42 @@ for both the default and inverse [themes](../themes).
 <!-- Grayscale -->
 <div class="logo grayscale"></div>
 
-<!-- Animating -->
-<div class="logo animate"></div>
-
 <!-- Just the mark -->
 <div class="logo mark"></div>
-
-<!-- Animating mark -->
-<div class="logo mark animate"></div>
 ```
+
+### Animating the Logo
+
+If you'd like to animate the logo (for example, as a loading spinner), you can use the 
+`animate` and `deaminate` classes:
+
+```html_example
+<div id="animate-example" class="logo mark animate"></div>
+```  
+
+The `deanimate` class simply returns the logo to its original position.
+
+Applying and removing these classes manually certainly works, but doesn't guarantee that 
+a running animation finishes smoothly. To do that, use the jQuery `logo` plugin:
+
+```
+$(selector).logo('animate');     // Start animating
+$(selector).logo('deanimate');   // Go one last time, then stop
+```
+
+Give it a try with the logo above:
+
+<button id="animate" class="small button secondary">Animate!</button>
+<button id="deanimate" class="small button secondary">Stop</button>
+
+<script>
+  document.querySelector('#animate').onclick = function() { $('#animate-example').logo('animate') };
+  document.querySelector('#deanimate').onclick = function() { $('#animate-example').logo('deanimate') };
+</script>
 
 ### Using Ruby? Have a Helper
 
-The method above uses JavaScript to retrieve the logo and place it into the DOM. If you'd 
+The methods above use JavaScript to retrieve the logo and place it into the DOM. If you'd 
 rather the logo be rendered into your document, you can use a Ruby helper instead. Just 
 include the `AssetHelpers` module (in Rails, that's typically done in `application_helper.rb`):
 
