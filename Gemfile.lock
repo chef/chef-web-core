@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chef-web-core (0.2.1)
+    chef-web-core (0.3.0)
       compass-rails (~> 2.0.4)
       foundation-rails (= 5.5.1.1)
       sass (>= 3.4.0, < 4.0)
