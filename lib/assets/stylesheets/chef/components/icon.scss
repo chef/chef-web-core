@@ -30,13 +30,8 @@ be used to working with icon fonts:
 
 ```html_example
 <h2>
-  <i class="icon-chef-delivery"></i>
+  <i class="icon-chef-dk"></i>
 </h2>
-
-<button class="button tiny secondary">
-  <i class="icon-resources-link"></i>
-  Link Something
-</button>
 ``` 
 
 This approach adds an SVG sprite containing all Chef icons to the body of your page, then 
@@ -45,13 +40,13 @@ apply styling with CSS:
 
 ```html_example
 <style>
-  .icon_chef_delivery.light-blue {
+  .icon-chef-dk.light-blue {
     color: #6bb2e2;
     width: 75px;
     height: 75px;
   }
 </style>
-<i class="icon-chef-delivery light-blue"></i>
+<i class="icon-chef-dk light-blue"></i>
 ```
 
 If you need to add icons dynamically to the DOM after initial page load, be sure to call the Icon 
@@ -75,9 +70,12 @@ using `svg` elements to refer to each icon symbol:
   </svg>
 
   <!-- Then, reference each icon individually: -->
-  <svg class="icon-chef-delivery light-blue">
-    <use xlink:href="#icon-chef-delivery"></use>
-  </svg>
+  <div style="width: 100px; height: 100px; color: #f18b21">
+    <svg class="icon-chef-delivery">
+      <use xlink:href="#icon-chef-delivery"></use>
+    </svg>
+  </div>
+
 </body>
 ```
 
@@ -90,7 +88,19 @@ Lastly, you can use them with standard `img` tags:
 Keep in mind, though, that using this method limits your ability to style the
 icons with CSS.
 
+### Captioned Tiles
+
+To get a colored tile with a centered caption, just provide a `data-caption` attribute (and optional `border` class):
+
+```html_example
+<i class="icon-workflow-build border" data-caption="Build"></i>
+<i class="icon-workflow-tests border" data-caption="Test"></i>
+<i class="icon-workflow-publish border" data-caption="Publish"></i>
+```
+
 ### The Complete List
+
+Hover over an icon to reveal its class/file name.
 
 ```html_example
 <div id="all-icons">
@@ -104,152 +114,147 @@ icons with CSS.
   <i class="icon-chef-push-jobs"></i>
   <i class="icon-chef-server"></i>
   <i class="icon-chef-supermarket"></i>
-  <i class="icon-chef-unikitty"></i>
-  <i class="icon-logos-centos"></i>
-  <i class="icon-logos-github"></i>
-  <i class="icon-logos-macosx"></i>
-  <i class="icon-logos-redhat"></i>
-  <i class="icon-logos-rubygems"></i>
-  <i class="icon-logos-ubuntu"></i>
-  <i class="icon-logos-windows"></i>
-  <i class="icon-node-types-application"></i>
-  <i class="icon-node-types-bare-metal"></i>
-  <i class="icon-node-types-container"></i>
-  <i class="icon-node-types-middleware"></i>
-  <i class="icon-node-types-network-device"></i>
-  <i class="icon-node-types-platform"></i>
-  <i class="icon-node-types-private-cloud"></i>
-  <i class="icon-node-types-public-cloud"></i>
-  <i class="icon-node-types-server"></i>
-  <i class="icon-node-types-storage-device"></i>
-  <i class="icon-node-types-virtual-machine"></i>
-  <i class="icon-node-types-virtual-platform"></i>
-  <i class="icon-objects-cookbook-attributes"></i>
-  <i class="icon-objects-cookbook-cookbooks"></i>
-  <i class="icon-objects-cookbook-definitions"></i>
-  <i class="icon-objects-cookbook-files"></i>
-  <i class="icon-objects-cookbook-libraries"></i>
-  <i class="icon-objects-cookbook-metadata"></i>
-  <i class="icon-objects-cookbook-providers"></i>
-  <i class="icon-objects-cookbook-recipes"></i>
-  <i class="icon-objects-cookbook-resources"></i>
-  <i class="icon-objects-cookbook-templates"></i>
-  <i class="icon-objects-cookbook-tests"></i>
-  <i class="icon-objects-cookbook-versions"></i>
-  <i class="icon-objects-server-api"></i>
-  <i class="icon-objects-server-client"></i>
-  <i class="icon-objects-server-cookbook"></i>
-  <i class="icon-objects-server-data-bag"></i>
-  <i class="icon-objects-server-environment"></i>
-  <i class="icon-objects-server-group"></i>
-  <i class="icon-objects-server-node"></i>
-  <i class="icon-objects-server-organization"></i>
-  <i class="icon-objects-server-policy"></i>
-  <i class="icon-objects-server-roles"></i>
-  <i class="icon-objects-server-run-list"></i>
-  <i class="icon-objects-server-search"></i>
-  <i class="icon-objects-server-user"></i>
-  <i class="icon-objects-server-workstation"></i>
-  <i class="icon-resources-apt-package"></i>
-  <i class="icon-resources-bash"></i>
-  <i class="icon-resources-batch"></i>
-  <i class="icon-resources-bff-package"></i>
-  <i class="icon-resources-breakpoint"></i>
-  <i class="icon-resources-chef-acl"></i>
-  <i class="icon-resources-chef-client"></i>
-  <i class="icon-resources-chef-container"></i>
-  <i class="icon-resources-chef-data-bag"></i>
-  <i class="icon-resources-chef-environment"></i>
-  <i class="icon-resources-chef-gem"></i>
-  <i class="icon-resources-chef-group"></i>
-  <i class="icon-resources-chef-handler"></i>
-  <i class="icon-resources-chef-mirror"></i>
-  <i class="icon-resources-chef-node"></i>
-  <i class="icon-resources-chef-organization"></i>
-  <i class="icon-resources-chef-role"></i>
-  <i class="icon-resources-chef-user"></i>
-  <i class="icon-resources-cookbook-file"></i>
-  <i class="icon-resources-cron"></i>
-  <i class="icon-resources-csh"></i>
-  <i class="icon-resources-deploy"></i>
-  <i class="icon-resources-directory"></i>
-  <i class="icon-resources-dpkg-package"></i>
-  <i class="icon-resources-dsc-resource"></i>
-  <i class="icon-resources-dsc-script"></i>
-  <i class="icon-resources-easy-install-package"></i>
-  <i class="icon-resources-env"></i>
-  <i class="icon-resources-erl-call"></i>
-  <i class="icon-resources-execute"></i>
-  <i class="icon-resources-file"></i>
-  <i class="icon-resources-freebsd-package"></i>
-  <i class="icon-resources-gem"></i>
-  <i class="icon-resources-git"></i>
-  <i class="icon-resources-group"></i>
-  <i class="icon-resources-homebrew-package"></i>
-  <i class="icon-resources-http-request"></i>
-  <i class="icon-resources-ifconfig"></i>
-  <i class="icon-resources-ips-package"></i>
-  <i class="icon-resources-link"></i>
-  <i class="icon-resources-load-balancer"></i>
-  <i class="icon-resources-log"></i>
-  <i class="icon-resources-machine"></i>
-  <i class="icon-resources-machine-batch"></i>
-  <i class="icon-resources-machine-execute"></i>
-  <i class="icon-resources-machine-file"></i>
-  <i class="icon-resources-machine-image"></i>
-  <i class="icon-resources-macports-package"></i>
-  <i class="icon-resources-mdadm"></i>
-  <i class="icon-resources-mount"></i>
-  <i class="icon-resources-ohai"></i>
-  <i class="icon-resources-openbsd-package"></i>
-  <i class="icon-resources-package"></i>
-  <i class="icon-resources-pacman-package"></i>
-  <i class="icon-resources-paludis-package"></i>
-  <i class="icon-resources-perl"></i>
-  <i class="icon-resources-portage-package"></i>
-  <i class="icon-resources-powershell-script"></i>
-  <i class="icon-resources-private-key"></i>
-  <i class="icon-resources-public-key"></i>
-  <i class="icon-resources-python"></i>
-  <i class="icon-resources-reboot"></i>
-  <i class="icon-resources-registry-key"></i>
-  <i class="icon-resources-remote-directory"></i>
-  <i class="icon-resources-remote-file"></i>
-  <i class="icon-resources-route"></i>
-  <i class="icon-resources-rpm-package"></i>
-  <i class="icon-resources-ruby"></i>
-  <i class="icon-resources-ruby-block"></i>
-  <i class="icon-resources-script"></i>
-  <i class="icon-resources-service"></i>
-  <i class="icon-resources-smartos-package"></i>
-  <i class="icon-resources-solaris-package"></i>
-  <i class="icon-resources-subversion"></i>
-  <i class="icon-resources-template"></i>
-  <i class="icon-resources-user"></i>
-  <i class="icon-resources-windows-package"></i>
-  <i class="icon-resources-windows-service"></i>
-  <i class="icon-resources-yum-package"></i>
+  <i class="icon-logo-centos"></i>
+  <i class="icon-logo-debian"></i>
+  <i class="icon-logo-git"></i>
+  <i class="icon-logo-github"></i>
+  <i class="icon-logo-mac-osx"></i>
+  <i class="icon-logo-redhat"></i>
+  <i class="icon-logo-rubygems"></i>
+  <i class="icon-logo-ubuntu"></i>
+  <i class="icon-logo-windows"></i>
+  <i class="icon-node-type-application"></i>
+  <i class="icon-node-type-bare-metal"></i>
+  <i class="icon-node-type-container"></i>
+  <i class="icon-node-type-middleware"></i>
+  <i class="icon-node-type-network-device"></i>
+  <i class="icon-node-type-platform"></i>
+  <i class="icon-node-type-private-cloud"></i>
+  <i class="icon-node-type-public-cloud"></i>
+  <i class="icon-node-type-server"></i>
+  <i class="icon-node-type-storage-device"></i>
+  <i class="icon-node-type-virtual-machine"></i>
+  <i class="icon-node-type-virtual-platform"></i>
+  <i class="icon-object-cookbook-attributes"></i>
+  <i class="icon-object-cookbook-cookbook"></i>
+  <i class="icon-object-cookbook-definitions"></i>
+  <i class="icon-object-cookbook-files"></i>
+  <i class="icon-object-cookbook-libraries"></i>
+  <i class="icon-object-cookbook-metadata"></i>
+  <i class="icon-object-cookbook-providers"></i>
+  <i class="icon-object-cookbook-recipes"></i>
+  <i class="icon-object-cookbook-resources"></i>
+  <i class="icon-object-cookbook-template"></i>
+  <i class="icon-object-cookbook-tests"></i>
+  <i class="icon-object-cookbook-version"></i>
+  <i class="icon-object-server-api"></i>
+  <i class="icon-object-server-client"></i>
+  <i class="icon-object-server-cookbook"></i>
+  <i class="icon-object-server-data-bag"></i>
+  <i class="icon-object-server-environment"></i>
+  <i class="icon-object-server-group"></i>
+  <i class="icon-object-server-node"></i>
+  <i class="icon-object-server-organization"></i>
+  <i class="icon-object-server-policy"></i>
+  <i class="icon-object-server-role"></i>
+  <i class="icon-object-server-run-list"></i>
+  <i class="icon-object-server-search"></i>
+  <i class="icon-object-server-user"></i>
+  <i class="icon-object-server-workstation"></i>
+  <i class="icon-resource-core-bash"></i>
+  <i class="icon-resource-core-chef-gem"></i>
+  <i class="icon-resource-core-cookbook-file"></i>
+  <i class="icon-resource-core-cron"></i>
+  <i class="icon-resource-core-deploy"></i>
+  <i class="icon-resource-core-directory"></i>
+  <i class="icon-resource-core-execute"></i>
+  <i class="icon-resource-core-file"></i>
+  <i class="icon-resource-core-gem"></i>
+  <i class="icon-resource-core-group"></i>
+  <i class="icon-resource-core-link"></i>
+  <i class="icon-resource-core-log"></i>
+  <i class="icon-resource-core-package"></i>
+  <i class="icon-resource-core-remote-directory"></i>
+  <i class="icon-resource-core-remote-file"></i>
+  <i class="icon-resource-core-ruby-block"></i>
+  <i class="icon-resource-core-script"></i>
+  <i class="icon-resource-core-service"></i>
+  <i class="icon-resource-core-template"></i>
+  <i class="icon-resource-core-user"></i>
+  <i class="icon-resource-provisioning-load-balancer"></i>
+  <i class="icon-resource-provisioning-machine"></i>
+  <i class="icon-resource-provisioning-machine-batch"></i>
+  <i class="icon-resource-provisioning-machine-execute"></i>
+  <i class="icon-resource-provisioning-machine-file"></i>
+  <i class="icon-resource-provisioning-machine-image"></i>
+  <i class="icon-resource-provisioning-chef-acl"></i>
+  <i class="icon-resource-provisioning-chef-client"></i>
+  <i class="icon-resource-provisioning-chef-container"></i>
+  <i class="icon-resource-provisioning-chef-data-bag"></i>
+  <i class="icon-resource-provisioning-chef-environment"></i>
+  <i class="icon-resource-provisioning-chef-group"></i>
+  <i class="icon-resource-provisioning-chef-mirror"></i>
+  <i class="icon-resource-provisioning-chef-node"></i>
+  <i class="icon-resource-provisioning-chef-organization"></i>
+  <i class="icon-resource-provisioning-chef-role"></i>
+  <i class="icon-resource-provisioning-chef-user"></i>
+  <i class="icon-resource-provisioning-private-key"></i>
+  <i class="icon-resource-provisioning-public-key"></i>
+  <i class="icon-resource-other-apt"></i>
+  <i class="icon-resource-other-batch"></i>
+  <i class="icon-resource-other-bff"></i>
+  <i class="icon-resource-other-breakpoint"></i>
+  <i class="icon-resource-other-chef-handler"></i>
+  <i class="icon-resource-other-csh"></i>
+  <i class="icon-resource-other-dpkg"></i>
+  <i class="icon-resource-other-dsc-resource"></i>
+  <i class="icon-resource-other-dsc-script"></i>
+  <i class="icon-resource-other-easy-install"></i>
+  <i class="icon-resource-other-env"></i>
+  <i class="icon-resource-other-erlang-call"></i>
+  <i class="icon-resource-other-freebsd"></i>
+  <i class="icon-resource-other-git"></i>
+  <i class="icon-resource-other-homebrew"></i>
+  <i class="icon-resource-other-http-request"></i>
+  <i class="icon-resource-other-ifconfig"></i>
+  <i class="icon-resource-other-ips"></i>
+  <i class="icon-resource-other-macports"></i>
+  <i class="icon-resource-other-mdadm"></i>
+  <i class="icon-resource-other-mount"></i>
+  <i class="icon-resource-other-ohai"></i>
+  <i class="icon-resource-other-openbsd"></i>
+  <i class="icon-resource-other-pacman"></i>
+  <i class="icon-resource-other-paludis"></i>
+  <i class="icon-resource-other-perl"></i>
+  <i class="icon-resource-other-portage"></i>
+  <i class="icon-resource-other-powershell"></i>
+  <i class="icon-resource-other-python"></i>
+  <i class="icon-resource-other-reboot"></i>
+  <i class="icon-resource-other-registry-key"></i>
+  <i class="icon-resource-other-route"></i>
+  <i class="icon-resource-other-rpm"></i>
+  <i class="icon-resource-other-ruby"></i>
+  <i class="icon-resource-other-smartos"></i>
+  <i class="icon-resource-other-solaris"></i>
+  <i class="icon-resource-other-subversion"></i>
+  <i class="icon-resource-other-windows"></i>
+  <i class="icon-resource-other-windows-service"></i>
+  <i class="icon-resource-other-yum"></i>
   <i class="icon-workflow-cd"></i>
-  <i class="icon-workflow-chef-repo"></i>
   <i class="icon-workflow-chefspec"></i>
+  <i class="icon-workflow-chef-repo"></i>
   <i class="icon-workflow-ci"></i>
   <i class="icon-workflow-config-rb"></i>
   <i class="icon-workflow-controls"></i>
   <i class="icon-workflow-cookbooks"></i>
-  <i class="icon-workflow-delivery-accept"></i>
-  <i class="icon-workflow-delivery-approve"></i>
-  <i class="icon-workflow-delivery-build"></i>
-  <i class="icon-workflow-delivery-deliver"></i>
-  <i class="icon-workflow-delivery-publish"></i>
-  <i class="icon-workflow-delivery-rehearse"></i>
-  <i class="icon-workflow-delivery-union"></i>
-  <i class="icon-workflow-delivery-verify"></i>
-  <i class="icon-workflow-dk"></i>
+  <i class="icon-workflow-development-kit"></i>
   <i class="icon-workflow-foodcritic"></i>
   <i class="icon-workflow-kitchen"></i>
   <i class="icon-workflow-knife"></i>
   <i class="icon-workflow-policyfile"></i>
+  <i class="icon-workflow-policygroup"></i>
   <i class="icon-workflow-recipe-dsl"></i>
+  <i class="icon-workflow-recipe"></i>
   <i class="icon-workflow-recipes"></i>
   <i class="icon-workflow-reports"></i>
   <i class="icon-workflow-resources"></i>
@@ -259,14 +264,22 @@ icons with CSS.
   <i class="icon-workflow-secrets"></i>
   <i class="icon-workflow-tests"></i>
   <i class="icon-workflow-workstation"></i>
+  <i class="icon-workflow-verify"></i>
+  <i class="icon-workflow-approve"></i>
+  <i class="icon-workflow-build"></i>
+  <i class="icon-workflow-accept"></i>
+  <i class="icon-workflow-publish"></i>
+  <i class="icon-workflow-union"></i>
+  <i class="icon-workflow-rehearse"></i>
+  <i class="icon-workflow-deliver"></i> 
 </div>
 ```
 
 <style>
   #all-icons > i {
     margin: 8px;
-    height: 2em;
     width: 2em;
+    height: 2em;
   }
 </style>
 
@@ -284,16 +297,49 @@ body > #chef-icons {
   display: none;
 }
 
-i[class^="icon-"] {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-}
-
 svg[class^="icon-"] {
   width: 100%;
   height: 100%;
   fill: currentColor;
+  display: block;
+}
+
+i[class^="icon-"] {
+  display: inline-block;
+  margin: 0;
+  width: 1em;
+  height: 1em;
+
+  &.caption {
+    width: 80px;
+    height: 80px;
+    padding: 8px 8px 26px 8px;
+    overflow: visible;
+    background-color: $chef-dark-grey;
+    color: $chef-white;
+    box-sizing: border-box;
+
+    &.border {
+      border: 4px solid #ddd;
+      border-radius: 2px;
+    }
+
+    svg {
+      margin: 0 auto 6px auto;
+    }
+
+    span {
+      display: block;
+      font-family: $chef-type-label;
+      font-style: normal;
+      font-weight: normal;
+      font-size: rem-calc(10);
+      text-align: center;
+      white-space: nowrap;
+      padding: 0;
+      margin: 0;
+    }
+  }
 }
 
 @import 'foundation/foundation-icons';
