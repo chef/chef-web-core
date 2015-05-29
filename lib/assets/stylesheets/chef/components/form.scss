@@ -20,7 +20,7 @@ category: Form
       <div>
         <label>
           Password
-          <input type="password" class="radius"required>
+          <input type="password" class="radius" required>
         </label>
       </div>
       <div>
@@ -65,6 +65,19 @@ $input-error-message-font-style:      bold;
 $input-error-message-bg-color:        #000;
 $input-error-message-font-color-alt:  $oil;
 $input-border-width:                  1px;
+$form-label-bottom-margin:            rem-calc(8);
+$form-label-font-weight:              $font-weight-bold;
+
+$form-element-font-size:              rem-calc(14);
+$input-font-size:                     $form-element-font-size;
+$form-label-font-size:                $form-element-font-size;
+$form-link-font-size:                 $form-element-font-size;
+
+form {
+  a, button {
+    font-size: $form-link-font-size;
+  }
+}
 
 @import 'button';
 @import 'foundation/components/forms';
