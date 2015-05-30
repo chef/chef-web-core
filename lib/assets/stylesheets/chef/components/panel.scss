@@ -29,7 +29,3 @@ $panel-border-style:    none;
 $panel-padding:         $column-gutter / 2;
 
 @import 'foundation/components/panels';
-
-.panel {
-  border-radius: $global-radius;
-}
