@@ -141,7 +141,7 @@ $topbar-margin-bottom:              $paragraph-margin-bottom !default;
           width: $logo-width-vertical * $scale;
           height: $logo-height * $scale;
           margin-top: $topbar-logo-margin * $scale;
-          margin-left: $topbar-logo-margin * $scale;
+          margin-left: ($column-gutter / 2) * $scale;
           padding: 0;
 
           &.horizontal {
