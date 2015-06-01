@@ -30,8 +30,9 @@ $chef-type-code:                    Consolas, Liberation Mono, Courier, monospac
 $code-font-family:                  $chef-type-code !default;
 
 // Top Bar
-$topbar-link-color:                 $chef-dark-blue !default;
-$topbar-link-font-size:             16px !default;
+$topbar-link-color:                 $chef-grey !default;
+$topbar-link-font-size:             14px !default;
+$topbar-link-weight:                normal;
 $topbar-bg:                         $chef-white !default;
 $topbar-logo-base-color:            $logo-base-color !default;
 $topbar-logo-accent-color:          $logo-accent-color !default;
