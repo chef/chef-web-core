@@ -32,9 +32,10 @@
         </div>
       </nav>
     </div>
-    <div class="row">
-      <%= yield %>
-    </div>
+    <%= yield %>
+    <footer>
+      &copy; <%= Time.now.year %> Chef Software, Inc.
+    </footer>
     <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js' %>
     <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js' %>
     <%= javascript_include_tag 'application' %>
