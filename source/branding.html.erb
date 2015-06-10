@@ -23,12 +23,16 @@ title: Brand Guidelines
     </p>
   </div>
   <div class="small-12 large-6 columns">
-    <div class="row">
+    <div class="row" style="text-align:center;">
       <div class="small-6 large-6 columns">
-        <caption>The Logo</caption>
+        <h4>The Logo</h4>
+        <%= chef_logo %>
       </div>
       <div class="small-6 large-6 columns">
-        <caption>Not The Logo</caption>
+        <h4>Not The Logo</h4>
+        <div style="color:#3f5364;font-weight:bold;font-family:Arial,sans-serif;font-size:24pt;">CHEF<span style="font-size:8pt;padding-top:10px;vertical-align:top;">&trade;</span></div>
+        <hr>
+        <%= chef_logo(:div, :class => "mark") %>
       </div>
     </div>
   </div>
@@ -49,6 +53,8 @@ title: Brand Guidelines
     </p>
   </div>
   <div class="small-12 large-6 columns">
+    <%= chef_logo %>
+    <div>logo with chef.io at athe bottom </div>
   </div>
 </div>
 <div class="row">
@@ -66,10 +72,16 @@ title: Brand Guidelines
   <div class="small-12 large-6 columns">
     <div class="row">
       <div class="small-6 large-6 columns">
-        <caption>Regular Logo</caption>
+        <h4>Regular Logo</h4>
+        <div style="width:122px;padding:22px;">
+          <%= chef_logo %>
+        </div>
       </div>
       <div class="small-6 large-6 columns">
-        <caption>Inverse Logo</caption>
+        <h4>Inverse Logo</h4>
+        <div style="background-color:#3f5364;width:122px;padding:22px;">
+          <div class="logo inverse"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -84,6 +96,9 @@ title: Brand Guidelines
     </p>
   </div>
   <div class="small-12 large-6 columns">
+    <div style="border:1px solid #3f5364;width:122px;padding:22px;">
+      <div class="logo"></div>
+    </div>
   </div>
 </div>
 <h3>Download a Logo</h3>
