@@ -30,7 +30,9 @@ title: Brand Guidelines
       </div>
       <div class="small-6 large-6 columns">
         <h4>Not The Logo</h4>
-        <div style="color:#3f5364;font-weight:bold;font-family:Arial,sans-serif;font-size:24pt;">CHEF<span style="font-size:8pt;padding-top:10px;vertical-align:top;">&trade;</span></div>
+        <div style="letter-spacing:2px;color:#3f5364;font-weight:bold;font-family:Arial,sans-serif;font-size:48px;">CHEF<span style="letter-spacing:normal;font-weight:normal;font-size:8px;vertical-align:top;">TM</span></div>
+        <hr>
+        <%= image_tag "example/logo-horiz.png", :width => 140 %>
         <hr>
         <%= chef_logo(:div, :class => "mark") %>
       </div>
@@ -53,8 +55,8 @@ title: Brand Guidelines
     </p>
   </div>
   <div class="small-12 large-6 columns">
-    <%= chef_logo %>
-    <div>logo with chef.io at athe bottom </div>
+    <%= chef_logo(:span, :style => "margin:22px;") %>
+    <%= image_tag "example/logo-with-io.png", :width => 85, :style => "vertical-align:top;margin:22px;" %>
   </div>
 </div>
 <div class="row">
@@ -96,9 +98,23 @@ title: Brand Guidelines
     </p>
   </div>
   <div class="small-12 large-6 columns">
-    <div style="border:1px solid #3f5364;width:122px;padding:22px;">
+    <div style="display:inline-block;border:1px solid #3f5364;width:122px;padding:22px;margin-right: 22px;">
       <div class="logo"></div>
     </div>
+    <%= image_tag "example/logo-ch-whitespace.png", :width => 132, :style => "vertical-align:top;" %>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 large-6 columns">
+    <h3>Size</h3>
+    <p>
+      In print, the Chef logo must be used at a <em>minimum</em> size of
+      .75” wide with spacing around it equaling at least 1.5”.
+    </p>
+  </div>
+  <div class="small-12 large-6 columns" style="padding-top:1em;">
+    <%= image_tag "example/logo-size-min.png", :width => 150 %>
+    <%= image_tag "example/logo-size-max.png", :width => 150 %>
   </div>
 </div>
 <h3>Download a Logo</h3>
@@ -120,36 +136,24 @@ title: Brand Guidelines
   For more ways to include and use the Chef logo, see the
   <%= link_to "Logo component documentation", "/guide/logo/" %>.
 </p>
-<h2>Usage</h2>
-<div class="row">
-  <div class="small-12 large-6 columns">
-    <h3>Trademark</h3>
-    <p>
-      Trademarks must be used properly in Chef materials.
-      If a trademark is used improperly, it can weaken
-      the brand, making it generic or unenforceable.
-      Please visit
-      <%= link_to "our trademark policy page", "#{chef_www_url}/trademark-policy" %>
-      for a list of the latest Chef
-      trademarks for the Chef brand.
-    <p>
-      These guidelines are intended for use by Chef licensees, authorized
-      resellers and distributors, and third parties who have received explicit
-      permission to use certain Chef trademarks. No right, license or
-      permission, express or implied, to use Chef trademarks is provided
-      by these guidelines. Further, any uses of Chef trademarks that are not
-      covered by any of the examples in these guidelines requires Chef’s
-      express written consent.
-    </p>
-  </div>
-  <div class="small-12 large-6 columns">
-    <h3>Minimum Size</h3>
-    <p>
-      The Chef logo must be used at a <em>minimum</em> size of
-      .75” wide with spacing around it equaling at least 1.5”.
-    </p>
-  </div>
-</div>
+<h2>Trademark</h2>
+<p>
+  Trademarks must be used properly in Chef materials.
+  If a trademark is used improperly, it can weaken
+  the brand, making it generic or unenforceable.
+  Please visit
+  <%= link_to "our trademark policy page", "#{chef_www_url}/trademark-policy" %>
+  for a list of the latest Chef
+  trademarks for the Chef brand.
+<p>
+  These guidelines are intended for use by Chef licensees, authorized
+  resellers and distributors, and third parties who have received explicit
+  permission to use certain Chef trademarks. No right, license or
+  permission, express or implied, to use Chef trademarks is provided
+  by these guidelines. Further, any uses of Chef trademarks that are not
+  covered by any of the examples in these guidelines requires Chef’s
+  express written consent.
+</p>
 <h2>Fonts</h2>
 <h3>Headings</h3>
 <p>
