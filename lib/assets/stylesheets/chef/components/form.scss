@@ -61,9 +61,10 @@ category: Form
 
 $input-border-radius:                 $global-radius;
 $input-error-message-font-color:      $white;
-$input-error-message-font-style:      bold;
-$input-error-message-bg-color:        #000;
-$input-error-message-font-color-alt:  $oil;
+$input-error-message-font-style:      normal;
+$input-error-message-bg-color:        #fff;
+$input-error-message-font-color-alt:  $alert-color;
+$input-error-message-padding:         0;
 $input-border-width:                  1px;
 $form-label-bottom-margin:            rem-calc(8);
 $form-label-font-weight:              $font-weight-bold;
