@@ -4,6 +4,7 @@ PATH
     chef-web-core (0.3.0)
       compass-rails (~> 2.0.4)
       foundation-rails (= 5.5.1.1)
+      nokogiri
       sass (>= 3.4.0, < 4.0)
       sass-rails (>= 3.2.5)
 
@@ -344,7 +345,6 @@ DEPENDENCIES
   middleman-core
   middleman-livereload
   middleman-s3_sync
-  nokogiri
   pry
   rack-cors
   rake
