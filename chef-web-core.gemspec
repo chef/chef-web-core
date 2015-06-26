@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'compass-rails', '~> 2.0.4'
   spec.add_dependency 'sass-rails', '>= 3.2.5'
   spec.add_dependency 'sass', '>= 3.4.0', '< 4.0'
+  spec.add_dependency 'nokogiri'
 
   spec.add_development_dependency 'bundler', '~> 1.6'
 end

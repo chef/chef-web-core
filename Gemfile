@@ -8,7 +8,6 @@ gem 'middleman-cloudfront'
 gem 'middleman-s3_sync'
 gem 'middleman-livereload'
 gem 'hologram'
-gem 'nokogiri'
 gem 'rake'
 
 group :development, :test do
