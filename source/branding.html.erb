@@ -55,8 +55,16 @@ title: Brand Guidelines
     </p>
   </div>
   <div class="small-12 large-6 columns">
-    <%= chef_logo(:span, :style => "margin:22px;") %>
-    <%= image_tag "example/logo-with-io.png", :width => 85, :style => "vertical-align:top;margin:22px;" %>
+    <div class="row" style="text-align:center;">
+      <div class="small-6 large-6 columns">
+        <h4>No Subtitle</h4>
+        <%= chef_logo(:span, :style => "margin:22px;") %>
+      </div>
+      <div class="small-6 large-6 columns">
+        <h4><em>CHEF.IO</em> Subtitle</h4>
+        <%= image_tag "example/logo-with-io.png", :width => 85, :style => "vertical-align:top;margin:22px;" %>
+      </div>
+    </div>
   </div>
 </div>
 <div class="row">
@@ -208,7 +216,7 @@ title: Brand Guidelines
 <h2>Boilerplate</h2>
 <h3>About Chef</h3>
 <p>
-  About Chef We are Chef &ndash; the leader in high-velocity IT automation. We give you a model 
+  We are Chef &ndash; the leader in high-velocity IT automation. We give you a model 
   for automating IT infrastructure and applications that drive self-reliance across your development 
   and operations teams. We are the Chef community. We are tens of thousands strong. We are helping 
   your businesses become faster, safer and more flexible, so you win in today's 24&times;7 digital 
