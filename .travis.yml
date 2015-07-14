@@ -16,6 +16,13 @@ env:
   - AWS_S3_BUCKET=style.chef.io
   - AWS_DEFAULT_REGION=us-west-1
   - SPEC_OPTS="--format doc"
+notifications:
+  slack:
+    rooms:
+      #vi
+      - secure: "bEIoOUTuIBtPqwu2ZnyRm30sU7U9G37gzWoEeIkBVR/K2R+RxlRxrj0vxGzHPmL46QYqPVhX0wYGZM6OaWq0VsXx4OtyTaHxa3pVIiyOVvf/QF8Ceh3OcC5gL1K+PUQe+Jg/cQKK505qu7sjRGkU7rc9ldceqtWgRILz9EzT/uE="
+      #web-guild
+      - secure: "KMOPA8iHqq83Oa1pJOHToZAfRKj36rMhGLVnlyjBpA/GEKjnk5SV8bGdaXKUNmz3VlBdqBujsE/bOdJ0JsAs325nccVyAwm1vIxJltKElWbB12Hl6dToY8Z3d437mbHAAKRp/1GzIQK/ZbQw7JSs+EOYLbwb14Obym4tAlrYIYQ="
 before_script:
 - npm install
 script:
