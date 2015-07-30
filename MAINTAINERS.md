@@ -18,3 +18,4 @@ the process, how to become a maintainer, lieutenant, or the project lead.
 
 ### Maintainers
 
+* [Travor Bramble](https://github.com/TrevorBramble)
