@@ -54,15 +54,66 @@ describe 'the brand-guidelines page', type: :feature do
     expect(page).to have_content 'Brand Guidelines'
   end
 
-  it 'has a link to download the logo in Illustrator format' do
-    click_link 'chef-logo.ai'
+  it 'has a link to download the logo in EPS format' do
+    click_link 'Chef logo regular EPS'
     expect(page.status_code).to be(200)
   end
 
   it 'has a link to download the logo in SVG format' do
-    click_link 'chef-logo.svg'
+    click_link 'Chef logo regular SVG'
     expect(page.status_code).to be(200)
   end
+
+  it 'has a link to download the logo in SVG format' do
+    click_link 'Chef logo regular PNG'
+    expect(page.status_code).to be(200)
+  end
+
+  it 'has a link to download the logo in EPS format' do
+    click_link 'Chef logo inverse EPS'
+    expect(page.status_code).to be(200)
+  end
+
+  it 'has a link to download the logo in SVG format' do
+    click_link 'Chef logo inverse SVG'
+    expect(page.status_code).to be(200)
+  end
+
+  it 'has a link to download the logo in SVG format' do
+    click_link 'Chef logo inverse PNG'
+    expect(page.status_code).to be(200)
+  end
+
+  it 'has a link to download the logo in EPS format' do
+    click_link 'Chef IO logo EPS'
+    expect(page.status_code).to be(200)
+  end
+
+  it 'has a link to download the logo in SVG format' do
+    click_link 'Chef IO logo SVG'
+    expect(page.status_code).to be(200)
+  end
+
+  it 'has a link to download the logo in SVG format' do
+    click_link 'Chef IO logo PNG'
+    expect(page.status_code).to be(200)
+  end
+
+  it 'has a link to download the logo in EPS format' do
+    click_link 'Chef IO logo inverse EPS'
+    expect(page.status_code).to be(200)
+  end
+
+  it 'has a link to download the logo in SVG format' do
+    click_link 'Chef IO logo inverse SVG'
+    expect(page.status_code).to be(200)
+  end
+
+  it 'has a link to download the logo in SVG format' do
+    click_link 'Chef IO logo inverse PNG'
+    expect(page.status_code).to be(200)
+  end
+
 end
 
 describe 'the presentations page', type: :feature do
