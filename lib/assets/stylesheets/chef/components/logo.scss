@@ -5,8 +5,7 @@ name: logo
 category: Logo
 ---
 
-Logos are delivered as CSS-configurable SVG graphics. The default orientation is vertical, 
-but you can also specify horizontal, provided you also supply a site name. Available 
+Logos are delivered as CSS-configurable SVG graphics. Available 
 for both the default and inverse [themes](../themes).
 
 ```html_example
@@ -16,12 +15,10 @@ for both the default and inverse [themes](../themes).
 <!-- Inverse (for dark backgrounds) -->
 <div class="logo inverse"></div>
 
-<!-- Grayscale -->
-<div class="logo grayscale"></div>
-
-<!-- Just the mark -->
+<!-- Just the mark RESERVED*-->
 <div class="logo mark"></div>
 ```
+NOTE: Just the mark is reserved for use only by Chef, Inc. <a href="/guide/top_bar/">See Top Bar Guidelines</a>.
 
 ### Animating the Logo
 
@@ -72,13 +69,7 @@ Then use it in your templates:
 ```html_example
 <!-- Just the logo in a div -->
 <%= chef_logo %>
-
-<!-- As a link, horizontal, with site name -->
-<%= chef_logo :a, :class => 'horizontal inverse', :href => '/', :data => { :'tag-line' => 'Style Guide' } %>
 ```
-
-Be sure to use one of these two methods, as the content of the logo will likely change 
-with future versions of this component.
 
 <style>
   .logo {
