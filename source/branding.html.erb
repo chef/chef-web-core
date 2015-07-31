@@ -1,12 +1,15 @@
 ---
 title: Brand Guidelines
 ---
-
 <h1>Brand Guidelines</h1>
-<h2>Logo</h2>
+<h2>Logo Usage</h2>
+<div class="row">
+  <div class="small-12 large-12 columns">
+    <h3>A Logo is Worth a Thousand Words</h3>
+  </div>
+</div>
 <div class="row">
   <div class="small-12 large-6 columns">
-    <h3>A Logo is Worth a Thousand Words</h3>
     <p>
       The Chef logo means a lot of things to a lot
       of people. It is a seal of quality and a stamp
@@ -21,27 +24,37 @@ title: Brand Guidelines
       layout. Additionally, the circular logo and the
       name must always appear together.
     </p>
+    <p style="font-size: .7rem;">
+      * In rare occasions the horizontal logo is needed.
+      For these instances please contact <%= link_to "marketing@#{chef_domain}", "mailto:marketing@#{chef_domain}" %> for a request.
+    </p>
   </div>
   <div class="small-12 large-6 columns">
-    <div class="row" style="text-align:center;">
+    <div class="row example" style="text-align:center;">
       <div class="small-6 large-6 columns">
-        <h4>The Logo</h4>
-        <%= chef_logo %>
+        <h6>The Logo</h6>
+        <br/>
+        <%= image_tag "example/logo-tm.svg", :width => 100 %>
       </div>
       <div class="small-6 large-6 columns">
-        <h4>Not The Logo</h4>
-        <div style="letter-spacing:2px;color:#3f5364;font-weight:bold;font-family:Arial,sans-serif;font-size:48px;">CHEF<span style="letter-spacing:normal;font-weight:normal;font-size:8px;vertical-align:top;">TM</span></div>
+        <h6>Not The Logo</h6>
+        <br/>
+        <%= image_tag "example/not-logo-text.png", :width => 140 %>
         <hr>
-        <%= image_tag "example/logo-horiz.png", :width => 140 %>
+        <%= image_tag "example/not-logo-horizontal.png", :width => 140 %>
         <hr>
-        <%= chef_logo(:div, :class => "mark") %>
+        <%= image_tag "example/not-logo-symbol.png", :width => 50 %>
       </div>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="small-12 large-6 columns">
+  <div class="small-12 large-12 columns">
     <h3>Acceptable Subtitles</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 large-6 columns">
     <p>
       There are two options for the messaging
       under the logo: CHEF.IO or blank. Under
@@ -55,21 +68,27 @@ title: Brand Guidelines
     </p>
   </div>
   <div class="small-12 large-6 columns">
-    <div class="row" style="text-align:center;">
+    <div class="row example" style="text-align:center;">
       <div class="small-6 large-6 columns">
-        <h4>No Subtitle</h4>
-        <%= chef_logo(:span, :style => "margin:22px;") %>
+        <h6>No Subtitle</h6>
+        <br/>
+        <%= image_tag "example/logo-tm.svg", :width => 100 %>
       </div>
       <div class="small-6 large-6 columns">
-        <h4><em>CHEF.IO</em> Subtitle</h4>
-        <%= image_tag "example/logo-with-io.png", :width => 85, :style => "vertical-align:top;margin:22px;" %>
+        <h6><em>CHEF.IO</em> Subtitle</h6>
+        <br/>
+        <%= image_tag "example/logo-with-io.svg", :width => 100 %>
       </div>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="small-12 large-6 columns">
+  <div class="small-12 large-12 columns">
     <h3>Alternative Styles</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 large-6 columns">
     <p>
       The inverse logo cannot be used on an orange
       background. If possible, please only use this
@@ -80,66 +99,148 @@ title: Brand Guidelines
     </p>
   </div>
   <div class="small-12 large-6 columns">
-    <div class="row">
+    <div class="row example" style="text-align:center;">
       <div class="small-6 large-6 columns">
-        <h4>Regular Logo</h4>
-        <div style="width:122px;padding:22px;">
-          <%= chef_logo %>
+        <h6>Regular Logo</h6>
+        <div style="padding:22px;">
+          <%= image_tag "example/logo-tm.svg", :width => 100 %>
         </div>
       </div>
       <div class="small-6 large-6 columns">
-        <h4>Inverse Logo</h4>
-        <div style="background-color:#3f5364;width:122px;padding:22px;">
-          <div class="logo inverse"></div>
+        <h6>Inverse Logo</h6>
+        <div style="background-color:#3f5364;padding:22px;">
+          <%= image_tag "example/logo-inverse.svg", :width => 100 %>
         </div>
       </div>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="small-12 large-6 columns">
+  <div class="small-12 large-12 columns">
     <h3>Required Whitespace</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 large-6 columns">
     <p>
       Whitespace surrounding the logo must be at
-      least the height and width of the CHEF “C” in
+      least the height and width of the CHEF “CH” in
       all directions.
     </p>
   </div>
   <div class="small-12 large-6 columns">
-    <div style="display:inline-block;border:1px solid #3f5364;width:122px;padding:22px;margin-right: 22px;">
-      <div class="logo"></div>
+    <div class="row example" style="text-align:center;">
+      <div class="small-6 large-6 columns">
+        <div style="border: 1px solid #d4d7d9; width: 70px;height: 70px; box-sizing: initial; padding: 30px;">
+          <%= image_tag "example/logo-tm.svg", :width => 100 %>        
+        </div>
+      </div>
+      <div class="small-6 large-6 columns">
+        <%= image_tag "example/logo-ch-whitespace.png", :width => 132, :style => "vertical-align:top;" %>
+      </div>
     </div>
-    <%= image_tag "example/logo-ch-whitespace.png", :width => 132, :style => "vertical-align:top;" %>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 large-12 columns">
+    <h3>Size</h3>
   </div>
 </div>
 <div class="row">
   <div class="small-12 large-6 columns">
-    <h3>Size</h3>
     <p>
       In print, the Chef logo must be used at a <em>minimum</em> size of
       .75” wide with spacing around it equaling at least 1.5”.
     </p>
   </div>
   <div class="small-12 large-6 columns" style="padding-top:1em;">
-    <%= image_tag "example/logo-size-min.png", :width => 150 %>
-    <%= image_tag "example/logo-size-max.png", :width => 150 %>
+    <div class="row example" style="text-align:center;">
+      <div class="small-6 large-6 columns">
+        <%= image_tag "example/logo-size-min.png", :width => 150 %>
+      </div>
+      <div class="small-6 large-6 columns">
+        <%= image_tag "example/logo-size-max.png", :width => 150 %>
+      </div>
+    </div>
   </div>
 </div>
-<h3>Download a Logo</h3>
-<p>
-  <a href="/assets/images/source/chef-logo.ai" class="button secondary">
-    <i class="fi-download"></i>
-    chef-logo.ai
-  </a>
-  <a href="/assets/images/chef-logo.svg" class="button secondary">
-    <i class="fi-download"></i>
-    chef-logo.svg
-  </a>
-  <a href="/assets/images/chef-logo.png" class="button secondary">
-    <i class="fi-download"></i>
-    chef-logo.png
-  </a>
-</p>
+<h2>Download a Logo</h2>
+<br/>
+<div class="row" style="text-align:center;">
+  <div class="small-12 large-6 columns">
+    <p>
+      <%= image_tag "example/logo-tm.svg", :width => 100, :style=>"padding-top:22px; padding-bottom:12px;" %>
+    </p>
+    <a href="/assets/images/source/Chef_Regular.eps" class="button secondary">
+      <i class="fi-download"></i>
+      eps
+    </a>
+    <a href="/assets/images/source/Chef_Regular.svg" class="button secondary">
+      <i class="fi-download"></i>
+      svg
+    </a>
+    <a href="/assets/images/source/Chef_Regular.png" class="button secondary">
+      <i class="fi-download"></i>
+      png
+    </a>
+  </div>
+  <div class="small-12 large-6 columns">
+    <div style="background-color:#3f5364;padding:22px; width: 144px; margin: 5px; display: inline-block; box-sizing: initial">
+      <%= image_tag "example/logo-inverse.svg", :width => 100 %>
+    </div>
+    <br/>
+    <a href="/assets/images/source/Chef_Inverse.eps" class="button secondary">
+      <i class="fi-download"></i>
+      eps
+    </a>
+    <a href="/assets/images/source/Chef_Inverse.svg" class="button secondary">
+      <i class="fi-download"></i>
+      svg
+    </a>
+    <a href="/assets/images/source/Chef_Inverse.png" class="button secondary">
+      <i class="fi-download"></i>
+      png
+    </a>
+  </div>
+</div>
+<br/>
+<div class="row" style="text-align:center;">
+  <div class="small-12 large-6 columns">
+    <p>
+      <%= image_tag "example/logo-with-io.svg", :width => 100, :style=>"padding-top:22px; padding-bottom:12px;" %>
+    </p>
+    <a href="/assets/images/source/Chef_IO_Regular.eps" class="button secondary">
+      <i class="fi-download"></i>
+      eps
+    </a>
+    <a href="/assets/images/source/Chef_IO_Regular.svg" class="button secondary">
+      <i class="fi-download"></i>
+      svg
+    </a>
+    <a href="/assets/images/source/Chef_IO_Regular.png" class="button secondary">
+      <i class="fi-download"></i>
+      png
+    </a>
+  </div>
+  <div class="small-12 large-6 columns">
+    <div style="background-color:#3f5364;padding:22px; width: 144px; margin: 5px; display: inline-block; box-sizing: initial">
+      <%= image_tag "example/logo-with-io-inverse.svg", :width => 100 %>
+    </div>
+    <br/>
+    <a href="/assets/images/source/Chef_IO_Inverse.eps" class="button secondary">
+      <i class="fi-download"></i>
+      eps
+    </a>
+    <a href="/assets/images/source/Chef_IO_Inverse.svg" class="button secondary">
+      <i class="fi-download"></i>
+      svg
+    </a>
+    <a href="/assets/images/source/Chef_IO_Inverse.png" class="button secondary">
+      <i class="fi-download"></i>
+      png
+    </a>
+  </div>
+</div>
 <p>
   For more ways to include and use the Chef logo, see the
   <%= link_to "Logo component documentation", "/guide/logo/" %>.
