@@ -121,6 +121,7 @@ $topbar-menu-link-font-size:        rem-calc(13) !default;
 $topbar-menu-link-transform:        uppercase !default;
 $topbar-menu-link-weight:           normal !default;
 $topbar-margin-bottom:              $paragraph-margin-bottom !default;
+$topbar-border-bottom:              none !default;  
 
 @import 'foundation/components/top-bar';
 
@@ -132,10 +133,23 @@ $topbar-margin-bottom:              $paragraph-margin-bottom !default;
 
   .title-area {
     height: $scaled-height;
-
     .name {
       h1 {
         line-height: $scaled-height;
+        a.logo-subsite {
+          font-family: $chef-type-logo;
+          font-weight:700;
+          margin-left: ($column-gutter / 2) * $scale;
+          padding: 0;
+          color: $chef-dark-blue;
+          font-size: 1rem;
+          margin-right: 25px;
+          .logo-subsite-name {
+            color: $chef-orange;
+            font-size: inherit;
+            line-height: inherit;
+          }
+        }
 
         a.logo {
           width: $logo-width-vertical * $scale;
@@ -215,6 +229,10 @@ $topbar-margin-bottom:              $paragraph-margin-bottom !default;
 
 .top-bar {
   @include top-bar-with-logo;
+  .mark {
+    width:60px;
+    margin-top: 20px;
+  }
 }
 
 .top-bar.skinny {
