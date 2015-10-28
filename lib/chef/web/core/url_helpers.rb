@@ -2,7 +2,7 @@ class Chef
   module Web
     module Core
       module URLHelpers
-        
+
         def chef_domain
           ENV['CHEF_DOMAIN'] || 'chef.io'
         end
@@ -51,8 +51,9 @@ class Chef
           ENV['CHEF_STATUS_URL'] || "http://status.#{chef_domain}"
         end
 
-        def learn_chef_url
-          ENV['LEARN_CHEF_URL'] || "https://learn.#{chef_domain}"
+        def learn_chef_url(extra = nil)
+          url = ENV['LEARN_CHEF_URL'] || "https://learn.#{chef_domain}"
+          extra_dispatch(url, extra)
         end
 
         def supermarket_url
