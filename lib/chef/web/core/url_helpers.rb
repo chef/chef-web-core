@@ -52,7 +52,7 @@ class Chef
         end
 
         def learn_chef_url(extra = nil)
-          ENV['LEARN_CHEF_URL'] || "https://learn.#{chef_domain}"
+          url = ENV['LEARN_CHEF_URL'] || "https://learn.#{chef_domain}"
           extra_dispatch(url, extra)
         end
 
