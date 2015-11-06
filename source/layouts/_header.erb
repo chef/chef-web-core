@@ -1,24 +1,16 @@
 <header class="contain-to-grid">
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1>
-          <%= chef_logo :a, :class => 'horizontal', :href => '/', :data => { :'tag-line' => 'Style Guide' } %>
-        </h1>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+  <nav class="top-bar" role="navigation">
+    <h1>
+      <% link_to "/" do %>
+        <span class="chef">Chef</span> Style
+      <% end %>
+    </h1>
+    <i class="nav-icon fi-list"></i>
+    <ul>
+      <li><%= link_to 'Getting Started', '/getting-started' %></li>
+      <li><%= link_to 'Documentation', guide_path %></li>
+      <li><%= link_to 'Contributing', '/contributing' %></li>
     </ul>
-    <section class="top-bar-section main">
-      <ul>
-        <li><%= link_to 'Getting Started', '/getting-started' %></li>
-        <li><%= link_to 'Documentation', guide_path %></li>
-        <li><%= link_to 'Contributing', '/contributing' %></li>
-        <!-- 
-          <li class="has-form">
-          <a href="#" class="button">Get Chef</a>
-          </li> 
-        -->
-      </ul>
-    </section>
+    <%= chef_logo :a, :class => "logo mark", :href => chef_www_url %>
   </nav>
 </header>
