@@ -1,9 +1,5 @@
 @import 'chef';
 
-.top-bar-2x {
-  @include top-bar($scale: 2);
-}
-
 .logo-2x {
   @include logo($scale: 2);
 }

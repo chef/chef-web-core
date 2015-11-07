@@ -6,8 +6,7 @@ category: Top Bar
 ---
 
 The Top Bar is the primary navigational component of a site. It offers a
-site name, links, a [Chef logo](../logo) and is available in both default and
-inverse [themes](../themes).
+site name, links, and [Chef logo](../logo).
 
 Use the Top Bar to provide access to your site's top-level resources: your home
 page, the main sections of your site, etc. Don't use the top-bar logo or its primary links
@@ -43,6 +42,8 @@ bodies of your pages.
 </div>
 
 */
+
+@import "chef/settings";
 
 .top-bar {
   line-height: 1;
