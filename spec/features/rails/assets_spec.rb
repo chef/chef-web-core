@@ -23,7 +23,6 @@ describe 'the set of SASS assets', type: :feature do
     it { is_expected.to have_text('.tabs-content') }
     it { is_expected.to have_text('table') }
     it { is_expected.to have_text('.top-bar') }
-    it { is_expected.to have_text('.top-bar-2x .title-area{height:12.75rem}') }
     it { is_expected.to have_text('.logo-2x svg{width:100%;height:100%;pointer-events:none}') }
   end
 
@@ -33,13 +32,6 @@ describe 'the set of SASS assets', type: :feature do
 
     it { is_expected.to have_text('.top-bar') }
     it { is_expected.to_not have_text('.accordion') }
-  end
-
-  it 'supports the inverse theme' do
-    visit '/assets/application-inverse.css'
-
-    is_expected.to have_text('.top-bar.expanded .title-area{background:#3f5364}')
-    is_expected.to_not have_text('.top-bar.expanded .title-area{background:#ffffff}')
   end
 end
 

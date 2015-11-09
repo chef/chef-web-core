@@ -1,77 +1,30 @@
-/*doc 
+/*doc
 ---
 title: Top Bar
 name: top-bar
 category: Top Bar
 ---
 
-The Top Bar is the primary navigational component of a site. It offers a [Chef logo](../logo) and optional 
-site name, and is available in both default and inverse [themes](../themes).
+The Top Bar is the primary navigational component of a site. It offers a
+site name, links, and [Chef logo](../logo).
 
-Use the Top Bar to provide access to your site's top-level resources &mdash; your home
+Use the Top Bar to provide access to your site's top-level resources: your home
 page, the main sections of your site, etc. Don't use the top-bar logo or its primary links
-to point to other Chef or third-party sites; instead, link to those resources from within the 
+to point to other Chef or third-party sites; instead, link to those resources from within the
 bodies of your pages.
 
 ```html_example
-<nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1>
-        <a href="/" class="logo" data-tag-line="Your App Name"></a>
-      </h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+<nav class="top-bar" role="navigation">
+  <h1>
+    <a href="/"><span class="chef">Chef</span> Thing</span></a>
+  </h1>
+  <i class="nav-icon fi-list"></i>
+  <ul>
+    <li><a href="#">Link</a></li>
+    <li><a class="active" href="#">Active Link</a></li>
+    <li><a href="#">Link</a></li>
   </ul>
-  <section class="top-bar-section main">
-    <ul>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-    </ul>
-  </section>
-</nav>
-```
-
-Add the `skinny` modifier to get a thinner bar more appropriate for apps or smaller screens:
-
-```html_example
-<nav class="top-bar skinny" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1>
-        <a href="/" class="logo"></a>
-      </h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-  </ul>
-  <section class="top-bar-section main">
-    <ul>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-    </ul>
-  </section>
-</nav>
-```
-
-```html_example
-<nav class="top-bar skinny" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1>
-        <a href="/" class="logo" data-tag-line="Manage"></a>
-      </h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-  </ul>
-  <section class="top-bar-section">
-    <ul class="left">
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-    </ul>
-  </section>
+  <a href="/" class="logo mark"></a>
 </nav>
 ```
 
@@ -82,145 +35,109 @@ Add the `skinny` modifier to get a thinner bar more appropriate for apps or smal
 ```
 
 <div data-alert class="alert-box secondary radius">
-  The Top Bar component also requires a JavaScript module to work properly. Be sure to include 
-  chef.js in your page, along with whatever additional scripts you might need. See the 
+  The Top Bar component also requires a JavaScript module in order for the
+  mobile menu dropdown to work properly. Be sure to include
+  chef.js in your page, along with whatever additional scripts you might need. See the
   <a href="/getting-started">Getting Started</a> section for more information.
 </div>
 
-## More Information
-  * [Foundation Top Bar documentation](http://foundation.zurb.com/docs/components/topbar.html)
 */
 
-@import '../settings';
-@import '../base/typography';
-@import '../themes/default';
-@import '../layouts/default';
-@import 'button';
-@import 'logo';
-
-$topbar-bg-color:                   $chef-white !default;
-$topbar-bg:                         $topbar-bg-color !default;
-$topbar-dropdown-bg:                $topbar-bg !default;
-$topbar-logo-margin:                10px !default;
-$topbar-height:                     rem-calc($logo-height + ($topbar-logo-margin * 2)) !default;
-$topbar-link-color:                 scale-color($chef-dark-blue, $lightness: 10%) !default;
-$topbar-link-color-active:          $topbar-link-color !default;
-$topbar-link-color-active-hover:    $topbar-link-color !default;
-$topbar-link-color-hover:           scale-color($topbar-link-color, $lightness: 20%) !default;
-$topbar-link-bg-hover:              $topbar-bg !default;
-$topbar-link-bg-color-hover:        $topbar-bg !default;
-$topbar-link-font-family:           $chef-type-label !default;
-$topbar-link-font-size:             16px !default;
-$topbar-link-padding:               $topbar-height / 8 !default;
-$topbar-link-text-transform:        uppercase !default;
-$topbar-link-weight:                bold !default;
-$topbar-button-height:              rem-calc($topbar-link-font-size) + ($topbar-link-padding * 2);
-$topbar-menu-link-color:            $topbar-link-color !default;
-$topbar-menu-icon-color:            $topbar-link-color !default;
-$topbar-menu-link-font-size:        rem-calc(13) !default;
-$topbar-menu-link-transform:        uppercase !default;
-$topbar-menu-link-weight:           normal !default;
-$topbar-margin-bottom:              $paragraph-margin-bottom !default;
-
-@import 'foundation/components/top-bar';
-
-@mixin top-bar($scale: 1, $height: $topbar-height, $link-font-size: $topbar-link-font-size) {
-  $scaled-height: $height * $scale;
-  
-  max-height: $scaled-height;
-  transition: max-height .4s ease-in;
-
-  .title-area {
-    height: $scaled-height;
-
-    .name {
-      h1 {
-        line-height: $scaled-height;
-
-        a.logo {
-          width: $logo-width-vertical * $scale;
-          height: $logo-height * $scale;
-          margin-top: $topbar-logo-margin * $scale;
-          margin-left: ($column-gutter / 2) * $scale;
-          padding: 0;
-
-          &.horizontal {
-            width: $logo-width-horizontal * $scale;
-          }
-        }
-      }
-    }
-  }
-
-  .top-bar-section {
-    &.main {
-      ul {
-        float: $topbar-section-main-float;
-      }
-    }
-    ul {
-      li {
-        line-height: $scaled-height;
-        a {
-          font-size: $link-font-size;
-        }
-
-        &:not(.has-form) a:not(.button) {
-          line-height: $scaled-height;
-        }
-
-        button, .button {
-          height: $topbar-button-height;
-          padding-top: $topbar-link-padding;
-          padding-bottom: $topbar-link-padding;
-          top: ($topbar-height - $topbar-button-height) / 2 - rem-calc(2);
-        }
-      }
-    }
-  }
-
-  &.expanded {
-    max-height: 1000px;
-
-    .top-bar-section {
-      ul {
-        li {
-          a {
-            line-height: $scaled-height / 6 !important;
-          }
-          button, .button {
-            top: 0;
-          }
-        }
-      }
-    }
-  }
-
-  .toggle-topbar.menu-icon {
-    top: ($scaled-height - rem-calc(16)) / 2;
-  }
-}
-
-@mixin top-bar-logo($scale: 1, $width: $logo-width, $height: $logo-height) {
-  @include logo($scale, $width: $width, $height: $height, $base-color: $topbar-logo-base-color, $accent-color: $topbar-logo-accent-color);
-}
-
-@mixin top-bar-with-logo($scale: 1, $link-font-size: $topbar-link-font-size) {
-  @include top-bar($scale: $scale, $link-font-size: $link-font-size);
-
-  .logo {
-    @include top-bar-logo($scale);
-  }
-}
+@import "chef/settings";
 
 .top-bar {
-  @include top-bar-with-logo;
-}
+  line-height: 1;
+  margin-bottom: 20px;
+  min-height: 50px;
+  padding: 11px 0.9375rem;
+  position: relative;
+  white-space: nowrap;
 
-.top-bar.skinny {
-  @include top-bar-with-logo($scale: .5, $link-font-size: 12px);
+  ul, h1 {
+    display: inline;
+    font-family: Montserrat, "Helvetica Neue", sans-serif;
+    text-transform: uppercase;
+  }
 
-  .toggle-topbar.menu-icon {
-    top: 50%;
+  h1 {
+    font-size: 18px;
+    margin: 0;
+    padding: 5px 0;
+
+    a {
+      color: $chef-orange;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .chef {
+      color: $chef-dark-blue;
+    }
+  }
+
+  ul {
+    display: inline;
+    list-style: none;
+    margin: 7px 0 0 26px;
+
+    li {
+      display: inline-block;
+      margin-left: 20px;
+
+      a {
+        border-bottom: 3px solid transparent;
+        color: $chef-grey;
+        font-size: 14px;
+        font-weight: normal;
+        transition: all 0.4s ease;
+      }
+
+      a:hover, a.active {
+        border-bottom: 3px solid $chef-dark-grey;
+        color: $chef-dark-grey;
+      }
+
+      a.active {
+        cursor: default;
+      }
+
+      &:first-child {
+        margin: 0;
+      }
+    }
+  }
+
+  .nav-icon {
+    color: $chef-dark-blue;
+    cursor: pointer;
+    display: none;
+    font-size: 22px;
+    position: absolute;
+    right: 60px;
+    top: 14px;
+  }
+
+  .logo {
+    position: absolute;
+    height: 45px;
+    width: 45px;
+    top: 11px;
+    right: 8px;
+  }
+
+  @media #{$small-only} {
+    ul {
+      display: none;
+      margin-left: 0;
+
+      li {
+        display: block;
+        margin-left: 0;
+      }
+    }
+
+    .nav-icon {
+      display: inline-block;
+    }
   }
 }
