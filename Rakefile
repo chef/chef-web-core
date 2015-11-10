@@ -23,6 +23,7 @@ namespace :compile do
   task :all do
     Rake::Task['compile:hologram'].execute
     sh 'bundle exec middleman build'
+    sh 'npm run build'
   end
 end
 
@@ -90,7 +91,6 @@ task :publish do
 
   if tag && tag != ''
     warn "Tag detected. Continuing with artifact package building."
-    sh 'npm run build'
     sh 'npm pack'
   end
 
