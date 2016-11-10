@@ -21,7 +21,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "node -e \"require('grunt').tasks(['build']);\"",
+    "build": "npm install && node -e \"require('grunt').tasks(['build']);\"",
     "build-svgs": "node -e \"require('grunt').tasks(['build-svgs']);\""
   },
   "dependencies": {

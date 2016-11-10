@@ -1,3 +1,4 @@
+sudo: false
 bundler_args: --deployment --without development
 cache:
   bundler: true
@@ -7,48 +8,4 @@ cache:
   - node_modules
 env:
   global:
-  # CloudFront distribution ID
-  - secure: "hbOnJbFFOUCkaR7kxgCX8Z2ExmJZNLSLlEv7sOlNCLoBTgH1EwULG4gjX+5rTLgELcbqIPEy+ZUBV6oZSF4k3we5W2xmb7a0x09WY4MbN38Ovv1VmYQIuDRZlFm8aKqXoUzJaOeUE+E5BDs1J4X03xOZcyQq4nrCk5xKuFriqVg="
-  # AWS access key ID
-  - secure: "bhZuu2HEUFPslesJUlgRUUr+RLyKBXmPUJaR/pZW4WHhjpY0KgV/nSWDXZ6JW5U7/zKRkdghQ8n4Cx28pgS24vLhRLvA0jWuLyrkQ3q5LK5KNOa5pLIgua4Cn6WLOQpDFUTw1bPV5Yq9AXrHknRxOSHR6OKx/P3zFKPYNyIHqOU="
-  # AWS secret access key
-  - secure: "N/WMRhHh3J5QQ2VbblhBNojcEJIL9YDMlLK5g86oDvnr2g9cvJFUiISL3dhvbHBho8zeepLky8ukmzMzvVZl7mYMNYbo0UYKMxyQCjpxYZfzVUa/OdQ2rHgbF2UgyTNuDSdcRC8bUcrqlgnS910RKIErsh43DVJMxiEeQgb7L2g="
-  - AWS_S3_BUCKET=style.chef.io
-  - AWS_DEFAULT_REGION=us-west-1
   - SPEC_OPTS="--format doc"
-notifications:
-  slack:
-    rooms:
-      #vi
-      - secure: "bEIoOUTuIBtPqwu2ZnyRm30sU7U9G37gzWoEeIkBVR/K2R+RxlRxrj0vxGzHPmL46QYqPVhX0wYGZM6OaWq0VsXx4OtyTaHxa3pVIiyOVvf/QF8Ceh3OcC5gL1K+PUQe+Jg/cQKK505qu7sjRGkU7rc9ldceqtWgRILz9EzT/uE="
-      #web-guild
-      - secure: "KMOPA8iHqq83Oa1pJOHToZAfRKj36rMhGLVnlyjBpA/GEKjnk5SV8bGdaXKUNmz3VlBdqBujsE/bOdJ0JsAs325nccVyAwm1vIxJltKElWbB12Hl6dToY8Z3d437mbHAAKRp/1GzIQK/ZbQw7JSs+EOYLbwb14Obym4tAlrYIYQ="
-before_script:
-- npm install
-script:
-- bundle exec rake test
-- bundle exec rake publish
-sudo: false
-deploy:
-  - provider: releases
-    api_key:
-      secure: "ZLJrqlUdxePqDGFY3VFh3vVD7y4hqePT1QmbWLFHMIlcqsvqK7ntqhMFunm5l42YDN6ufuzOqJGSTGbdPmEFo7v/Ij5hmHrAy/ja/jUjSfBillp0QzTBfi19+c+cnKwOqdLMdSSynow06tvQvCoT1RLl2AOgTCwHZNOCZ+OgwtE="
-    file_glob: true
-    file:
-    - chef-web-core-*.tgz
-    skip_cleanup: true
-    on:
-      tags: true
-      repo: chef/chef-web-core
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY_ID
-    region: $AWS_DEFAULT_REGION
-    secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: $AWS_S3_BUCKET
-    local-dir: dist
-    upload-dir: dist/$TRAVIS_TAG
-    acl: public_read
-    skip_cleanup: true
-    on:
-      tags: true
-      repo: chef/chef-web-core
