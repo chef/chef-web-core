@@ -10,6 +10,8 @@ gem 'middleman-livereload'
 gem 'hologram'
 gem 'rake'
 
+gem 'xmlrpc' # middleman uses fog, and fog/xenserver/core.rb requires this,. revisit
+
 group :development, :test do
   gem 'bump'
   gem 'git'

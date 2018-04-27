@@ -281,6 +281,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
+    xmlrpc (0.3.0)
     xpath (3.0.0)
       nokogiri (~> 1.8)
 
@@ -308,6 +309,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0.0)
   selenium-webdriver
+  xmlrpc
 
 BUNDLED WITH
    1.16.1
