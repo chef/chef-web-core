@@ -7,6 +7,7 @@ gem 'middleman-core'
 gem 'middleman-cloudfront'
 gem 'middleman-s3_sync'
 gem 'middleman-livereload'
+gem 'middleman-sprockets'
 gem 'hologram'
 gem 'rake'
 

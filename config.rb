@@ -33,7 +33,9 @@ set :images_dir, 'assets/images'
 set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
 
-sprockets.import_asset 'vendor/modernizr'
+activate :sprockets do |c|
+  c.imported_asset_path = 'vendor/modernizr'
+end
 
 def test?
   ENV['MIDDLEMAN_ENV'] == 'test'
@@ -67,9 +69,12 @@ end
 configure :development do
   activate :livereload if server?
 
-  config[:file_watcher_ignore] << %r{^bower_components(/|$)}
-  config[:file_watcher_ignore] << %r{^spec(/|$)}
-  config[:file_watcher_ignore] << %r{^\.travis\.yml$}
+  require 'pp'; pp config: config
+
+# Comment out because this isn't a config value in middleman 4; TODO fix
+#  config[:file_watcher_ignore] << %r{^bower_components(/|$)}
+#  config[:file_watcher_ignore] << %r{^spec(/|$)}
+#  config[:file_watcher_ignore] << %r{^\.travis\.yml$}
 
   delayed = Thread.new(Time.now + 5) do |end_time|
 
@@ -84,8 +89,9 @@ configure :development do
     delayed.kill
   end
 
+  # https://github.com/middleman/middleman/issues/998
   require 'rack/cors'
-  use Rack::Cors do
+  use ::Rack::Cors do
     allow do
       origins '*'
       resource '*.svg',  
@@ -99,4 +105,8 @@ configure :build do
   activate :minify_javascript
   activate :cache_buster
   activate :gzip
+end
+
+after_configuration do
+    sprockets.append_path File.join( root, "bower_components/" )
 end
