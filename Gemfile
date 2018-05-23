@@ -9,6 +9,7 @@ gem 'middleman-s3_sync'
 gem 'middleman-livereload'
 gem 'hologram'
 gem 'rake'
+gem 'compass-rails', '~> 3.1.0'
 
 group :development, :test do
   gem 'bump'
