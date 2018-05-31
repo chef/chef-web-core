@@ -11,7 +11,6 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    CFPropertyList (2.3.0)
     actionpack (4.2.10)
       actionview (= 4.2.10)
       activesupport (= 4.2.10)
@@ -30,7 +29,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    ansi (1.4.3)
     builder (3.2.3)
     bump (0.5.1)
     capybara (2.4.4)
@@ -70,92 +68,8 @@ GEM
       http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
     eventmachine (1.0.7)
-    excon (0.44.2)
     execjs (2.7.0)
     ffi (1.9.23)
-    fission (0.5.0)
-      CFPropertyList (~> 2.2)
-    fog (1.28.0)
-      fog-atmos
-      fog-aws (~> 0.0)
-      fog-brightbox (~> 0.4)
-      fog-core (~> 1.27, >= 1.27.3)
-      fog-ecloud
-      fog-json
-      fog-profitbricks
-      fog-radosgw (>= 0.0.2)
-      fog-riakcs
-      fog-sakuracloud (>= 0.0.4)
-      fog-serverlove
-      fog-softlayer
-      fog-storm_on_demand
-      fog-terremark
-      fog-vmfusion
-      fog-voxel
-      fog-xml (~> 0.1.1)
-      ipaddress (~> 0.5)
-      nokogiri (~> 1.5, >= 1.5.11)
-    fog-atmos (0.1.0)
-      fog-core
-      fog-xml
-    fog-aws (0.1.0)
-      fog-core (~> 1.27)
-      fog-json (~> 1.0)
-      fog-xml (~> 0.1)
-      ipaddress (~> 0.8)
-    fog-brightbox (0.7.1)
-      fog-core (~> 1.22)
-      fog-json
-      inflecto (~> 0.0.2)
-    fog-core (1.29.0)
-      builder
-      excon (~> 0.38)
-      formatador (~> 0.2)
-      mime-types
-      net-scp (~> 1.1)
-      net-ssh (>= 2.1.3)
-    fog-ecloud (0.0.2)
-      fog-core
-      fog-xml
-    fog-json (1.0.0)
-      multi_json (~> 1.0)
-    fog-profitbricks (0.0.1)
-      fog-core
-      fog-xml
-      nokogiri
-    fog-radosgw (0.0.3)
-      fog-core (>= 1.21.0)
-      fog-json
-      fog-xml (>= 0.0.1)
-    fog-riakcs (0.1.0)
-      fog-core
-      fog-json
-      fog-xml
-    fog-sakuracloud (1.0.0)
-      fog-core
-      fog-json
-    fog-serverlove (0.1.1)
-      fog-core
-      fog-json
-    fog-softlayer (0.4.1)
-      fog-core
-      fog-json
-    fog-storm_on_demand (0.1.0)
-      fog-core
-      fog-json
-    fog-terremark (0.0.4)
-      fog-core
-      fog-xml
-    fog-vmfusion (0.0.1)
-      fission
-      fog-core
-    fog-voxel (0.0.2)
-      fog-core
-      fog-xml
-    fog-xml (0.1.1)
-      fog-core
-      nokogiri (~> 1.5, >= 1.5.11)
-    formatador (0.2.5)
     foundation-rails (5.5.1.1)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
@@ -171,8 +85,6 @@ GEM
       uber (~> 0.0.14)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
-    inflecto (0.0.2)
-    ipaddress (0.8.0)
     json (2.1.0)
     kramdown (1.17.0)
     listen (3.0.8)
@@ -181,7 +93,6 @@ GEM
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    map (6.5.5)
     method_source (0.8.2)
     middleman (3.4.1)
       coffee-script (~> 2.2)
@@ -194,9 +105,6 @@ GEM
       middleman-sprockets (>= 3.1.2)
       sass (>= 3.4.0, < 4.0)
       uglifier (~> 2.5)
-    middleman-cloudfront (0.1.1)
-      fog (~> 1.9)
-      middleman-core (~> 3.0)
     middleman-core (3.4.1)
       activesupport (~> 4.1)
       bundler (~> 1.1)
@@ -213,14 +121,6 @@ GEM
       em-websocket (~> 0.5.1)
       middleman-core (>= 3.3)
       rack-livereload (~> 0.3.15)
-    middleman-s3_sync (3.0.41)
-      ansi (~> 1.4.3)
-      fog (>= 1.25.0)
-      map
-      middleman-core (>= 3.0.0)
-      pmap
-      ruby-progressbar
-      unf
     middleman-sprockets (3.5.0)
       middleman-core (>= 3.3)
       sprockets (~> 2.12.1)
@@ -232,9 +132,6 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
-    net-scp (1.2.1)
-      net-ssh (>= 2.6.5)
-    net-ssh (2.9.2)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     padrino-helpers (0.12.9)
@@ -243,7 +140,6 @@ GEM
       tilt (>= 1.4.1, < 3)
     padrino-support (0.12.9)
       activesupport (>= 3.1)
-    pmap (1.0.2)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -297,7 +193,6 @@ GEM
       rspec-mocks (~> 3.2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
-    ruby-progressbar (1.7.1)
     rubyzip (1.1.7)
     sass (3.4.25)
     sass-rails (5.0.1)
@@ -336,9 +231,6 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.6)
     websocket (1.2.1)
     xpath (2.1.0)
       nokogiri (~> 1.3)
@@ -354,10 +246,8 @@ DEPENDENCIES
   git
   hologram
   middleman
-  middleman-cloudfront
   middleman-core
   middleman-livereload
-  middleman-s3_sync
   pry
   rack-cors
   rake

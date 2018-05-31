@@ -69,42 +69,13 @@ namespace :test do
   end
 end
 
-desc 'Compile and deploy the site, build asset packages for distribution'
-task :publish do
-
-  branch = ENV['TRAVIS_BRANCH']
-  tag = ENV['TRAVIS_TAG']
-  pr = ENV['TRAVIS_PULL_REQUEST']
-
-  puts "TRAVIS_BRANCH: '#{branch}'"
-  puts "TRAVIS_TAG: '#{tag}'"
-
-  if branch && !['master', tag].include?(branch)
-    warn "Not going to publish: TRAVIS_BRANCH should be 'master' or a tag named '#{branch}'."
-    exit 0
-  elsif pr && pr != 'false'
-    warn "Not going to publish: This is a pull request."
-    exit 0
-  end
-
-  Rake::Task['compile'].execute
-
-  if tag && tag != ''
-    warn "Tag detected. Continuing with artifact package building."
-    sh 'npm pack'
-  end
-
-  sh 'bundle exec middleman s3_sync'
-  sh 'bundle exec middleman invalidate'
-end
-
 desc 'Run all tests'
 task test: 'test:all'
 
 desc 'Compile with Hologram, then build the site'
-task compile: 'compile:all' 
+task compile: 'compile:all'
 
-desc 'Compile with Hologram, then start the Middleman server' 
+desc 'Compile with Hologram, then start the Middleman server'
 task server: ['compile:hologram', :view]
 
 task default: :test

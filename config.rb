@@ -45,25 +45,6 @@ end
 
 activate :directory_indexes
 
-unless test?
-  activate :s3_sync do |s3_sync|
-    s3_sync.bucket = ENV['AWS_S3_BUCKET'] || 'chef-web-core'
-    s3_sync.region = ENV['AWS_DEFAULT_REGION'] || 'us-west-1'
-
-    # Don't delete things that are remote but not local, because
-    # CI-built resources will be exactly that. We should leave this 
-    # setting in place until we have a reliable way to tell s3_sync 
-    # to ignore remote resources by pattern. 
-    s3_sync.delete = false
-  end 
-
-  activate :cloudfront do |cloudfront|
-    cloudfront.access_key_id     = ENV['AWS_ACCESS_KEY_ID']
-    cloudfront.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
-    cloudfront.distribution_id   = ENV['CLOUDFRONT_DISTRIBUTION_ID']
-  end
-end
-
 configure :development do
   activate :livereload if server?
 
@@ -88,7 +69,7 @@ configure :development do
   use Rack::Cors do
     allow do
       origins '*'
-      resource '*.svg',  
+      resource '*.svg',
         methods: [:get, :options]
     end
   end
