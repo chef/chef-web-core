@@ -1,6 +1,7 @@
 require 'git'
 require 'bump'
 require 'fileutils'
+require 'json'
 require 'rspec/core/rake_task'
 
 class Version

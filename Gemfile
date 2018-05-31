@@ -4,8 +4,8 @@ gemspec name: 'chef-web-core'
 
 gem 'middleman'
 gem 'middleman-core'
-gem 'middleman-cloudfront'
-gem 'middleman-s3_sync'
+gem 'middleman-cloudfront', require: false
+gem 'middleman-s3_sync', require: false
 gem 'middleman-livereload'
 gem 'hologram'
 gem 'rake'
