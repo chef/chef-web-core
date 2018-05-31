@@ -12,6 +12,7 @@ gem 'rake'
 gem 'xmlrpc'
 gem 'compass-rails', '3.1.0'
 
+
 group :development, :test do
   gem 'bump'
   gem 'git'
