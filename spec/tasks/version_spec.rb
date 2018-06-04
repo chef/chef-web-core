@@ -30,6 +30,7 @@ describe Version do
     end
 
     it 'applies the current version to the bundle' do
+      pending("This only ever passed because some gem dependencies had the expected version.")
       expect(File.read("#{temp_dir}/Gemfile.lock")).to match(@version)
     end
 
@@ -65,7 +66,8 @@ describe Version do
       end
 
       it 'writes the new version to the bundle' do
-        expect(File.read("#{temp_dir}/Gemfile.lock")).to match(@new_version)
+        pending("This only ever passed because some gem dependencies had the expected version.")
+        expect(File.read("#{temp_dir}/Gemfile.lock")).to match("chef-web-core (#{@new_version})")
       end
 
       it 'creates a new Git commit' do
@@ -96,7 +98,7 @@ describe Version do
     end
 
     context 'when the working directory is dirty' do
-      
+
       before do
         File.write("#{temp_dir}/VERSION", '0.0.9')
       end
@@ -137,6 +139,6 @@ describe Version do
         out.rewind
         expect(out.read).to match('A tag named 1.0.0 already exists.')
       end
-    end 
+    end
   end
 end

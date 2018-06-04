@@ -17,9 +17,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'foundation-rails', '5.5.1.1'
-  spec.add_dependency 'compass-rails', '~> 2.0.4'
-  spec.add_dependency 'sass-rails', '>= 3.2.5'
+  spec.add_dependency 'activesupport', '>= 5.0.0'
+  spec.add_dependency 'foundation-rails', '~> 5.5.1'
+  spec.add_dependency 'compass-rails', '>= 2.0.4'
+  spec.add_dependency 'sass-rails', '>= 5.0.0'
   spec.add_dependency 'sass', '>= 3.4.0', '< 4.0'
   spec.add_dependency 'nokogiri'
 

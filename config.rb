@@ -33,7 +33,7 @@ set :images_dir, 'assets/images'
 set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
 
-sprockets.import_asset 'vendor/modernizr'
+#sprockets.import_asset 'vendor/modernizr'
 
 def test?
   ENV['MIDDLEMAN_ENV'] == 'test'
@@ -48,9 +48,9 @@ activate :directory_indexes
 configure :development do
   activate :livereload if server?
 
-  config[:file_watcher_ignore] << %r{^bower_components(/|$)}
-  config[:file_watcher_ignore] << %r{^spec(/|$)}
-  config[:file_watcher_ignore] << %r{^\.travis\.yml$}
+  # config[:file_watcher_ignore] << %r{^bower_components(/|$)}
+  # config[:file_watcher_ignore] << %r{^spec(/|$)}
+  # config[:file_watcher_ignore] << %r{^\.travis\.yml$}
 
   delayed = Thread.new(Time.now + 5) do |end_time|
 
@@ -66,7 +66,7 @@ configure :development do
   end
 
   require 'rack/cors'
-  use Rack::Cors do
+  use ::Rack::Cors do
     allow do
       origins '*'
       resource '*.svg',
